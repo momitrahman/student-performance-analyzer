@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'root';
+});
+
+Route::prefix('/studentinfo')->group(function() {
+	Route::get('/', 'StudentInfoController@studentInfoIdGenearter')->name('studentInfoIdGenearter');
+	Route::get('/next', 'StudentInfoController@StudentInfoOther')->name('studentInfoOther');
+	Route::get('/store', 'StudentInfoController@studentInfoStore')->name('studentInfoStore');
+
 });
