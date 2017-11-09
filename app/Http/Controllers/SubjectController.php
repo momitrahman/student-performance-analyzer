@@ -16,7 +16,7 @@ class SubjectController extends Controller
 	{
 		// Validation
 		$validatedData = $request->validate([
-			'subject_name' => 'required',
+			'subject_name' => 'required|unique:subject_class,subject_name',
 		]);
 
 		$class_count = 0;
@@ -88,7 +88,7 @@ class SubjectController extends Controller
 				]
 			);
 
-			return view('subjectEntry');
+			return redirect()->route('addSubject');
 		}
 
 	}

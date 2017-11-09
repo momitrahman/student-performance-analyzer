@@ -20,7 +20,7 @@
 		<form action={{ route('subjectStore') }} method="post">
 			{{ csrf_field() }}
 			@if (empty($subject_name))
-				<input type="text" name="subject_name" placeholder="Subject Name"><br>
+				<input type="text" name="subject_name" placeholder="Subject Name" value={{ old('subject_name')}}><br>
 			@else
 				<input type="text" name="subject_name" placeholder="Subject Name" value= {{ $subject_name }}><br>
 			@endif

@@ -16,7 +16,7 @@ class ExtracurricularController extends Controller
 	{
 		// Validation
 		$validatedData = $request->validate([
-			'title' => 'required',
+			'title' => 'required|unique:extracurricular,title',
 		]);
 
 		// insert values
@@ -26,6 +26,6 @@ class ExtracurricularController extends Controller
 				'type' =>  $request->input('type'),
 			]
 		);
-		return view('extracurricularEntry');
+		return redirect()->route('addExtracurricular');
 	}
 }

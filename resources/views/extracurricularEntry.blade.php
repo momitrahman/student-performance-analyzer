@@ -16,7 +16,7 @@
 
 		<form action={{ route('extracurricularStore') }} method="post">
 			{{ csrf_field() }}
-			<input type="text" name="title"> <br>
+			<input type="text" name="title" value={{ old('title') }}> <br>
 			<select name="type">
 				<option value="indoor" selected>Indoor</option>
 				<option value="outdoor">Outdoor</option>
