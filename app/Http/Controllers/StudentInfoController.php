@@ -14,7 +14,7 @@ class StudentInfoController extends Controller
 				$request->input('roll') . $request->input('section');
 
 		if($sid === '') {
-
+			// student basic info input page
 			return view('studentInfoIdEntry');
 
 		} else {
@@ -22,7 +22,7 @@ class StudentInfoController extends Controller
 			// Merge value of Student ID into $request
 			$request->merge([ 'sid' => $sid]);
 
-			// validation
+			// Validation
 			$validatedData = $request->validate([
 				'class' => 'required',
 				'roll' => 'required',
@@ -31,18 +31,20 @@ class StudentInfoController extends Controller
 				'sid' => 'required|unique:student_info,sid'
 			]);
 
+			// redirect to student other info page
 			return redirect()->route('studentInfoOther')->withInput();
 		}
 	}
 
 	public function studentInfoOther()
 	{
+		// student others info input page
 		return view('studentInfoOtherEntry');
 	}
 
     public function studentInfoStore(Request $request)
 	{
-
+		// Validation
 		$validatedData = $request->validate([
 			'name' => 'required',
 			'birth_number' => 'required',
@@ -53,6 +55,7 @@ class StudentInfoController extends Controller
 			'nid_number' => 'required'
 		]);
 
+		// Insert values
 		DB::table('student_info')->insertGetID(
 			[
 				'sid' => $request->input('sid'),
@@ -70,9 +73,29 @@ class StudentInfoController extends Controller
 			]
 		);
 
+		// redirect to student info page
 		return redirect('studentinfo');
 	}
 
+	public function studentSearch(Request $request)
+	{
+		// find info throug student id
+		if($request->filled('sid')){
+			$sid =  $request->input('sid');
+			$datas = DB::table('student_info')->where('sid', $sid)->get();
 
+			// sutdent id not found
+			if(empty(json_decode($datas, true))){
+				return view('studentSearch')->with('noid', 'Student ID not found.');
+			}
+
+			// show student inforamtion
+			return view('studentInfoShow', compact('datas'));
+
+		} else {
+			// return to student id search page
+			return view('studentSearch');
+		}
+	}
 
 }

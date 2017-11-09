@@ -16,13 +16,13 @@
 
 		<form action={{ route('studentInfoIdGenearter') }} method="get">
 			{{ csrf_field() }}
-			<input type="input" name="class" placeholder="class" value="{{ old('class') }}">
+			<input type="text" name="class" placeholder="class" value="{{ old('class') }}">
 			<br>
-			<input type="input" name="roll" placeholder="roll" value="{{ old('roll') }}">
+			<input type="text" name="roll" placeholder="roll" value="{{ old('roll') }}">
 			<br>
-			<input type="input" name="section" placeholder="section" value="{{ old('section') }}">
+			<input type="text" name="section" placeholder="section" value="{{ old('section') }}">
 			<br>
-			<input type="input" name="year" placeholder="year" value="{{ old('year') }}">
+			<input type="text" name="year" placeholder="year" value="{{ old('year') }}">
 			<br>
 			<button type="submit" name="button" value="ok">Next</button>
 		</form>

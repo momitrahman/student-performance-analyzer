@@ -19,5 +19,5 @@ Route::prefix('/studentinfo')->group(function() {
 	Route::get('/', 'StudentInfoController@studentInfoIdGenearter')->name('studentInfoIdGenearter');
 	Route::get('/next', 'StudentInfoController@StudentInfoOther')->name('studentInfoOther');
 	Route::get('/store', 'StudentInfoController@studentInfoStore')->name('studentInfoStore');
-
+	Route::get('/search', 'StudentInfoController@studentSearch')->name('studentSearch');
 });

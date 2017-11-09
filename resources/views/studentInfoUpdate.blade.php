@@ -2,19 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>StudentInfoOther</title>
+		<title>Student Info</title>
 	</head>
 	<body>
-
-		@if ($errors->any())
-			<ul>
-				@foreach ($errors->all() as  $error)
-					<li>{{ $error }}</li>
-				@endforeach
-			</ul>
-		@endif
-
-		<h1>{{ old('sid') }}</h1>
 		<form action={{ route('studentInfoStore') }} method="get">
 			{{ csrf_field() }}
 			<input type="text" name="name" placeholder="name" value="{{ old('name') }}">
