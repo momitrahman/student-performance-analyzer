@@ -18,6 +18,14 @@ Route::prefix('/studentinfo')->group(function() {
 	Route::get('/search', 'StudentInfoController@studentSearch')->name('studentSearch');
 });
 
+Route::prefix('/performance')->group(function() {
+	Route::get('/checkStudentId', 'MarkentryController@checkStudentId')->name('checkStudentId');
+	Route::post('/checkBasicInfo', 'MarkentryController@checkBasicInfo')->name('checkBasicInfo');
+	Route::post('/selectSubject', 'MarkentryController@selectSubject')->name('selectSubject');
+	Route::post('/subjectMarkEntry', 'MarkentryController@subjectMarkEntry')->name('subjectMarkEntry');
+	Route::post('/storeSubjectMark', 'MarkentryController@storeSubjectMark')->name('storeSubjectMark');
+});
+
 Route::prefix('/other')->group(function() {
 	Route::get('/addsubject', 'SubjectController@addSubject')->name('addSubject');
 	Route::post('/subjectstore', 'SubjectController@subjectStore')->name('subjectStore');
