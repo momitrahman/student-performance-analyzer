@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return 'root';
-});
-
 Route::prefix('/studentinfo')->group(function() {
 	Route::get('/', 'StudentInfoController@studentInfoIdGenearter')->name('studentInfoIdGenearter');
 	Route::get('/next', 'StudentInfoController@StudentInfoOther')->name('studentInfoOther');

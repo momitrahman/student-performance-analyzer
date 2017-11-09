@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class SubjectController extends Controller
 {
@@ -87,6 +90,18 @@ class SubjectController extends Controller
 
 				]
 			);
+
+			Schema::create($subject_name, function (Blueprint $table) {
+				$table->increments('id');
+				$table->integer('sid');
+				$table->integer('class');
+				$table->integer('year');
+				$table->integer('sem_slot');  // sem shortform of semseter
+				$table->integer('sem_1');
+				$table->integer('sem_2');
+				$table->integer('sem_3');
+				$table->integer('avg_mark');
+			});
 
 			return redirect()->route('addSubject');
 		}
