@@ -70,6 +70,7 @@ class SubjectController extends Controller
 		if($class_count == 0) {
 			return view('subjectEntry')->with('noclass', 'The class selection required')->with('subject_name', $subject_name);
 		} else {
+			// insert values
 			DB::table('subject_class')->insertGetID(
 				[
 					'subject_name' => $subject_name,

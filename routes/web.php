@@ -25,4 +25,6 @@ Route::prefix('/studentinfo')->group(function() {
 Route::prefix('/other')->group(function() {
 	Route::get('/addsubject', 'SubjectController@addSubject')->name('addSubject');
 	Route::post('/subjectstore', 'SubjectController@subjectStore')->name('subjectStore');
+	Route::get('/addextracurricular', 'ExtracurricularController@addExtracurricular')->name('addExtracurricular');
+	Route::post('/extracurricularstore', 'ExtracurricularController@extracurricularStore')->name('extracurricularStore');
 });
