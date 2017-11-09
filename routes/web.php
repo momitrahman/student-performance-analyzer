@@ -21,3 +21,8 @@ Route::prefix('/studentinfo')->group(function() {
 	Route::get('/store', 'StudentInfoController@studentInfoStore')->name('studentInfoStore');
 	Route::get('/search', 'StudentInfoController@studentSearch')->name('studentSearch');
 });
+
+Route::prefix('/other')->group(function() {
+	Route::get('/addsubject', 'SubjectController@addSubject')->name('addSubject');
+	Route::post('/subjectstore', 'SubjectController@subjectStore')->name('subjectStore');
+});
