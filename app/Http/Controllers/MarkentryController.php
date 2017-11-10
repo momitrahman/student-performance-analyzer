@@ -66,16 +66,19 @@ class MarkentryController extends Controller
 		$subject_list = $request->input('subject_list');
 
 		$class_total_mark = $subject_total_mark = $class_avg_mark = $subject_avg_mark = 0;
-		$sem_mark = [];
+		if($semester_slot == 3) {
+			$sem_mark = [];
+		} else {
+			$sem_mark [2]= 0;
+		}
 		$total_subject = count($subject_list);
 
 		for($i = 0; $i < $total_subject; $i++) {
 			$subject =  $request->input("subject_list.$i");
 
-			for($j = 0; $j < $semester_slot; $j++) {
+			for($j = $semester_slot - 1; $j >= 0; $j--) {
 				$subject_sem_mark = $request->input("$subject.$j");
-				array_push($sem_mark, $subject_sem_mark);
-
+				array_unshift($sem_mark, $subject_sem_mark);
 				$subject_total_mark += $subject_sem_mark;
 			}
 
@@ -97,7 +100,9 @@ class MarkentryController extends Controller
 			$class_total_mark += $subject_avg_mark;
 
 			$subject_total_mark = $subject_avg_mark =0;
-			$sem_mark = [];
+			$sem_mark [0] = 0;
+			$sem_mark [1] = 0;
+			$sem_mark [2] = 0;
 		}
 
 		$class_avg_mark = $class_total_mark / $total_subject;
@@ -113,7 +118,7 @@ class MarkentryController extends Controller
 			]
 		);
 
-		return redirect()->route('checkStudentId');
+		return redirect()->route('checkStudentIdMark');
 
 	}
 }

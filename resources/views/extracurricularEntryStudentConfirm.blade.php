@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Student Info Show For Mark Entry</title>
+		<title>Student Info Show For EC Entry</title>
 	</head>
 	<body>
 		<ul>
@@ -13,7 +13,7 @@
 				<li> {{ $data ->mother_name }}</li>
 			@endforeach
 
-			<form action={{ route('checkBasicInfoMark') }} method="post">
+			<form action={{ route('checkBasicInfoExtra') }} method="post">
 				{{ csrf_field() }}
 				<input type="hidden" name="sid" value={{ $sid }}>
 				<button type="submit" name="button">confirm</button>

@@ -18,12 +18,22 @@ Route::prefix('/studentinfo')->group(function() {
 	Route::get('/search', 'StudentInfoController@studentSearch')->name('studentSearch');
 });
 
-Route::prefix('/performance')->group(function() {
-	Route::get('/checkStudentId', 'MarkentryController@checkStudentId')->name('checkStudentId');
-	Route::post('/checkBasicInfo', 'MarkentryController@checkBasicInfo')->name('checkBasicInfo');
+Route::prefix('/performance/mark')->group(function() {
+	Route::get('/checkStudentId', 'MarkentryController@checkStudentId')->name('checkStudentIdMark');
+	Route::post('/checkBasicInfo', 'MarkentryController@checkBasicInfo')->name('checkBasicInfoMark');
 	Route::post('/selectSubject', 'MarkentryController@selectSubject')->name('selectSubject');
 	Route::post('/subjectMarkEntry', 'MarkentryController@subjectMarkEntry')->name('subjectMarkEntry');
 	Route::post('/storeSubjectMark', 'MarkentryController@storeSubjectMark')->name('storeSubjectMark');
+
+});
+
+Route::prefix('/performance/extra')->group(function() {
+	Route::get('/checkStudentId', 'ExtracurricularentryController@checkStudentId')->name('checkStudentIdExtra');
+	Route::post('/checkBasicInfo', 'ExtracurricularentryController@checkBasicInfo')->name('checkBasicInfoExtra');
+	Route::post('/selectExtra', 'ExtracurricularentryController@selectExtra')->name('selectExtra');
+	Route::post('/extraEntry', 'ExtracurricularentryController@extraEntry')->name('extraEntry');
+	Route::post('/storeExtraEntry', 'ExtracurricularentryController@storeExtraEntry')->name('storeExtraEntry');
+
 });
 
 Route::prefix('/other')->group(function() {
