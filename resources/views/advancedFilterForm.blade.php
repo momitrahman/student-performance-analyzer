@@ -7,28 +7,23 @@
 	<body>
 		<form action={{ route("storeFilterEntry") }} method="post">
 			{{ csrf_field() }}
-			<label>Subject: </label>
-			@if ($subject === "all")
-				<input type="hidden" name="subject" value="all">
+			@if (!empty($subject))
+				<input type="hidden" name="subject" value={{ $subject }}>
+				<label>Class: </label>
+				@if ($class === "all")
+					<label>All</label>
+					<input type="hidden" name="class[]" value="all">
+				@elseif ($class === "single" )
+					<input type="hidden" name="class[]" value="single">
+					<input type="text" name="class[]">
+				@else
+					<input type="hidden" name="class[]" value="range">
+					<input type="text" name="class[]"> - <input type="text" name="class[]">
+				@endif
 			@else
-				<select name="subject">
-				@foreach ($subject_list as $subject)
-					<option value= {{ $subject }}>{{ $subject }}</option>
-				@endforeach
-				</select>
+				<input type="hidden" name="class" value= {{ $class }}>
 			@endif
-			<br>
-			<label>Class: </label>
-			@if ($class === "all")
-				<label>All</label>
-				<input type="hidden" name="class[]" value="all">
-			@elseif ($class === "single" )
-				<input type="hidden" name="class[]" value="single">
-				<input type="text" name="class[]">
-			@else
-				<input type="hidden" name="class[]" value="range">
-				<input type="text" name="class[]"> - <input type="text" name="class[]">
-			@endif
+
 			<br>
 			<label>Year: </label>
 			@if ($year === "all")
@@ -46,6 +41,12 @@
 			@if ($mark === "all")
 				<label>All</label>
 				<input type="hidden" name="mark[]" value="all">
+			@elseif ($mark === "range")
+				<input type="hidden" name="mark[]" value="range">
+				<input type="text" name="mark[]"> - <input type="text" name="mark[]">
+			@elseif ($mark === "equal")
+				<input type="hidden" name="mark[]" value="equal">
+				<input type="text" name="mark[]"> - <input type="text" name="mark[]">
 			@elseif ($mark === "less_than")
 				<label>Less Than Equal:</label>
 				<input type="hidden" name="mark[]" value="less_than">
@@ -56,12 +57,12 @@
 				<input type="text" name="mark[]">
 			@endif
 			<br>
-			<label>Order: </label>
+			<label>Order By: </label>
 			@if ($order === "asc")
-				<label>Highest to Lowest Mark</label>
+				<label>Lowset to Highest Mark</label>
 				<input type="hidden" name="order" value="asc">
 			@else
-				<label>Lowset to Highest Mark</label>
+				<label>Highest to Lowest Mark</label>
 				<input type="hidden" name="order" value="desc">
 			@endif
 			<br>

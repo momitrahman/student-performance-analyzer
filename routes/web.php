@@ -45,7 +45,7 @@ Route::prefix('/other')->group(function() {
 
 Route::prefix('/filter')->group(function() {
 	Route::get('/selectfilter', 'AdvancedfilterController@selectfilter')->name('selectfilter');
+	Route::post('/filterFormSelect', 'AdvancedfilterController@filterFormSelect')->name('filterFormSelect');
 	Route::post('/entryFilter', 'AdvancedfilterController@entryFilter')->name('entryFilter');
 	Route::post('/storeFilterEntry', 'AdvancedfilterController@storeFilterEntry')->name('storeFilterEntry');
-	Route::post('/extracurricularstore', 'AdvancedfilterController@extracurricularStore')->name('extracurricularStore');
 });

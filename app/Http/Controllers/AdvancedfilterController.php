@@ -9,9 +9,17 @@ class AdvancedfilterController extends Controller
 {
     public function selectfilter()
     {
-
-		return view("advancedFilterSelect");
+		$subject_list = DB::table("subject_class")->pluck("subject_name");
+		return view("advancedFilterSelect", compact('subject_list'));
     }
+
+    public function filterFormSelect(Request $request)
+    {
+		$subject = $request->input("subject");
+		$class = $request->input("class");
+
+		return view("advancedFilterFormSelect", compact("subject", "class"));
+}
 
     public function entryFilter(Request $request)
     {
@@ -22,22 +30,12 @@ class AdvancedfilterController extends Controller
 		$order = $request->input("order");
 		$output_limit = $request->input("output_limit");
 
-		if($subject === "single" ) {
-         	$subject_list = DB::table("subject_class")->pluck("subject_name");
-		} else {
-			$subject_list = "all";
-		}
-
-		return view("advancedFilterForm", compact(
-				"subject", "subject_list", "class", "year", "mark",
-				"order", "output_limit"
-				));
-
-    }
+		return view("advancedFilterForm", compact("subject", "class", "year",
+											"mark","order", "output_limit"));
+}
 
 	public function storeFilterEntry(Request $request)
 	{
-		// return $request->all();
 		$subject = $request->input("subject");
 		$class = $request->input("class");
 		$year = $request->input("year");
@@ -53,9 +51,9 @@ class AdvancedfilterController extends Controller
 		}
 
 		if ($class[0] === "single") {
-			$query .= "WHERE class=$class[1] ";
+			$query .= "WHERE class='$class[1]' ";
 		} else if ($class[0] === "range"){
-			$query .= "WHERE (class BETWEEN $class[1] AND $class[2]) ";
+			$query .= "WHERE (class BETWEEN '$class[1]' AND '$class[2])' ";
 		}
 
 		if ($year[0] === "single") {
@@ -64,14 +62,18 @@ class AdvancedfilterController extends Controller
 			$query .= "WHERE (year BETWEEN $year[1] AND $year[2]) ";
 		}
 
-		if($mark[0] === "less_than") {
+		if ($mark[0] === "equal") {
+			$query .= "WHERE avg_mark=$mark[1] ";
+		} else if($mark[0] === "less_than") {
 			$query .= "WHERE avg_mark<=$mark[1] ";
 		} else if($mark[0] === "greater_than"){
 			$query .= "WHERE avg_mark>=$mark[1] ";
+		} else if($mark[0] === "range"){
+			$query .= "WHERE (avg_mark BETWEEN $mark[1] AND $mark[2]) ";
 		}
 
 		if($order === "asc") {
-			$query .= "ORDER BY avg_mark ";
+			$query .= "ORDER BY avg_mark ASC ";
 		} else {
 			$query .= "ORDER BY avg_mark DESC ";
 		}
@@ -95,6 +97,7 @@ class AdvancedfilterController extends Controller
 			$new_query = $query;
 		}
 
+		return $new_query;
 		$datas = DB::select($new_query);
 		return $datas;
 	}
