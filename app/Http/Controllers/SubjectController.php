@@ -12,7 +12,7 @@ class SubjectController extends Controller
 {
     public function addSubject()
 	{
-		return view('subjectEntry');
+		return view('admin.subjectEntry');
 	}
 
 	public function subjectStore(Request $request)
@@ -71,7 +71,7 @@ class SubjectController extends Controller
 
 		// no class selected
 		if($class_count == 0) {
-			return view('subjectEntry')->with('noclass', 'The class selection required')->with('subject_name', $subject_name);
+			return view('admin.subjectEntry')->with('noclass', 'The class selection required')->with('subject_name', $subject_name);
 		} else {
 			// insert values
 			DB::table('subject_class')->insertGetID(

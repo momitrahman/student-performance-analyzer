@@ -9,7 +9,7 @@ class ExtracurricularController extends Controller
 {
 	public function addExtracurricular()
 	{
-		return view('extracurricularEntry');
+		return view('admin.extracurricularEntry');
 	}
 
 	public function extracurricularStore(Request $request)

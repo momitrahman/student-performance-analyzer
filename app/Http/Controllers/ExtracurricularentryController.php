@@ -16,20 +16,20 @@ class ExtracurricularentryController extends Controller
 
 			// sutdent id not found
 			if(empty(json_decode($datas, true))){
-				return view('extracurricularEntryStudentSearch')->with('noid', 'Student ID not found.');
+				return view('admin.extracurricularEntryStudentSearch')->with('noid', 'Student ID not found.');
 			}
 
 			// show student inforamtion
-			return view('extracurricularEntryStudentConfirm', compact('datas', 'sid'));
+			return view('admin.extracurricularEntryStudentConfirm', compact('datas', 'sid'));
     	} else {
-			return view('extracurricularEntryStudentSearch');
+			return view('admin.extracurricularEntryStudentSearch');
 		}
 	}
 
 	public function checkBasicInfo(Request $request)
 	{
 		$sid = $request->input('sid');
-		return view('extracurricularEntryBasic')->with('sid', $sid);
+		return view('admin.extracurricularEntryBasic')->with('sid', $sid);
 	}
 
 	public function selectExtra(Request $request)
@@ -40,7 +40,7 @@ class ExtracurricularentryController extends Controller
 
 		// select subject list
 		$extra_list = DB::table('extracurricular')->get();
-		return view('extracurricularEntrySelect', compact('extra_list', 'sid', 'class', 'year'));
+		return view('admin.extracurricularEntrySelect', compact('extra_list', 'sid', 'class', 'year'));
 	}
 
 	public function extraEntry(Request $request)
@@ -51,7 +51,7 @@ class ExtracurricularentryController extends Controller
 		$year = $request->input('year');
 		$indoor_list = $request->input('indoor_list');
 		$outdoor_list = $request->input('outdoor_list');
-		return view('extracurricularEntryForm', compact('indoor_list', 'outdoor_list', 'sid', 'class', 'year'));
+		return view('admin.extracurricularEntryForm', compact('indoor_list', 'outdoor_list', 'sid', 'class', 'year'));
 	}
 
 	public function storeExtraEntry(Request $request)

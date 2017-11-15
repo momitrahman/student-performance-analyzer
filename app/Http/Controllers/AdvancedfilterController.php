@@ -10,7 +10,7 @@ class AdvancedfilterController extends Controller
     public function selectfilter()
     {
 		$subject_list = DB::table("subject_class")->pluck("subject_name");
-		return view("advancedFilterSelect", compact('subject_list'));
+		return view("admin.advancedFilterSelect", compact('subject_list'));
     }
 
     public function filterFormSelect(Request $request)
@@ -18,7 +18,7 @@ class AdvancedfilterController extends Controller
 		$subject = $request->input("subject");
 		$class = $request->input("class");
 
-		return view("advancedFilterFormSelect", compact("subject", "class"));
+		return view("admin.advancedFilterFormSelect", compact("subject", "class"));
 }
 
     public function entryFilter(Request $request)
@@ -30,7 +30,7 @@ class AdvancedfilterController extends Controller
 		$order = $request->input("order");
 		$output_limit = $request->input("output_limit");
 
-		return view("advancedFilterForm", compact("subject", "class", "year",
+		return view("admin.advancedFilterForm", compact("subject", "class", "year",
 											"mark","order", "output_limit"));
 }
 

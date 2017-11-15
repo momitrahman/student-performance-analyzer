@@ -16,13 +16,13 @@ class MarkentryController extends Controller
 
 			// sutdent id not found
 			if(empty(json_decode($datas, true))){
-				return view('markEntryStudentSearch')->with('noid', 'Student ID not found.');
+				return view('admin.markEntryStudentSearch')->with('noid', 'Student ID not found.');
 			}
 
 			// show student inforamtion
-			return view('markEntryStudentConfirm', compact('datas', 'sid'));
+			return view('admin.markEntryStudentConfirm', compact('datas', 'sid'));
     	} else {
-			return view('markEntryStudentSearch');
+			return view('admin.markEntryStudentSearch');
 		}
 	}
 
@@ -41,7 +41,7 @@ class MarkentryController extends Controller
 
 		// select subject list
 		$subject_list = DB::table('subject_class')->where($class, '=', 1)->pluck('subject_name');
-		return view('markEntrySubjectSelect', compact('subject_list', 'sid', 'class', 'year', 'semester_slot'));
+		return view('admin.markEntrySubjectSelect', compact('subject_list', 'sid', 'class', 'year', 'semester_slot'));
 	}
 
 	public function subjectMarkEntry(Request $request)
@@ -53,7 +53,7 @@ class MarkentryController extends Controller
 		$semester_slot = $request->input('semester_slot');
 		$subject_list = $request->input('subject_list');
 
-		return view('markEntryForm', compact('subject_list', 'sid', 'class', 'year', 'semester_slot'));
+		return view('admin.markEntryForm', compact('subject_list', 'sid', 'class', 'year', 'semester_slot'));
 	}
 
 	public function storeSubjectMark(Request $request)

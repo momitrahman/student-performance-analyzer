@@ -15,7 +15,7 @@ class StudentInfoController extends Controller
 
 		if($sid === '') {
 			// student basic info input page
-			return view('studentInfoIdEntry');
+			return view('admin.studentInfoIdEntry');
 
 		} else {
 
@@ -32,14 +32,14 @@ class StudentInfoController extends Controller
 			]);
 
 			// redirect to student other info page
-			return redirect()->route('studentInfoOther')->withInput();
+			return redirect()->route('admin.studentInfoOther')->withInput();
 		}
 	}
 
 	public function studentInfoOther()
 	{
 		// student others info input page
-		return view('studentInfoOtherEntry');
+		return view('admin.studentInfoOtherEntry');
 	}
 
     public function studentInfoStore(Request $request)
@@ -74,7 +74,7 @@ class StudentInfoController extends Controller
 		);
 
 		// redirect to student info page
-		return redirect('studentinfo');
+		return redirect('admin.studentinfo');
 	}
 
 	public function studentSearch(Request $request)
@@ -86,15 +86,15 @@ class StudentInfoController extends Controller
 
 			// sutdent id not found
 			if(empty(json_decode($datas, true))){
-				return view('studentSearch')->with('noid', 'Student ID not found.');
+				return view('admin.studentSearch')->with('noid', 'Student ID not found.');
 			}
 
 			// show student inforamtion
-			return view('studentInfoShow', compact('datas'));
+			return view('admin.studentInfoShow', compact('datas'));
 
 		} else {
 			// return to student id search page
-			return view('studentSearch');
+			return view('admin.studentSearch');
 		}
 	}
 
