@@ -16,50 +16,78 @@
 					   </div>
 					   <!--full-Screen Button end -->
 					   <div class="panel panel-primary">
-						   <div class="panel-heading">Show Student Information</div>
+						   <div class="panel-heading">Student Information</div>
 						   <div class="panel-body">
-							   <form method="" action="">
+
+							   @foreach ($sid_infos as $sid_info)
+
+							   <form method="">
 								   <div class="flex-container">
 									   <div class="info-content">
 										   <div class="info-row flex-first-row">
-											   <label for="">ID</label>
+											   <label for="">Student ID</label>
 											   <span>:</span>
-											   <strong>2010-05-32-02</strong>
+											   <strong>{{ ucfirst($sid_info->sid) }}</strong>
 										   </div>
 										   <div class="info-row flex-second-row ">
 											   <label for="">Name</label>
 											   <span>:</span>
-											   <strong>Chandler Bailey</strong>
-										   </div>
-										   <div class="info-row flex-first-row">
-											   <label for="">Father's Name</label>
-											   <span>:</span>
-											   <strong>Sharon Wilkinson</strong>
+											   <strong>{{ ucfirst($sid_info->name) }}</strong>
 										   </div>
 										   <div class="info-row flex-second-row ">
-											   <label for="">Mother's Name</label>
+											   <label for="">Year</label>
 											   <span>:</span>
-											   <strong>Wilfredo</strong>
+											   <strong>{{ ucfirst($sid_info->year) }}</strong>
 										   </div>
-										   <div class="info-row flex-first-row">
-											   <label for="">Local Guardian Name</label>
+										   <div class="info-row flex-second-row ">
+											   <label for="">Class</label>
 											   <span>:</span>
-											   <strong>Chandler BaileyTravis Mueller</strong>
+											   <strong>{{ ucfirst($sid_info->class) }}</strong>
+										   </div>
+										   <div class="info-row flex-second-row ">
+										   		<label for="">Roll</label>
+										   		<span>:</span>
+										   		<strong>{{ ucfirst($sid_info->roll) }}</strong>
+									   		</div>
+										   <div class="info-row flex-second-row ">
+											   <label for="">Section</label>
+											   <span>:</span>
+											   <strong>{{ ucfirst($sid_info->section) }}</strong>
 										   </div>
 										   <div class="info-row flex-second-row ">
 											   <label for="">Student Birth Certificate No.</label>
 											   <span>:</span>
-											   <strong>19917613310011755</strong>
+											   <strong>{{ ucfirst($sid_info->birth_number) }}</strong>
 										   </div>
 										   <div class="info-row flex-first-row">
-											   <label for="">Local Guardian NID</label>
+											   <label for="">Father's Name</label>
 											   <span>:</span>
-											   <strong>2610413965404</strong>
+											   <strong>{{ ucfirst($sid_info->father_name) }}</strong>
+										   </div>
+										   <div class="info-row flex-second-row ">
+											   <label for="">Mother's Name</label>
+											   <span>:</span>
+											   <strong>{{ ucfirst($sid_info->mother_name) }}</strong>
+										   </div>
+										   <div class="info-row flex-first-row">
+											   <label for="">Local Guardian Name</label>
+											   <span>:</span>
+											   <strong>{{ ucfirst($sid_info->guardian_name) }}</strong>
+										   </div>
+										   <div class="info-row flex-first-row">
+											   <label for="">Student Guardian NID Holder</label>
+											   <span>:</span>
+											   <strong>{{ ucfirst($sid_info->nid_holder) }}</strong>
+										   </div>
+										   <div class="info-row flex-first-row">
+											   <label for="">Student Guardian NID No.</label>
+											   <span>:</span>
+											   <strong>{{ ucfirst($sid_info->nid_number) }}</strong>
 										   </div>
 
 									   </div>
 									   <div class="form-group">
-										   <a href="index.html" class="btn btn-success button" role="button">Ok<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i></a>
+										   <a href={{ route('studentInfoIdGenerator') }} class="btn btn-success button" role="button">Ok<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i></a>
 										   <!-- <a href="input-registration.html" class="btn button button-unique" role="button">Update</a> -->
 									   </div>
 
@@ -67,6 +95,9 @@
 								   <!--/.flex-container  -->
 
 							   </form>
+
+							 @endforeach
+
 						   </div>
 						   <!--/ .panel-body  -->
 					   </div>

@@ -116,6 +116,14 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+		'sid' => 'Student ID',
+		'name' => 'full name',
+		'father_name' => 'father name',
+		'mother_name' => 'mother name',
+		'guardian_name' => 'guardian name',
+		'nid_holder' => 'NID holder name',
+		'nid_number' => 'NID number'
+	],
 
 ];

@@ -7,22 +7,22 @@ use Illuminate\Support\Facades\DB;
 
 class AdvancedfilterController extends Controller
 {
-    public function selectfilter()
-    {
+	public function selectfilter()
+	{
 		$subject_list = DB::table("subject_class")->pluck("subject_name");
 		return view("admin.advancedFilterSelect", compact('subject_list'));
-    }
+	}
 
-    public function filterFormSelect(Request $request)
-    {
+	public function filterFormSelect(Request $request)
+	{
 		$subject = $request->input("subject");
 		$class = $request->input("class");
 
 		return view("admin.advancedFilterFormSelect", compact("subject", "class"));
 }
 
-    public function entryFilter(Request $request)
-    {
+	public function entryFilter(Request $request)
+	{
 		$subject = $request->input("subject");
 		$class = $request->input("class");
 		$year = $request->input("year");
@@ -34,7 +34,7 @@ class AdvancedfilterController extends Controller
 											"mark","order", "output_limit"));
 }
 
-	public function storeFilterEntry(Request $request)
+	public function showFilterResult(Request $request)
 	{
 		$subject = $request->input("subject");
 		$class = $request->input("class");

@@ -11,8 +11,8 @@
                  <li>
                      <div class="link"><i class="fa fa-database"></i>Student Information<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
-                         <li><a href="input-registration-part1.html">New Student</a></li>
-                         <li><a href="search-info-for-reg-view.html">Verify Student</a></li>
+                         <li><a href={{ route('studentInfoIdGenerator') }}>New Student</a></li>
+                         <li><a href={{ route('studentSearch') }}>Verify Student</a></li>
                      </ul>
                  </li>
                  <li>

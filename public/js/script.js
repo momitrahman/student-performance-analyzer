@@ -71,7 +71,7 @@ $(document).on('scroll', function() {
 // Show Hide Div Using Guardian NID field
 $(function() {
     $("#selectnid").change(function() {
-        if ($(this).val() == "F" || $(this).val() == "M" || $(this).val() == "G") {
+        if ($(this).val() == "Father" || $(this).val() == "Mother" || $(this).val() == "Local") {
             $("#inputnid").show();
         }
     });
@@ -80,7 +80,7 @@ $(function() {
 // Show Hide Div Using Local Guardian Name
 $(function() {
     $("#selectname").change(function() {
-        if ($(this).val() == "O") {
+        if ($(this).val() == "Local") {
             $("#inputname").show();
         } else {
             $("#inputname").hide();

@@ -7,34 +7,43 @@
 	<!--========= Content part Start here =========-->
 		   <div class="content">
 			   <!--success alert message  -->
-			   <div class="alert alert-success">
-				   <strong>Congratulation!</strong> Your ID is 2010-05-32-02
-			   </div>
+			   @if (!empty(old('sid')))
+				   <div class="alert alert-success">
+					   Congratulation! Your ID is <strong>{{ old('sid') }}</strong>
+				   </div>
+			   @endif
 			   <!--success alert message  -->
 
 			   <!--warning message  -->
-			   <div class="alert alert-warning">
-				   <strong>Input Error!</strong> Please fill out all field.
-			   </div>
+			   @if ($errors->any())
+					 <div class="alert alert-warning">
+					  <ul>
+					  @foreach ($errors->all() as  $error)
+						  <li># {{ $error }}</li>
+					  @endforeach
+					  </ul>
+					  </div>
+				 @endif
 			   <!--warning message  -->
 
 			   <div class="x-panel">
 				   <div class="panel panel-primary">
-					   <div class="panel-heading">Please Fill Student Other's Information</div>
+					   <div class="panel-heading">Entry Student Information</div>
 					   <div class="panel-body">
 
-						   <form id="registration-form" method="POST" action="">
+						   <form id="registration-form" method="post" action={{ route('studentInfoStore') }}>
+							   {{ csrf_field() }}
 							   <div class="row">
 								   <div class="col-md-6">
 									   <div class="form-group">
-										   <label for="name">Name</label>
-										   <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
+										   <label for="name">Full Name</label>
+										   <input type="text" class="form-control" id="name" name="name" placeholder="Student Full Name" value={{ old('name') }}>
 									   </div>
 								   </div>
 								   <div class="col-md-6">
 									   <div class="form-group">
-										   <label for="sBirthNo">Student Birth Certificate No.</label>
-										   <input type="text" class="form-control" id="sBirthNo" name="sBirthNo" placeholder="Your Birth Certificate No.">
+										   <label for="sBirthNo">Birth Certificate No.</label>
+										   <input type="text" class="form-control" id="sBirthNo" name="birth_number" placeholder="Student Birth Certificate No." value={{ old('birth_number') }}>
 									   </div>
 								   </div>
 							   </div>
@@ -43,13 +52,13 @@
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="fName">Father's Name</label>
-										   <input type="text" class="form-control" id="fName" name="fName" placeholder="Your Father's Name">
+										   <input type="text" class="form-control" id="fName" name="father_name" placeholder="Student Father's Name" value={{ old('father_name') }}>
 									   </div>
 								   </div>
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="mName">Mother's Name</label>
-										   <input type="text" class="form-control" id="mName" name="mName" placeholder="Your Mother's Name">
+										   <input type="text" class="form-control" id="mName" name="mother_name" placeholder="Student Mother's Name" value={{ old('mother_name') }}>
 									   </div>
 								   </div>
 							   </div>
@@ -57,23 +66,23 @@
 							   <div class="row">
 								   <div class="col-md-6">
 									   <div class="form-group">
-										   <label for="selectname">Local Guardian Name</label>
-										   <select class="form-control" id="selectname" name="selectname">
-											   <option>Select Guardian</option>
-											   <option value="F">Father</option>
-											   <option value="M">Mother</option>
-											   <option value="O">Other's</option>
+										   <label for="selectname">Select Guardian</label>
+										   <select class="form-control" id="selectname" name="guardian_name">
+											    <option value=""></option>
+											   <option value="Father">Father</option>
+											   <option value="Mother">Mother</option>
+											   <option value="Local">Local</option>
 											</select>
 									   </div>
 								   </div>
 								   <div class="col-md-6">
 									   <div class="form-group">
-										   <label for="selectnid">Father/Mother/Guardian NID No.</label>
-										   <select class="form-control" id="selectnid" name="selectnid">
-											   <option>Select F/M/G</option>
-											   <option value="F">Father</option>
-											   <option value="M">Mother</option>
-											   <option value="G">Local Guardian</option>
+										   <label for="selectnid">Select NID Holder</label>
+										   <select class="form-control" id="selectnid" name="nid_holder">
+											   <option value=""></option>
+											   <option value="Father">Father</option>
+											   <option value="Mother">Mother</option>
+											   <option value="Local">Local Guardian</option>
 											</select>
 									   </div>
 								   </div>
@@ -82,18 +91,23 @@
 								   <div class="col-md-6">
 									   <div class="form-group" id="inputname" style="display: none">
 										   <label for="oName"></label>
-										   <input type="text" class="form-control" id="oName" name="oName" placeholder="Other's Guardian Name">
+										   <input type="text" class="form-control" id="oName" name="guardian_name_other" placeholder="Local Guardian's Full Name" value={{ old('guardian_name_other') }}>
 									   </div>
 								   </div>
 								   <div class="col-md-6">
 									   <div class="form-group" id="inputnid" style="display: none">
 										   <label for="nid"></label>
-										   <input type="text" class="form-control" id="nid" name="nid" placeholder="NID No.">
+										   <input type="text" class="form-control" id="nid" name="nid_number" placeholder="Entry NID Number of Choosen Person" value={{ old('nid_number') }}>
 									   </div>
 								   </div>
 							   </div>
 
-
+							   {{--  Previous Pages Inputs --}}
+								<input type="hidden" name="class" value="{{ old('class') }}">
+								<input type="hidden" name="roll" value="{{ old('roll') }}">
+								<input type="hidden" name="section" value="{{ old('section') }}">
+								<input type="hidden" name="year" value="{{ old('year') }}">
+								<input type="hidden" name="sid" value="{{ old('sid') }}">
 							   <!-- Trigger the modal with a button -->
 							   <button type="button" class="btn btn-success button" data-toggle="modal" data-target="#myModal">Save<i class="fa fa-floppy-o save-icon" aria-hidden="true"></i></button>
 
@@ -110,8 +124,8 @@
 											   <p>Do you want to Save?</p>
 										   </div> -->
 										   <div class="modal-footer">
-											   <a href="index.html" class="btn btn-info" role="button">Yes</a>
-											   <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+											 <button type="submit"  class="btn btn-info">Yes</button>
+											 <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
 										   </div>
 									   </div>
 									   <!-- Modal content-->
