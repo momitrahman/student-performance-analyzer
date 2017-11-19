@@ -7,25 +7,29 @@
 	<!--========= Content part Start here =========-->
 		 <div class="content">
 			 <!--warning message  -->
+			 @if (!empty($noid))
 			 <div class="alert alert-warning">
-				 <strong>Error!</strong> Your ID is not found.
+				 <strong>Error!</strong> {{ $noid }}
 			 </div>
+			 @endif
 			 <!--warning message  -->
 
-			 <!--search  -->
+			 <form  action= {{ route('checkStudentIdExtra') }} method="get">
 			 <div class="search">
 				 <div class="input-group">
-					 <input type="text" class="form-control" placeholder="Search for...">
+					 <input type="text" class="form-control" placeholder="Enter Student ID..." name="sid">
 					 <span class="input-group-btn">
-					 <a href="view-registration.html" class="btn btn-success " role="button">
+					 <button type="submit" class="btn btn-success">
 						 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-					 <span>Search</span>
+						 <span>Search</span>
+					 </button>
 					 </a>
 					 </span>
 				 </div>
 				 <!-- /input-group -->
 			 </div>
 			 <!--/.search  -->
+			 <form>
 
 
 		 </div>

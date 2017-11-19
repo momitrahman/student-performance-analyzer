@@ -7,25 +7,20 @@
 <!--========= Content part Start here =========-->
 <div class="content">
     <!--Info Panel  -->
-    <div class="card card-light text-center">
-        <div class="card-body">
-            <label for="">ID: <strong>2010-05-32-02</strong></label>&nbsp;&nbsp;
-            <label for="">Name: <strong>Marquis</strong></label>
-        </div>
+	<div class="card card-light text-center">
+  	  <div class="card-body">
+  		  <label for="">Studen ID: <strong>{{ $sid }}</strong></label>
+  		  <label for=""> | Name: <strong>{{ ucfirst($name) }}</strong></label>
+  		  <label for=""> | Class: <strong>{{ ucfirst($class) }}</strong></label>
+  		  <label for=""> | Year: <strong>{{ ucfirst($year) }}</strong></label>
+  	  </div>
     </div>
     <!--Info Panel  -->
 
-    <!--warning message  -->
-    <div class="alert alert-warning">
-        <strong>Input Error!</strong> Please select atleast one game.
-    </div>
-    <!--warning message  -->
-
     <div class="x-panel">
         <div class="panel panel-primary">
-            <div class="panel-heading">List of Game</div>
+            <div class="panel-heading">List of Extra Curricular Activities</div>
             <div class="panel-body">
-
                 <div class="container-fluid">
                     <div class="row">
                         <div class="form-group">
@@ -35,11 +30,23 @@
                         </div>
                     </div>
 
+					<form action={{ route('extraEntry') }} method="post">
+						{{ csrf_field() }}
+
+						<input type="hidden" name="sid" value={{ $sid }}>
+						<input type="hidden" name="name" value={{ $name }}>
+						<input type="hidden" name="class" value={{ $class  }}>
+						<input type="hidden" name="year" value={{ $year }}>
                     <!--========= Indoor Game Start here =========-->
                     <div class="row subject-section">
                         <div class="form-group">
                             <div class="searchable-container">
                                 <h3 class="well well-sm text-primary ">Indoor Game </h3>
+
+								<!-- items  -->
+
+								@foreach ($extra_list as $extra)
+									@if ($extra->type === 'indoor')
                                 <div class="items col-sm-4 col-md-3 col-lg-3">
                                     <div class="info-block block-info clearfix">
                                         <div class="square-box pull-left">
@@ -48,14 +55,16 @@
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
                                             <label class="btn btn-default">
                                                 <div class="bizcontent">
-                                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                    <input type="checkbox" name="indoor_list[]" autocomplete="off" value={{ $extra->title  }}>
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                    <h5>Ludo</h5>
+                                                    <h5>{{ $extra->title  }}</h5>
                                                 </div>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
+									@endif
+								@endforeach
                                 <!--/.items  -->
 
                             </div>
@@ -67,11 +76,15 @@
                     <!--========= Indoor Game Eng here =========-->
 
                     <!--========= Outdoor Game Start here =========-->
-                    <div class="row subject-section">
+					<div class="row subject-section">
                         <div class="form-group">
                             <div class="searchable-container">
                                 <h3 class="well well-sm text-primary ">Outdoor Game </h3>
 
+								<!-- items  -->
+
+								@foreach ($extra_list as $extra)
+									@if ($extra->type === 'outdoor')
                                 <div class="items col-sm-4 col-md-3 col-lg-3">
                                     <div class="info-block block-info clearfix">
                                         <div class="square-box pull-left">
@@ -80,14 +93,16 @@
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
                                             <label class="btn btn-default">
                                                 <div class="bizcontent">
-                                                    <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+                                                    <input type="checkbox" name="outdoor_list[]" autocomplete="off" value={{ $extra->title  }}>
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                    <h5>Kabaddi</h5>
+                                                    <h5>{{ $extra->title  }}</h5>
                                                 </div>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
+									@endif
+								@endforeach
                                 <!--/.items  -->
 
                             </div>
@@ -100,10 +115,18 @@
 
 
                     <div class="form-group">
-                        <a href="select-info-for-extra-curr.html" class="btn button button-green" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a>
-                        <a href="add-extra-curr.html" class="btn btn-success button" role="button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></a>
-
+                    	 <button type="submit" class="btn btn-success button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
                     </div>
+					</form>
+					<form class="" action={{ route('checkBasicInfoExtra') }} method="post">
+						{{ csrf_field() }}
+						<div class="form-group">
+							<input type="hidden" name="sid" value={{ $sid }}>
+						   	<input type="hidden" name="name" value={{ $name }}>
+							<button type="submit" class="btn button button-green ">Back<i class="fa fa-backward back-icon" aria-hidden="true"></i></button>
+						</div>
+					</form>
+
                 </div>
                 <!-- /.container-fluid  -->
 

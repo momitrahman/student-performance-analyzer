@@ -19,7 +19,7 @@
                      <div class="link"><i class="fa fa-code"></i>Student Performance Entry<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
                          <li><a href={{ route('checkStudentIdMark') }}>Marks</a></li>
-                         <li><a href="search-info-for-extra-curr.html">Extra Curriculum</a></li>
+                         <li><a href={{ route('checkStudentIdExtra') }}>Extra Curriculum</a></li>
                      </ul>
                  </li>
                  <li>
