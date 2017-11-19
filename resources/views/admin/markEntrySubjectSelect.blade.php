@@ -9,17 +9,14 @@
 			  <!--Info Panel  -->
 			  <div class="card card-light text-center">
 				  <div class="card-body">
-					  <label for="">ID: <strong>2010-05-32-02</strong></label>&nbsp;&nbsp;
-					  <label for="">Name: <strong>Marquis</strong></label>
+					  <label for="">Studen ID: <strong>{{ $sid }}</strong></label>
+					  <label for=""> | Name: <strong>{{ ucfirst($name) }}</strong></label>
+					  <label for=""> | Class: <strong>{{ ucfirst($class) }}</strong></label>
+					  <label for=""> | Year: <strong>{{ ucfirst($year) }}</strong></label>
+					  <label for=""> | Semester Slot: <strong>{{ ucfirst($semester_slot) }}</strong></label>
 				  </div>
 			  </div>
 			  <!--Info Panel  -->
-
-			  <!--warning message  -->
-			  <div class="alert alert-warning">
-				  <strong>Input Error!</strong> Please select your all subject.
-			  </div>
-			  <!--warning message  -->
 
 			  <div class="x-panel">
 				  <div class="panel panel-primary">
@@ -36,6 +33,17 @@
 							  </div>
 
 							  <!--========= Subject list Start here =========-->
+							  <form action={{ route('subjectMarkEntry') }} method="post">
+								 {{ csrf_field() }}
+
+							   <input type="hidden" name="sid" value={{ $sid }}>
+							   <input type="hidden" name="name" value={{ $name }}>
+							   <input type="hidden" name="class" value={{ $class  }}>
+							   <input type="hidden" name="year" value={{ $year }}>
+							   <input type="hidden" name="semester_slot" value={{ $semester_slot }}>
+
+							  @foreach ($subject_list as $subject)
+
 							  <div class="row subject-section">
 								  <div class="form-group">
 									  <div class="searchable-container">
@@ -47,137 +55,9 @@
 												  <div data-toggle="buttons" class="btn-group bizmoduleselect">
 													  <label class="btn btn-default">
 														  <div class="bizcontent">
-															  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
+															  <input type="checkbox" name="subject_list[]" autocomplete="off" value={{ $subject }}>
 															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h5>Bangla</h5>
-														  </div>
-													  </label>
-												  </div>
-											  </div>
-										  </div>
-										  <div class="items col-sm-4 col-md-3 col-lg-3">
-											  <div class="info-block block-info clearfix">
-												  <div class="square-box pull-left">
-													  <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-												  </div>
-												  <div data-toggle="buttons" class="btn-group bizmoduleselect">
-													  <label class="btn btn-default">
-														  <div class="bizcontent">
-															  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h5>English</h5>
-														  </div>
-													  </label>
-												  </div>
-											  </div>
-										  </div>
-										  <div class="items col-sm-4 col-md-3 col-lg-3">
-											  <div class="info-block block-info clearfix">
-												  <div class="square-box pull-left">
-													  <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-												  </div>
-												  <div data-toggle="buttons" class="btn-group bizmoduleselect">
-													  <label class="btn btn-default">
-														  <div class="bizcontent">
-															  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h5>Math</h5>
-														  </div>
-													  </label>
-												  </div>
-											  </div>
-										  </div>
-										  <div class="items col-sm-4 col-md-3 col-lg-3">
-											  <div class="info-block block-info clearfix">
-												  <div class="square-box pull-left">
-													  <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-												  </div>
-												  <div data-toggle="buttons" class="btn-group bizmoduleselect">
-													  <label class="btn btn-default">
-														  <div class="bizcontent">
-															  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h5>Social Science </h5>
-														  </div>
-													  </label>
-												  </div>
-											  </div>
-										  </div>
-										  <div class="items col-sm-4 col-md-3 col-lg-3">
-											  <div class="info-block block-info clearfix">
-												  <div class="square-box pull-left">
-													  <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-												  </div>
-												  <div data-toggle="buttons" class="btn-group bizmoduleselect">
-													  <label class="btn btn-default">
-														  <div class="bizcontent">
-															  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h5>Science</h5>
-														  </div>
-													  </label>
-												  </div>
-											  </div>
-										  </div>
-										  <div class="items col-sm-4 col-md-3 col-lg-3">
-											  <div class="info-block block-info clearfix">
-												  <div class="square-box pull-left">
-													  <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-												  </div>
-												  <div data-toggle="buttons" class="btn-group bizmoduleselect">
-													  <label class="btn btn-default">
-														  <div class="bizcontent">
-															  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h5>Islam </h5>
-														  </div>
-													  </label>
-												  </div>
-											  </div>
-										  </div>
-										  <div class="items col-sm-4 col-md-3 col-lg-3">
-											  <div class="info-block block-info clearfix">
-												  <div class="square-box pull-left">
-													  <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-												  </div>
-												  <div data-toggle="buttons" class="btn-group bizmoduleselect">
-													  <label class="btn btn-default">
-														  <div class="bizcontent">
-															  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h5>Hinduism</h5>
-														  </div>
-													  </label>
-												  </div>
-											  </div>
-										  </div>
-										  <div class="items col-sm-4 col-md-3 col-lg-3">
-											  <div class="info-block block-info clearfix">
-												  <div class="square-box pull-left">
-													  <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-												  </div>
-												  <div data-toggle="buttons" class="btn-group bizmoduleselect">
-													  <label class="btn btn-default">
-														  <div class="bizcontent">
-															  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h5>Christianity</h5>
-														  </div>
-													  </label>
-												  </div>
-											  </div>
-										  </div>
-										  <div class="items col-sm-4 col-md-3 col-lg-3">
-											  <div class="info-block block-info clearfix">
-												  <div class="square-box pull-left">
-													  <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-												  </div>
-												  <div data-toggle="buttons" class="btn-group bizmoduleselect">
-													  <label class="btn btn-default">
-														  <div class="bizcontent">
-															  <input type="checkbox" name="var_id[]" autocomplete="off" value="">
-															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h5>Buddhism</h5>
+															  <h5>{{ ucfirst($subject) }}</h5>
 														  </div>
 													  </label>
 												  </div>
@@ -187,17 +67,25 @@
 								  </div>
 							  </div>
 							  <!--/.row  -->
+							  @endforeach
 							  <!--========= Subject list end here =========-->
 
-
 							  <div class="form-group">
-								  <a href="select-info-for-add-mark.html" class="btn button button-green" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a>
-								  <a href="add-mark.html" class="btn btn-success button" role="button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></a>
-
+								  {{-- <a href={{ route('checkStudentIdMark') }} class="btn button button-green" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a> --}}
+								  <button type="submit" class="btn btn-success button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
 							  </div>
+						  </form>
+
+						  <form class="" action={{ route('checkBasicInfoMark') }} method="post">
+							  {{ csrf_field() }}
+							  <div class="form-group">
+								  <input type="hidden" name="sid" value={{ $sid }}>
+								 <input type="hidden" name="name" value={{ $name }}>
+								  <button type="submit" class="btn button button-green ">Back<i class="fa fa-backward back-icon" aria-hidden="true"></i></button>
+							  </div>
+						  </form>
 						  </div>
 						  <!-- /.container-fluid  -->
-
 					  </div>
 					  <!--/ .panel-body  -->
 				  </div>

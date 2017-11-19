@@ -12,15 +12,15 @@ class MarkentryController extends Controller
 		// find info throug student id
 		if($request->filled('sid')){
 			$sid =  $request->input('sid');
-			$datas = DB::table('student_info')->where('sid', $sid)->get();
+			$sid_infos = DB::table('student_info')->where('sid', $sid)->get();
 
 			// sutdent id not found
-			if(empty(json_decode($datas, true))){
+			if(empty(json_decode($sid_infos, true))){
 				return view('admin.markEntryStudentSearch')->with('noid', 'Student ID not found.');
 			}
 
 			// show student inforamtion
-			return view('admin.markEntryStudentConfirm', compact('datas', 'sid'));
+			return view('admin.markEntryStudentConfirm', compact('sid_infos', 'sid'));
     	} else {
 			return view('admin.markEntryStudentSearch');
 		}
@@ -29,31 +29,33 @@ class MarkentryController extends Controller
 	public function checkBasicInfo(Request $request)
 	{
 		$sid = $request->input('sid');
-		return view('markEntryBasic')->with('sid', $sid);
+		$name = $request->input('name');
+		return view('admin.markEntryBasic',compact('sid', 'name'));
 	}
 
 	public function selectSubject(Request $request)
 	{
 		$sid = $request->input('sid');
-		$class = $request->input('class');
+		$name = $request->input('name');
+		$class = strtolower($request->input('class'));
 		$year = $request->input('year');
 		$semester_slot = $request->input('semester_slot');
 
 		// select subject list
 		$subject_list = DB::table('subject_class')->where($class, '=', 1)->pluck('subject_name');
-		return view('admin.markEntrySubjectSelect', compact('subject_list', 'sid', 'class', 'year', 'semester_slot'));
+		return view('admin.markEntrySubjectSelect', compact('subject_list', 'sid', 'name', 'class', 'year', 'semester_slot'));
 	}
 
 	public function subjectMarkEntry(Request $request)
 	{
-		// return $request->all();
 		$sid = $request->input('sid');
+		$name = $request->input('name');
 		$class = $request->input('class');
 		$year = $request->input('year');
 		$semester_slot = $request->input('semester_slot');
 		$subject_list = $request->input('subject_list');
 
-		return view('admin.markEntryForm', compact('subject_list', 'sid', 'class', 'year', 'semester_slot'));
+		return view('admin.markEntryForm', compact('subject_list', 'sid', 'name', 'class', 'year', 'semester_slot'));
 	}
 
 	public function storeSubjectMark(Request $request)

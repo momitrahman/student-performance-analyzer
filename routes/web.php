@@ -12,6 +12,9 @@
 */
 
 Route::prefix('/admin')->group(function() {
+	Route::get('/', function(){
+		return view('admin.home');
+	})->name('adminHome');
 	Route::prefix('/student')->group(function() {
 		Route::match(['get', 'post'], '/', 'StudentInfoController@studentInfoIdGenerator')->name('studentInfoIdGenerator');
 		Route::match(['get', 'post'], '/next', 'StudentInfoController@studentInfoOther')->name('studentInfoOther');
