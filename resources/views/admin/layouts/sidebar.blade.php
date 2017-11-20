@@ -25,14 +25,14 @@
                  <li>
                      <div class="link"><i class="fa fa-globe"></i>Other's<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
-                         <li><a href="add-subject-name.html">New Subject Entry</a></li>
-                         <li><a href="add-extra-curr-name.html">New Extra Curriculum Entry</a></li>
+                         <li><a href={{ route('addSubject') }}>New Subject Entry</a></li>
+                         <li><a href={{ route('addExtracurricular') }}>New Extra Curricular Entry</a></li>
                      </ul>
                  </li>
                  <li>
                      <div class="link"><i class="fa fa-filter"></i>Filter Student<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
-                         <li><a href="select-subject-or-class.html">Advance Filter</a></li>
+                         <li><a href="select-subject-or-class.html">Advanced Filter</a></li>
                      </ul>
                  </li>
              </ul>

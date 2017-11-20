@@ -94,12 +94,12 @@ class SubjectController extends Controller
 			Schema::create($subject_name, function (Blueprint $table) {
 				$table->increments('id');
 				$table->integer('sid');
-				$table->integer('class');
+				$table->string('class');
 				$table->integer('year');
 				$table->integer('sem_slot');  // sem shortform of semseter
-				$table->integer('sem_1');
-				$table->integer('sem_2');
-				$table->integer('sem_3');
+				$table->integer('sem_1')->nullable();
+				$table->integer('sem_2')->nullable();
+				$table->integer('sem_3')->nullable();
 				$table->integer('avg_mark');
 			});
 

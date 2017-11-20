@@ -7,29 +7,56 @@
 	<!--========= Content part Start here =========-->
 		   <div class="content">
 			   <!--warning message  -->
-			   <div class="alert alert-warning">
-				   <strong>Input Error!</strong> Please fill out all field.
-			   </div>
+			   @if ($errors->any())
+				 <div class="alert alert-warning">
+				  <ul>
+				  @foreach ($errors->all() as  $error)
+					  <li> {{ $error }}</li>
+				  @endforeach
+				  </ul>
+				  </div>
+	  			@endif
+
+				@if (!empty($noclass))
+					<div class="alert alert-warning">
+					<h5>{{ $noclass }}</h5>
+					</div>
+				@endif
 			   <!--warning message  -->
 
 			   <div class="x-panel">
 				   <div class="panel panel-primary">
-					   <div class="panel-heading">Please Select Information</div>
+					   <div class="panel-heading">Entry Subject Name</div>
 					   <div class="panel-body">
 
 						   <div class="container-fluid">
+
+							   <form action={{ route('subjectStore') }} method="post">
+								{{ csrf_field() }}
+
+								@if (empty($subject_name))
 							   <div class="row">
 								   <div class="col-md-12">
 									   <div class="form-group">
 										   <label>Subject Name</label>
-										   <input type="text" class="form-control" placeholder="Subject Name">
+										   <input type="text" class="form-control" name="subject_name" value={{ old('subject_name')}}>
 									   </div>
 								   </div>
 							   </div>
+							   @else
+								   <div class="row">
+    								   <div class="col-md-12">
+    									   <div class="form-group">
+    										   <label>Subject Name</label>
+    										   <input type="text" class="form-control" name="subject_name" value= {{ $subject_name }}>
+    									   </div>
+    								   </div>
+    							   </div>
+							   @endif
 							   <div class="row">
 								   <div class="col-md-12">
 									   <div class="form-group">
-										   <label>Select Subject</label>
+										   <label>Select Class</label>
 									   </div>
 								   </div>
 							   </div>
@@ -38,31 +65,31 @@
 									   <div class="col-md-6">
 										   <div class="btn-group button-group" data-toggle="buttons">
 											   <label class="btn btn-primary button-cls">
-											   <input type="checkbox" autocomplete="off" checked>Class 1
+											   <input type="checkbox" autocomplete="off" name="one">One
 											   <span class="glyphicon glyphicon-ok"></span>
 										   </label>
 										   </div>
 										   <div class="btn-group button-group" data-toggle="buttons">
 											   <label class="btn btn-primary button-cls">
-											   <input type="checkbox" autocomplete="off" checked>Class 2
+											   <input type="checkbox" autocomplete="off" name="two">Two
 											   <span class="glyphicon glyphicon-ok"></span>
 										   </label>
 										   </div>
 										   <div class="btn-group button-group" data-toggle="buttons">
 											   <label class="btn btn-primary button-cls">
-											   <input type="checkbox" autocomplete="off" checked>Class 3
+											   <input type="checkbox" autocomplete="off" name="three">Three
 											   <span class="glyphicon glyphicon-ok"></span>
 										   </label>
 										   </div>
 										   <div class="btn-group button-group" data-toggle="buttons">
 											   <label class="btn btn-primary button-cls">
-											   <input type="checkbox" autocomplete="off" checked>Class 4
+											   <input type="checkbox" autocomplete="off" name="four">Four
 											   <span class="glyphicon glyphicon-ok"></span>
 										   </label>
 										   </div>
 										   <div class="btn-group button-group" data-toggle="buttons">
 											   <label class="btn btn-primary button-cls">
-											   <input type="checkbox" autocomplete="off" checked>Class 5
+											   <input type="checkbox" autocomplete="off" name="five">Five
 											   <span class="glyphicon glyphicon-ok"></span>
 										   </label>
 										   </div>
@@ -71,31 +98,31 @@
 									   <div class="col-md-6">
 										   <div class="btn-group button-group" data-toggle="buttons">
 											   <label class="btn btn-primary button-cls">
-											   <input type="checkbox" autocomplete="off" checked>Class 6
+											   <input type="checkbox" autocomplete="off" name="six">Six
 											   <span class="glyphicon glyphicon-ok"></span>
 										   </label>
 										   </div>
 										   <div class="btn-group button-group" data-toggle="buttons">
 											   <label class="btn btn-primary button-cls">
-											   <input type="checkbox" autocomplete="off" checked>Class 7
+											   <input type="checkbox" autocomplete="off" name="seven">Seven
 											   <span class="glyphicon glyphicon-ok"></span>
 										   </label>
 										   </div>
 										   <div class="btn-group button-group" data-toggle="buttons">
 											   <label class="btn btn-primary button-cls">
-											   <input type="checkbox" autocomplete="off" checked>Class 8
+											   <input type="checkbox" autocomplete="off" name="eight">Eight
 											   <span class="glyphicon glyphicon-ok"></span>
 										   </label>
 										   </div>
 										   <div class="btn-group button-group" data-toggle="buttons">
 											   <label class="btn btn-primary button-cls">
-											   <input type="checkbox" autocomplete="off" checked>Class 9
+											   <input type="checkbox" autocomplete="off" name="nine">Nine
 											   <span class="glyphicon glyphicon-ok"></span>
 										   </label>
 										   </div>
 										   <div class="btn-group button-group" data-toggle="buttons">
 											   <label class="btn btn-primary button-cls">
-											   <input type="checkbox" autocomplete="off" checked>Class 10
+											   <input type="checkbox" autocomplete="off" name="ten">Ten
 											   <span class="glyphicon glyphicon-ok"></span>
 										   </label>
 										   </div>
@@ -123,12 +150,11 @@
 										   <h4 class="modal-title">Do you want to Save?</h4>
 									   </div>
 									   <!-- <div class="modal-body">
-											   <p>Do you want to Save?</p>
-										   </div> -->
+										   <p>Do you want to Save?</p>
+									   </div> -->
 									   <div class="modal-footer">
-										   <a href="index.html" class="btn btn-info" role="button">Yes</a>
+										   <button type="submit"  class="btn btn-info">Yes</button>
 										   <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-
 									   </div>
 								   </div>
 								   <!-- Modal content-->
@@ -148,6 +174,3 @@
 		   <!--========= Content part End here =========-->
 </div>
 @endsection
-{
-
-}
