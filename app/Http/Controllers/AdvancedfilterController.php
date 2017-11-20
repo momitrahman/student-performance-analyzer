@@ -4,13 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class AdvancedfilterController extends Controller
 {
-	public function selectfilter()
+	public function selectOption()
 	{
-		$subject_list = DB::table("subject_class")->pluck("subject_name");
-		return view("admin.advancedFilterSelect", compact('subject_list'));
+		return view("admin.advancedFilterOption");
+	}
+
+	public function selectFilter(Request $request)
+	{
+		 $option = $request->input('option');
+		if($option === 'subject') {
+			$subject_list = DB::table("subject_class")->pluck("subject_name");
+			return view("admin.advancedFilterSelect", compact('subject_list'));
+		} else {
+			return view("admin.advancedFilterSelect");
+		}
 	}
 
 	public function filterFormSelect(Request $request)
@@ -36,6 +47,7 @@ class AdvancedfilterController extends Controller
 
 	public function showFilterResult(Request $request)
 	{
+		// return $request->all();
 		$subject = $request->input("subject");
 		$class = $request->input("class");
 		$year = $request->input("year");
@@ -54,6 +66,8 @@ class AdvancedfilterController extends Controller
 			$query .= "WHERE class='$class[1]' ";
 		} else if ($class[0] === "range"){
 			$query .= "WHERE (class BETWEEN '$class[1]' AND '$class[2])' ";
+		} else {
+			$query .= "WHERE class='$class[0]' ";
 		}
 
 		if ($year[0] === "single") {
@@ -97,8 +111,18 @@ class AdvancedfilterController extends Controller
 			$new_query = $query;
 		}
 
-		return $new_query;
-		$datas = DB::select($new_query);
-		return $datas;
+		 // return $new_query;
+		try {
+			$datas = DB::select($new_query);
+			if($subject === "all") {
+				$class = $class[0];
+				return view('admin.advancedFilterClassShow', compact('datas', 'class'));
+			} else {
+				return view('admin.advancedFilterSubjectShow', compact('datas', 'subject'));
+			}
+			return $datas;
+		} catch(QueryException $ex){
+			return redirect()->route('selectOption');
+		}
 	}
 }

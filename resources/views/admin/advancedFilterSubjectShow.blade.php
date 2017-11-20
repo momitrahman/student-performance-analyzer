@@ -17,7 +17,7 @@
 			   <!--full-Screen Button end -->
 
 			   <div class="panel panel-primary">
-				   <div class="panel-heading">View Mark</div>
+				   <div class="panel-heading">{{ 'Subject : ' . ucfirst($subject) }}</div>
 				   <div class="panel-body">
 					   <form>
 						   <div class="container panel-content">
@@ -38,21 +38,23 @@
 											   </tr>
 										   </thead>
 										   <tbody style="background:#fff">
-											   <tr>
-												   <td>2010-05-32-02</td>
-												   <td>Five</td>
-												   <td>2010</td>
-												   <td>2</td>
-												   <td>76%</td>
-												   <td>
-													    <a href="#" class="btn details-icon">Click Here <i class="fa fa-link" aria-hidden="true"></i>
-												   </td>
-											   </tr>
+											   @foreach ($datas as $data)
+												   <tr>
+													   <td>{{ $data->sid }}</td>
+													   <td>{{ $data->class }}</td>
+													   <td>{{ $data->year }}</td>
+													   <td>{{ $data->sem_slot }}</td>
+													   <td>{{ $data->avg_mark }}</td>
+													   <td>
+														   <a href="#" class="btn details-icon">Click Here <i class="fa fa-link" aria-hidden="true"></i>
+														   </td>
+													   </tr>
+											   @endforeach
 
 										   </tbody>
 									   </table>
 									   <div class="form-group">
-										   <a href="index.html" class="btn btn-success button" role="button">Ok<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i></a>
+										   <a href= class="btn btn-success button" role="button">Ok<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i></a>
 										   <!-- <a href="input-registration.html" class="btn button button-unique" role="button">Update</a> -->
 									   </div>
 								   </div>

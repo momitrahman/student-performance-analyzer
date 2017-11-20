@@ -49,7 +49,8 @@ Route::prefix('/admin')->group(function() {
 	});
 
 	Route::prefix('/filter')->group(function() {
-		Route::get('/', 'AdvancedfilterController@selectfilter')->name('selectfilter');
+		Route::get('/', 'AdvancedfilterController@selectOption')->name('selectOption');
+		Route::post('/next', 'AdvancedfilterController@selectFilter')->name('selectFilter');
 		Route::post('/Select', 'AdvancedfilterController@filterFormSelect')->name('filterFormSelect');
 		Route::post('/entry', 'AdvancedfilterController@entryFilter')->name('entryFilter');
 		Route::post('/show', 'AdvancedfilterController@showFilterResult')->name('showFilterResult');

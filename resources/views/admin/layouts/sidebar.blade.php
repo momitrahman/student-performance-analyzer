@@ -32,7 +32,7 @@
                  <li>
                      <div class="link"><i class="fa fa-filter"></i>Filter Student<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
-                         <li><a href="select-subject-or-class.html">Advanced Filter</a></li>
+                         <li><a href={{ route('selectOption')}}>Advanced Filter</a></li>
                      </ul>
                  </li>
              </ul>

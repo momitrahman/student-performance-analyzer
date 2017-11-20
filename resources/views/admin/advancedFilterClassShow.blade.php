@@ -17,7 +17,7 @@
 		   <!--full-Screen Button end -->
 
 		   <div class="panel panel-primary">
-			   <div class="panel-heading">View Mark</div>
+			   <div class="panel-heading">{{ 'Class : ' . $class }}</div>
 			   <div class="panel-body">
 				   <form>
 					   <div class="container panel-content">
@@ -38,17 +38,18 @@
 										   </tr>
 									   </thead>
 									   <tbody style="background:#fff">
-										   <tr>
-											   <td>2010-05-32-02</td>
-											   <td>2010</td>
-											   <td>10</td>
-											   <td>721</td>
-											   <td>76%</td>
-											   <td>
-												   <a href="#" class="btn details-icon">Click Here <i class="fa fa-link" aria-hidden="true"></i>
-</a>
-											   </td>
-										   </tr>
+										   @foreach ($datas as $data)
+  											 <tr>
+  												 <td>{{ $data->sid }}</td>
+  												 <td>{{ $data->year }}</td>
+  												 <td>{{ $data->total_subject }}</td>
+  												 <td>{{ $data->total_mark }}</td>
+  												 <td>{{ $data->avg_mark }}</td>
+  												 <td>
+  													 <a href="#" class="btn details-icon">Click Here <i class="fa fa-link" aria-hidden="true"></i>
+  													 </td>
+  												 </tr>
+  										 @endforeach
 									   </tbody>
 								   </table>
 								   <div class="form-group">
@@ -79,6 +80,3 @@
 <!--========= Content part End here =========-->
 </div>
 @endsection
-{
-
-}
