@@ -41,7 +41,7 @@
 
 		<!--Custom JS  -->
 		<script type="text/javascript " src="/js/script.js "></script>
-	@sow
+	@show
 </div>
 </body>
 </html>

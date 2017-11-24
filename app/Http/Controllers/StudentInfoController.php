@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -12,16 +11,16 @@ class StudentInfoController extends Controller
 	{
 		// Student Unique ID Generate
 		$sid = $request->input('year') . $request->input('class') .
-				$request->input('roll') . $request->input('section');
+			$request->input('roll') . $request->input('section');
 
-		if($sid === '') {
+		if ($sid === '') {
 			// student basic info input page
 			return view('admin.studentInfoIdEntry');
 
 		} else {
 
 			// Merge value of Student ID into $request
-			$request->merge([ 'sid' => $sid]);
+			$request->merge(['sid' => $sid]);
 
 			// Validation
 			$validatedData = $request->validate([
@@ -37,8 +36,11 @@ class StudentInfoController extends Controller
 		}
 	}
 
-	public function studentInfoOther()
+	public function studentInfoOther(Request $request)
 	{
+		if (empty(old('sid'))) {
+			return redirect()->route('studentInfoIdGenerator');
+		}
 		// student others info input page
 		return view('admin.studentInfoOtherEntry');
 	}
@@ -56,7 +58,7 @@ class StudentInfoController extends Controller
 		]);
 
 		$guardian_name_other = $request->input('guardian_name_other');
-		if($guardian_name_other == ''){
+		if ($guardian_name_other == '') {
 			$guardian_name = $request->input('guardian_name');
 		} else {
 			$guardian_name = $guardian_name_other;
@@ -79,26 +81,30 @@ class StudentInfoController extends Controller
 					'nid_number' => $request->input('nid_number'),
 				]
 			);
-		} catch(QueryException $ex){
+		} catch (QueryException $ex) {
 			return redirect()->route('studentInfoIdGenerator');
 		}
 		$sid = $request->input('sid');
-		return redirect()->route('studentInfoSubmitView',[$sid]);
+		return redirect()->route('studentInfoSubmitView', [$sid]);
 	}
 
-	public function studentInfoSubmitView($sid) {
-		$sid_infos = DB::table('student_info')->where('sid', $sid)->get();
-		return view('admin.studentInfoShow',compact('sid_infos'));
+	public function studentInfoSubmitView($sid = null)
+	{
+		if (!empty($sid)) {
+			$sid_infos = DB::table('student_info')->where('sid', $sid)->get();
+			return view('admin.studentInfoShow', compact('sid_infos'));
+		}
+		return view('admin.studentSearch');
 	}
 	public function studentSearch(Request $request)
 	{
 		// find info throug student id
-		if($request->filled('sid')){
-			$sid =  $request->input('sid');
+		if ($request->filled('sid')) {
+			$sid = $request->input('sid');
 			$sid_infos = DB::table('student_info')->where('sid', $sid)->get();
 
 			// sutdent id not found
-			if(empty(json_decode($sid_infos, true))){
+			if (empty(json_decode($sid_infos, true))) {
 				return view('admin.studentSearch')->with('noid', 'Student ID not found.');
 			}
 

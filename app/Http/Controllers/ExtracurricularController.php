@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -14,18 +13,21 @@ class ExtracurricularController extends Controller
 
 	public function extracurricularStore(Request $request)
 	{
+		if ($request->has('title')) {
 		// Validation
-		$validatedData = $request->validate([
-			'title' => 'required|unique:extracurricular,title',
-		]);
+			$validatedData = $request->validate([
+				'title' => 'required|unique:extracurricular,title',
+			]);
 
 		// insert values
-		DB::table('extracurricular')->insertGetID(
-			[
-				'title' => $request->input('title'),
-				'type' =>  $request->input('type'),
-			]
-		);
+			DB::table('extracurricular')->insertGetID(
+				[
+					'title' => strtolower($request->input('title')),
+					'type' => strtolower($request->input('type'))
+				]
+			);
+			return redirect()->route('addExtracurricular');
+		}
 		return redirect()->route('addExtracurricular');
 	}
 }
