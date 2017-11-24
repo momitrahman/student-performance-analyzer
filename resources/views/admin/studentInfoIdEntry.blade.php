@@ -7,7 +7,7 @@
 	<!--========= Content part Start here =========-->
 		   <div class="content">
 			   <!--warning message  -->
-			   @if ($errors->any())
+			   @if ($errors->has('roll') || $errors->has('sid'))
 				   <div class="alert alert-warning">
 					<ul>
 					@foreach ($errors->all() as  $error)
