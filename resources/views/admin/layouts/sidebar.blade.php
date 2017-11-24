@@ -23,18 +23,27 @@
                      </ul>
                  </li>
                  <li>
-                     <div class="link"><i class="fa fa-globe"></i>Other's<i class="fa fa-chevron-down"></i></div>
+                     <div class="link"><i class="fa fa-globe"></i>Subject<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
                          <li><a href={{ route('addSubject') }}>New Subject Entry</a></li>
+                         <!-- <li><a href={{ route('addExtracurricular') }}>New Extra Curricular Entry</a></li> -->
+                     </ul>
+                 </li>
+                 <li>
+                     <div class="link"><i class="fa fa-globe"></i>Extra Curricular Activities<i class="fa fa-chevron-down"></i></div>
+                     <ul class="submenu">
+                         <!-- <li><a href={{ route('addSubject') }}>New Subject Entry</a></li> -->
                          <li><a href={{ route('addExtracurricular') }}>New Extra Curricular Entry</a></li>
                      </ul>
                  </li>
+
                  <li>
                      <div class="link"><i class="fa fa-filter"></i>Filter Student<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
                          <li><a href={{ route('selectOption')}}>Advanced Filter</a></li>
                      </ul>
                  </li>
+
              </ul>
              <!-- /.accordion  -->
          </section>
