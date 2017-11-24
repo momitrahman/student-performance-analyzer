@@ -58,5 +58,9 @@ Route::prefix('/admin')->group(function () {
 });
 
 Route::get('/test', function () {
+<<<<<<< HEAD
 	return view('admin.subjectList');
+=======
+	return view('admin.extracurricularList');
+>>>>>>> feature
 });
