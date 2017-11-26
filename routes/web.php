@@ -62,5 +62,7 @@ Route::prefix('/admin')->group(function () {
 });
 
 Route::get('/test', function () {
-	return view('admin.extracurricularList');
+
+	return view('admin.subjectList');
+	
 });
