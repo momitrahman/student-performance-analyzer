@@ -15,7 +15,7 @@
 								{{ csrf_field() }}
 
 								@if (!empty($subject))
-								<input type="hidden" name="subject" value={{ $subject }}>
+								<input type="hidden" name="subject" value="{{ $subject }}">
 							   	<div class="row">
 								   <div class="col-md-12">
 									   <div class="form-group">
@@ -29,7 +29,7 @@
 								   </div>
 							   </div>
 						   		@else
-									<input type="hidden" name="class" value= {{ $class }}>
+									<input type="hidden" name="class" value="{{ $class }}">
 								@endif
 
 							   <div class="row">

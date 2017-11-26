@@ -39,7 +39,7 @@
 								   <div class="col-md-12">
 									   <div class="form-group">
 										   <label>Subject Name</label>
-										   <input type="text" class="form-control" name="subject_name" value={{ old('subject_name')}}>
+										   <input type="text" class="form-control" name="subject_name" value="{{ old('subject_name') }}">
 									   </div>
 								   </div>
 							   </div>
@@ -48,7 +48,7 @@
     								   <div class="col-md-12">
     									   <div class="form-group">
     										   <label>Subject Name</label>
-    										   <input type="text" class="form-control" name="subject_name" value= {{ $subject_name }}>
+    										   <input type="text" class="form-control" name="subject_name" value= "{{ $subject_name }}">
     									   </div>
     								   </div>
     							   </div>

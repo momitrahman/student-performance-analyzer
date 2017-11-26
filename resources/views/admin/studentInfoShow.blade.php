@@ -27,62 +27,62 @@
 										   <div class="info-row flex-first-row">
 											   <label for="">Student ID</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->sid) }}</strong>
+											   <strong>{{ ucwords($sid_info->sid) }}</strong>
 										   </div>
 										   <div class="info-row flex-second-row ">
 											   <label for="">Name</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->name) }}</strong>
+											   <strong>{{ ucwords($sid_info->name) }}</strong>
 										   </div>
 										   <div class="info-row flex-second-row ">
 											   <label for="">Year</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->year) }}</strong>
+											   <strong>{{ ucwords($sid_info->year) }}</strong>
 										   </div>
 										   <div class="info-row flex-second-row ">
 											   <label for="">Class</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->class) }}</strong>
+											   <strong>{{ ucwords($sid_info->class) }}</strong>
 										   </div>
 										   <div class="info-row flex-second-row ">
 										   		<label for="">Roll</label>
 										   		<span>:</span>
-										   		<strong>{{ ucfirst($sid_info->roll) }}</strong>
+										   		<strong>{{ ucwords($sid_info->roll) }}</strong>
 									   		</div>
 										   <div class="info-row flex-second-row ">
 											   <label for="">Section</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->section) }}</strong>
+											   <strong>{{ ucwords($sid_info->section) }}</strong>
 										   </div>
 										   <div class="info-row flex-second-row ">
 											   <label for="">Student Birth Certificate No.</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->birth_number) }}</strong>
+											   <strong>{{ ucwords($sid_info->birth_number) }}</strong>
 										   </div>
 										   <div class="info-row flex-first-row">
 											   <label for="">Father's Name</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->father_name) }}</strong>
+											   <strong>{{ ucwords($sid_info->father_name) }}</strong>
 										   </div>
 										   <div class="info-row flex-second-row ">
 											   <label for="">Mother's Name</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->mother_name) }}</strong>
+											   <strong>{{ ucwords($sid_info->mother_name) }}</strong>
 										   </div>
 										   <div class="info-row flex-first-row">
 											   <label for="">Local Guardian Name</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->guardian_name) }}</strong>
+											   <strong>{{ ucwords($sid_info->guardian_name) }}</strong>
 										   </div>
 										   <div class="info-row flex-first-row">
 											   <label for="">Student Guardian NID Holder</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->nid_holder) }}</strong>
+											   <strong>{{ ucwords($sid_info->nid_holder) }}</strong>
 										   </div>
 										   <div class="info-row flex-first-row">
 											   <label for="">Student Guardian NID No.</label>
 											   <span>:</span>
-											   <strong>{{ ucfirst($sid_info->nid_number) }}</strong>
+											   <strong>{{ ucwords($sid_info->nid_number) }}</strong>
 										   </div>
 
 									   </div>

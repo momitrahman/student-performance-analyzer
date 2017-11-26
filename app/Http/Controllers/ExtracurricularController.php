@@ -33,7 +33,7 @@ class ExtracurricularController extends Controller
 
 	public function extracurricularShow()
 	{
-		$extracurricular_list = DB::table('extracurricular')->get();
+		$extracurricular_list = DB::table('extracurricular')->orderBy('title')->get();
 		return view('admin.extracurricularList', compact('extracurricular_list'));
 	}
 }

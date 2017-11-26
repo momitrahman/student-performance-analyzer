@@ -10,7 +10,7 @@
 	<div class="card card-light text-center">
 		<div class="card-body">
 			<label for="">Studen ID: <strong>{{ $sid }}</strong></label>&nbsp;&nbsp;
-			<label for="">Name: <strong>{{ ucfirst($name) }}</strong></label>
+			<label for="">Name: <strong>{{ ucwords($name) }}</strong></label>
 		</div>
 	</div>
 	<!--Info Panel  -->
@@ -34,7 +34,7 @@
 				<form action={{ route('selectSubject') }} method="post">
 					{{ csrf_field() }}
 					<input type="hidden" name="sid" value={{ $sid }}>
-					<input type="hidden" name="name" value={{ $name }}>
+					<input type="hidden" name="name" value="{{ $name }}">
 					<div class="form-group">
 						<label>Class</label>
 						<select class="form-control" id="class" name="class">

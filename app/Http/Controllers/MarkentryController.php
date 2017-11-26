@@ -53,7 +53,7 @@ class MarkentryController extends Controller
 	}
 
 	public function subjectMarkEntry(Request $request)
-	{
+	{	
 		if ($request->has(['sid', 'name', 'class', 'year', 'semester_slot'])) {
 			$sid = $request->input('sid');
 			$name = $request->input('name');
@@ -61,7 +61,7 @@ class MarkentryController extends Controller
 			$year = $request->input('year');
 			$semester_slot = $request->input('semester_slot');
 			$subject_list = $request->input('subject_list');
-
+			
 			return view('admin.markEntryForm', compact('subject_list', 'sid', 'name', 'class', 'year', 'semester_slot'));
 		}
 		return redirect()->route('checkStudentIdMark');

@@ -112,7 +112,7 @@ class SubjectController extends Controller
 
 	public function subjectShow()
 	{
-		$subject_list = DB::table('subject_class')->get();
+		$subject_list = DB::table('subject_class')->orderBy('subject_name')->get();
 		return view('admin.subjectList', compact('subject_list'));
 	}
 }

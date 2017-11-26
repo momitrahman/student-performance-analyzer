@@ -10,9 +10,9 @@
    <div class="card card-light text-center">
 	 <div class="card-body">
 		 <label for="">Studen ID: <strong>{{ $sid }}</strong></label>
-		 <label for=""> | Name: <strong>{{ ucfirst($name) }}</strong></label>
-		 <label for=""> | Class: <strong>{{ ucfirst($class) }}</strong></label>
-		 <label for=""> | Year: <strong>{{ ucfirst($year) }}</strong></label>
+		 <label for=""> | Name: <strong>{{ ucwords($name) }}</strong></label>
+		 <label for=""> | Class: <strong>{{ ucwords($class) }}</strong></label>
+		 <label for=""> | Year: <strong>{{ ucwords($year) }}</strong></label>
 	 </div>
    </div>
    <!--Info Panel  -->
@@ -27,7 +27,7 @@
 			  <form action={{ route('storeExtraEntry') }} method="post">
 				  {{ csrf_field() }}
 				  <input type="hidden" name="sid" value={{ $sid }}>
-				  <input type="hidden" name="class" value={{ $class  }}>
+				  <input type="hidden" name="class" value="{{ $class  }}">
 				  <input type="hidden" name="year" value={{ $year }}>
 
 				   <div class="container panel-content">
@@ -53,7 +53,7 @@
 									   	<tr>
 										   <td>Indoor</td>
 										   <td>{{ $name }}</td>
-										   <input type="hidden" name="indoor_list[]" value={{ $name }}>
+										   <input type="hidden" name="indoor_list[]" value="{{ $name }}">
 										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.."></td>
 										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  Reward.."></td>
 									   	</tr>
@@ -65,7 +65,7 @@
 									   	<tr>
 										   <td>Indoor</td>
 										   <td>{{ $name }}</td>
-										   <input type="hidden" name="outdoor_list[]" value={{ $name }}>
+										   <input type="hidden" name="outdoor_list[]" value="{{ $name }}">
 										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.."></td>
 										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  Reward.."></td>
 									   	</tr>
@@ -116,8 +116,8 @@
 					  {{ csrf_field() }}
 					  <div class="form-group">
 						  <input type="hidden" name="sid" value={{ $sid }}>
-							 <input type="hidden" name="name" value={{ $name }}>
-							 <input type="hidden" name="class" value={{ $class  }}>
+							 <input type="hidden" name="name" value="{{ $name }}">
+							 <input type="hidden" name="class" value="{{ $class  }}">
 							 <input type="hidden" name="year" value={{ $year }}>
 						  <button type="submit" class="btn button button-green ">Back<i class="fa fa-backward back-icon" aria-hidden="true"></i></button>
 					  </div>
