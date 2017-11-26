@@ -109,4 +109,10 @@ class SubjectController extends Controller
 		}
 		return redirect()->route('addSubject');
 	}
+
+	public function subjectShow()
+	{
+		$subject_list = DB::table('subject_class')->get();
+		return view('admin.subjectList', compact('subject_list'));
+	}
 }

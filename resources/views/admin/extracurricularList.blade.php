@@ -29,14 +29,14 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody style="background:#fff">
-                                                    <tr>
-                                                        <td>Football</td>
-                                                        <td>Outdoor</td>
+                                                    @foreach($extracurricular_list as $extracurricular)
+
+													<tr>
+                                                        <td>{{ ucfirst($extracurricular->title) }}</td>
+                                                        <td>{{ ucfirst($extracurricular->type) }}</td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>Debate</td>
-                                                        <td>Indoor</td>
-                                                    </tr>
+
+													@endforeach
 
                                                 </tbody>
                                             </table>
@@ -46,10 +46,6 @@
                                     </div>
                                     <!--/.row  -->
 
-                                    <div class="form-group">
-                                        <a href="index.html" class="btn btn-success button" role="button">Ok<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i></a>
-                                        <!-- <a href="input-registration.html" class="btn button button-unique" role="button">Update</a> -->
-                                    </div>
                                 </div>
                                 <!--/.container  -->
 

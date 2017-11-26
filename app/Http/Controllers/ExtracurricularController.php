@@ -30,4 +30,10 @@ class ExtracurricularController extends Controller
 		}
 		return redirect()->route('addExtracurricular');
 	}
+
+	public function extracurricularShow()
+	{
+		$extracurricular_list = DB::table('extracurricular')->get();
+		return view('admin.extracurricularList', compact('extracurricular_list'));
+	}
 }

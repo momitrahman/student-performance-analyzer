@@ -39,37 +39,73 @@
                                                    </tr>
                                                </thead>
                                                <tbody style="background:#fff">
+											   @foreach($subject_list as $subject)
                                                    <tr>
-                                                       <td>Bangla</td>
-                                                       <td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
+                                                       <td>{{ ucfirst($subject->subject_name) }}</td>
 
-
-                                                       <td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
+													   @if($subject->one === 1)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>														   
+													   @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>														
+													   @endif
+                                                       
+													   @if($subject->two === 1)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>														   
+													   @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>														
+													   @endif
+                                                       
+													   @if($subject->three === 1)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>														   
+													   @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>														
+													   @endif
+                                                       
+													   @if($subject->four === 1)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>														   
+													   @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>														
+													   @endif
+                                                       
+													   @if($subject->five === 1)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>														   
+													   @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>														
+													   @endif
+                                                       
+													   @if($subject->six === 1)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>														   
+													   @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>														
+													   @endif
+                                                       
+													   @if($subject->seven === 1)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>														   
+													   @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>														
+													   @endif
+                                                       
+													   @if($subject->eight === 1)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>														   
+													   @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>														
+													   @endif
+                                                       
+													   @if($subject->nine === 1)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>														   
+													   @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>														
+													   @endif
+                                                       
+													   @if($subject->ten === 1)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>														   
+													   @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>														
+													   @endif
+                                                       
 
                                                    </tr>
-                                                   <tr>
-                                                       <td>English</td>
-                                                       <td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
-
-
-                                                       <td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
-                                                       <td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
-                                                   </tr>
+											   @endforeach
 
                                                </tbody>
                                            </table>
@@ -79,10 +115,6 @@
                                    </div>
                                    <!--/.row  -->
 
-                                   <div class="form-group">
-                                       <a href="index.html" class="btn btn-success button" role="button">Ok<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i></a>
-                                       <!-- <a href="input-registration.html" class="btn button button-unique" role="button">Update</a> -->
-                                   </div>
                                </div>
                                <!--/.container  -->
 
