@@ -28,6 +28,29 @@
 
 
                                     <div class="table-responsive col-md-12 ">
+										   <thead>
+											   <tr class="bg-info ">
+												   <th class="text-center">Student ID</th>
+												   <th class="text-center">Class</th>
+												   <th class="text-center">Year</th>
+												   <th class="text-center">Semester Slot</th>
+												   <th class="text-center">Average Mark</th>
+												   <th class="text-center">Details</th>
+											   </tr>
+										   </thead>
+										   <tbody style="background:#fff">
+											   @foreach ($datas as $data)
+												   <tr>
+													   <td>{{ $data->sid }}</td>
+													   <td>{{ ucwords($data->class) }}</td>
+													   <td>{{ $data->year }}</td>
+													   <td>{{ $data->sem_slot }}</td>
+													   <td>{{ $data->avg_mark }}</td>
+													   <td>
+														   <a href="#" class="btn details-icon">Click Here <i class="fa fa-link" aria-hidden="true"></i>
+														   </td>
+													   </tr>
+											   @endforeach
 
                                         <table id="sort2" class=" table table-bordered table-striped  table-hover text-center">
 

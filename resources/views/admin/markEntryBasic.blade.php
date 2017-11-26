@@ -9,7 +9,7 @@
 	<!--Info Panel  -->
 	<div class="card card-light text-center">
 		<div class="card-body">
-			<label for="">Studen ID: <strong>{{ $sid }}</strong></label>&nbsp;&nbsp;
+			<label for="">Student ID: <strong>{{ $sid }}</strong></label>&nbsp;&nbsp;
 			<label for="">Name: <strong>{{ ucwords($name) }}</strong></label>
 		</div>
 	</div>

@@ -34,7 +34,7 @@
 											   <span>:</span>
 											   <strong>{{ ucwords($sid_info->name) }}</strong>
 										   </div>
-										   <div class="info-row flex-second-row ">
+										   {{--  <div class="info-row flex-second-row ">
 											   <label for="">Year</label>
 											   <span>:</span>
 											   <strong>{{ ucwords($sid_info->year) }}</strong>
@@ -53,7 +53,7 @@
 											   <label for="">Section</label>
 											   <span>:</span>
 											   <strong>{{ ucwords($sid_info->section) }}</strong>
-										   </div>
+										   </div>  --}}
 										   <div class="info-row flex-second-row ">
 											   <label for="">Student Birth Certificate No.</label>
 											   <span>:</span>

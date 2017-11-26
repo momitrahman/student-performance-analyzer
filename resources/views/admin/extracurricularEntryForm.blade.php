@@ -9,7 +9,7 @@
    <!--Info Panel  -->
    <div class="card card-light text-center">
 	 <div class="card-body">
-		 <label for="">Studen ID: <strong>{{ $sid }}</strong></label>
+		 <label for="">Student ID: <strong>{{ $sid }}</strong></label>
 		 <label for=""> | Name: <strong>{{ ucwords($name) }}</strong></label>
 		 <label for=""> | Class: <strong>{{ ucwords($class) }}</strong></label>
 		 <label for=""> | Year: <strong>{{ ucwords($year) }}</strong></label>

@@ -79,7 +79,7 @@ class AdvancedfilterController extends Controller
 			$query .= "WHERE class='$class[1]' ";
 		} else if ($class[0] === "range") {
 			$query .= "WHERE (class BETWEEN '$class[1]' AND '$class[2])' ";
-		} else {
+		} else if($subject === "all"){
 			$query .= "WHERE class='$class[0]' ";
 		}
 
@@ -124,7 +124,7 @@ class AdvancedfilterController extends Controller
 			$new_query = $query;
 		}
 
-		 // return $new_query;
+		//  return $new_query;
 		try {
 			$datas = DB::select($new_query);
 			if ($subject === "all") {

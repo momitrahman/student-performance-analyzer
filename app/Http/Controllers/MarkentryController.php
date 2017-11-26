@@ -105,7 +105,7 @@ class MarkentryController extends Controller
 						'sem_1' => $sem_mark[0],
 						'sem_2' => $sem_mark[1],
 						'sem_3' => $sem_mark[2],
-						'avg_mark' => $subject_avg_mark,
+						'avg_mark' => ceil( $subject_avg_mark),
 					]
 				);
 
@@ -126,7 +126,7 @@ class MarkentryController extends Controller
 					'year' => $year,
 					'total_subject' => $total_subject,
 					'total_mark' => $class_total_mark,
-					'avg_mark' => $class_avg_mark,
+					'avg_mark' => ceil($class_avg_mark),
 				]
 			);
 

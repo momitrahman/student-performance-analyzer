@@ -50,6 +50,7 @@
 						   	@endif
 
 							   <!-- Trigger the modal with a button -->
+								<a href={{ route('selectOption') }} class="btn button button-green" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a>
 							   <button type="submit" class="btn btn-success button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
 
 						   </form>
