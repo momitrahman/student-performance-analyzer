@@ -42,10 +42,14 @@ Route::prefix('/admin')->group(function () {
 	});
 
 	Route::prefix('/other')->group(function () {
+		// For Subject
 		Route::get('/addsubject', 'SubjectController@addSubject')->name('addSubject');
 		Route::match(['get', 'post'], '/subjectstore', 'SubjectController@subjectStore')->name('subjectStore');
+		Route::get('/subjectlist', 'SubjectController@subjectShow')->name('subjectShow');
+		// For Extraccurricular
 		Route::get('/addextracurricular', 'ExtracurricularController@addExtracurricular')->name('addExtracurricular');
 		Route::match(['get', 'post'], '/extracurricularstore', 'ExtracurricularController@extracurricularStore')->name('extracurricularStore');
+		Route::get('/extracurricularlist', 'ExtracurricularController@extracurricularShow')->name('extracurricularShow');
 	});
 
 	Route::prefix('/filter')->group(function () {
