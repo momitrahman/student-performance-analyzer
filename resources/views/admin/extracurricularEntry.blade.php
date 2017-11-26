@@ -30,7 +30,7 @@
 							   <div class="row">
 								   <div class="form-group">
 									   <label>Game Name</label>
-									   <input type="text" class="form-control" name="title" value={{ old('title') }} >
+									   <input type="text" class="form-control" name="title" value="{{ old("title") }}" >
 								   </div>
 							   </div>
 							   <div class="row">

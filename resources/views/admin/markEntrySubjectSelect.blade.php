@@ -10,10 +10,10 @@
 			  <div class="card card-light text-center">
 				  <div class="card-body">
 					  <label for="">Studen ID: <strong>{{ $sid }}</strong></label>
-					  <label for=""> | Name: <strong>{{ ucfirst($name) }}</strong></label>
-					  <label for=""> | Class: <strong>{{ ucfirst($class) }}</strong></label>
-					  <label for=""> | Year: <strong>{{ ucfirst($year) }}</strong></label>
-					  <label for=""> | Semester Slot: <strong>{{ ucfirst($semester_slot) }}</strong></label>
+					  <label for=""> | Name: <strong>{{ ucwords($name) }}</strong></label>
+					  <label for=""> | Class: <strong>{{ ucwords($class) }}</strong></label>
+					  <label for=""> | Year: <strong>{{ ucwords($year) }}</strong></label>
+					  <label for=""> | Semester Slot: <strong>{{ ucwords($semester_slot) }}</strong></label>
 				  </div>
 			  </div>
 			  <!--Info Panel  -->
@@ -37,8 +37,8 @@
 								 {{ csrf_field() }}
 
 							   <input type="hidden" name="sid" value={{ $sid }}>
-							   <input type="hidden" name="name" value={{ $name }}>
-							   <input type="hidden" name="class" value={{ $class  }}>
+							   <input type="hidden" name="name" value="{{ $name }}">
+							   <input type="hidden" name="class" value="{{ $class  }}">
 							   <input type="hidden" name="year" value={{ $year }}>
 							   <input type="hidden" name="semester_slot" value={{ $semester_slot }}>
 
@@ -55,9 +55,9 @@
 												  <div data-toggle="buttons" class="btn-group bizmoduleselect">
 													  <label class="btn btn-default">
 														  <div class="bizcontent">
-															  <input type="checkbox" name="subject_list[]" autocomplete="off" value={{ $subject }}>
+															  <input type="checkbox" name="subject_list[]" autocomplete="off" value="{{ $subject }}">
 															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h5>{{ ucfirst($subject) }}</h5>
+															  <h5>{{ ucwords($subject) }}</h5>
 														  </div>
 													  </label>
 												  </div>
@@ -80,7 +80,7 @@
 							  {{ csrf_field() }}
 							  <div class="form-group">
 								  <input type="hidden" name="sid" value={{ $sid }}>
-								 <input type="hidden" name="name" value={{ $name }}>
+								 <input type="hidden" name="name" value="{{ $name }}">
 								  <button type="submit" class="btn button button-green ">Back<i class="fa fa-backward back-icon" aria-hidden="true"></i></button>
 							  </div>
 						  </form>

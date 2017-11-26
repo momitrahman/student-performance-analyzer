@@ -37,7 +37,7 @@
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="name">Full Name</label>
-										   <input type="text" class="form-control" id="name" name="name" placeholder="Student Full Name" value={{ old('name') }}>
+										   <input type="text" class="form-control" id="name" name="name" placeholder="Student Full Name" value="{{ old('name') }}">
 									   </div>
 								   </div>
 								   <div class="col-md-6">
@@ -52,13 +52,13 @@
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="fName">Father's Name</label>
-										   <input type="text" class="form-control" id="fName" name="father_name" placeholder="Student Father's Name" value={{ old('father_name') }}>
+										   <input type="text" class="form-control" id="fName" name="father_name" placeholder="Student Father's Name" value="{{ old('father_name') }}">
 									   </div>
 								   </div>
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="mName">Mother's Name</label>
-										   <input type="text" class="form-control" id="mName" name="mother_name" placeholder="Student Mother's Name" value={{ old('mother_name') }}>
+										   <input type="text" class="form-control" id="mName" name="mother_name" placeholder="Student Mother's Name" value="{{ old('mother_name') }}">
 									   </div>
 								   </div>
 							   </div>
@@ -91,7 +91,7 @@
 								   <div class="col-md-6">
 									   <div class="form-group" id="inputname" style="display: none">
 										   <label for="oName"></label>
-										   <input type="text" class="form-control" id="oName" name="guardian_name_other" placeholder="Local Guardian's Full Name" value={{ old('guardian_name_other') }}>
+										   <input type="text" class="form-control" id="oName" name="guardian_name_other" placeholder="Local Guardian's Full Name" value="{{ old('guardian_name_other') }}">
 									   </div>
 								   </div>
 								   <div class="col-md-6">

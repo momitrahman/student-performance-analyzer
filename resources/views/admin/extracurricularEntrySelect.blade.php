@@ -10,9 +10,9 @@
 	<div class="card card-light text-center">
   	  <div class="card-body">
   		  <label for="">Studen ID: <strong>{{ $sid }}</strong></label>
-  		  <label for=""> | Name: <strong>{{ ucfirst($name) }}</strong></label>
-  		  <label for=""> | Class: <strong>{{ ucfirst($class) }}</strong></label>
-  		  <label for=""> | Year: <strong>{{ ucfirst($year) }}</strong></label>
+  		  <label for=""> | Name: <strong>{{ ucwords($name) }}</strong></label>
+  		  <label for=""> | Class: <strong>{{ ucwords($class) }}</strong></label>
+  		  <label for=""> | Year: <strong>{{ ucwords($year) }}</strong></label>
   	  </div>
     </div>
     <!--Info Panel  -->
@@ -34,8 +34,8 @@
 						{{ csrf_field() }}
 
 						<input type="hidden" name="sid" value={{ $sid }}>
-						<input type="hidden" name="name" value={{ $name }}>
-						<input type="hidden" name="class" value={{ $class  }}>
+						<input type="hidden" name="name" value="{{ $name }}">
+						<input type="hidden" name="class" value="{{ $class  }}">
 						<input type="hidden" name="year" value={{ $year }}>
                     <!--========= Indoor Game Start here =========-->
                     <div class="row subject-section">
@@ -55,7 +55,7 @@
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
                                             <label class="btn btn-default">
                                                 <div class="bizcontent">
-                                                    <input type="checkbox" name="indoor_list[]" autocomplete="off" value={{ $extra->title  }}>
+                                                    <input type="checkbox" name="indoor_list[]" autocomplete="off" value="{{ $extra->title  }}">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
                                                     <h5>{{ $extra->title  }}</h5>
                                                 </div>
@@ -93,7 +93,7 @@
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
                                             <label class="btn btn-default">
                                                 <div class="bizcontent">
-                                                    <input type="checkbox" name="outdoor_list[]" autocomplete="off" value={{ $extra->title  }}>
+                                                    <input type="checkbox" name="outdoor_list[]" autocomplete="off" value="{{ $extra->title  }}">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
                                                     <h5>{{ $extra->title  }}</h5>
                                                 </div>
@@ -122,7 +122,7 @@
 						{{ csrf_field() }}
 						<div class="form-group">
 							<input type="hidden" name="sid" value={{ $sid }}>
-						   	<input type="hidden" name="name" value={{ $name }}>
+						   	<input type="hidden" name="name" value="{{ $name }}">
 							<button type="submit" class="btn button button-green ">Back<i class="fa fa-backward back-icon" aria-hidden="true"></i></button>
 						</div>
 					</form>

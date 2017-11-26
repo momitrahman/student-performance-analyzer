@@ -32,8 +32,8 @@
                                                     @foreach($extracurricular_list as $extracurricular)
 
 													<tr>
-                                                        <td>{{ ucfirst($extracurricular->title) }}</td>
-                                                        <td>{{ ucfirst($extracurricular->type) }}</td>
+                                                        <td>{{ ucwords($extracurricular->title) }}</td>
+                                                        <td>{{ ucwords($extracurricular->type) }}</td>
                                                     </tr>
 
 													@endforeach

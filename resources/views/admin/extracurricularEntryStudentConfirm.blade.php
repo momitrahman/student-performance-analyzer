@@ -17,28 +17,28 @@
 							   {{ csrf_field() }}
 
 							   <input type="hidden" name="sid" value={{ $sid }}>
-							   <input type="hidden" name="name" value={{ $sid_info->name }}>
+							   <input type="hidden" name="name" value="{{ $sid_info->name }}">
 							   <div class="flex-container">
 								   <div class="info-content">
 									   <div class="info-row flex-first-row">
 										   <label for="">Student ID</label>
 										   <span>:</span>
-										   <strong>{{ ucfirst($sid_info->sid) }}</strong>
+										   <strong>{{ ucwords($sid_info->sid) }}</strong>
 									   </div>
 									   <div class="info-row flex-second-row ">
  										  <label for="">Name</label>
  										  <span>:</span>
- 										  <strong>{{ ucfirst($sid_info->name) }}</strong>
+ 										  <strong>{{ ucwords($sid_info->name) }}</strong>
  									  </div>
 									  <div class="info-row flex-first-row">
 										  <label for="">Father's Name</label>
 										  <span>:</span>
-										  <strong>{{ ucfirst($sid_info->father_name) }}</strong>
+										  <strong>{{ ucwords($sid_info->father_name) }}</strong>
 									  </div>
 									  <div class="info-row flex-second-row ">
  										 <label for="">Mother's Name</label>
  										 <span>:</span>
- 										 <strong>{{ ucfirst($sid_info->mother_name) }}</strong>
+ 										 <strong>{{ ucwords($sid_info->mother_name) }}</strong>
  									 </div>
 								   </div>
 								   <!--/.info-content  -->

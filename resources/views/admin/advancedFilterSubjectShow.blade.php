@@ -18,12 +18,14 @@
                 </div>
                 <!--full-Screen Button end -->
 
+
                 <div class="panel panel-primary">
-                    <div class="panel-heading">{{ 'Subject : ' . ucfirst($subject) }}</div>
+                    <div class="panel-heading">{{ 'Subject : ' . ucwords($subject) }}</div>
                     <div class="panel-body">
                         <form>
                             <div class="container panel-content">
                                 <div class="row ">
+
 
                                     <div class="table-responsive col-md-12 ">
 

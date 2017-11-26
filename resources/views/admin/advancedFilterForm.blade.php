@@ -1,4 +1,6 @@
-@extends('master') @section('content') @include('admin.layouts.sidebar')
+@extends('master') 
+@section('content') 
+@include('admin.layouts.sidebar')
 <!--page-content  -->
 <div id="page-content">
     @include('admin.layouts.header')
@@ -25,7 +27,7 @@
                         {{ csrf_field() }}
                         <div class="row">
                             @if (!empty($subject))
-                            <input type="hidden" name="subject" value={{ $subject }}>
+                            <input type="hidden" name="subject" value="{{ $subject }}">
                             <div class="col-md-12">
                                 <div class="col-md-2">
                                     <label for="class">Class</label>
@@ -100,7 +102,8 @@
 
                             @else
                             <input type="hidden" name="subject" value="all">
-                            <input type="hidden" name="class[]" value={ { $class }}> @endif
+                            <input type="hidden" name="class[]" value="{{ $class }}"> 
+							@endif
 
                             <div class="col-md-12">
                                 <div class="col-md-2">
