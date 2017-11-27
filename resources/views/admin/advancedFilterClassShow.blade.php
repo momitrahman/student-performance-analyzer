@@ -44,7 +44,9 @@
                                                     <td>{{ $data->total_mark }}</td>
                                                     <td>{{ $data->avg_mark }}</td>
                                                     <td>
-                                                        <a href="#" class="btn details-icon">Click Here <i class="fa fa-link" aria-hidden="true"></i>
+                                                        <button class="details-icon">
+															<span>Click Here</span>
+														</button>
   													 </td>
   												 </tr>
   										 @endforeach

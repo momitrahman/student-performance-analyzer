@@ -79,7 +79,7 @@
 							   </div>
 
 							   <!-- Trigger the modal with a button -->
-							   <button type="button" class="btn btn-success button" data-toggle="modal" data-target="#myModal">Next<i class="fa fa-floppy-o save-icon" aria-hidden="true"></i></button>
+							   <button type="button" class="btn btn-success button" data-toggle="modal" data-target="#myModal">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
 
 							   <!-- modal -->
 							   <div class="modal fade " id="myModal" role="dialog">
