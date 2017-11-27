@@ -13,6 +13,7 @@
                      <ul class="submenu">
                          <li><a href={{ route('studentInfoIdGenerator') }}>New</a></li>
                          <li><a href={{ route('studentSearch') }}>Verify</a></li>
+                         <li><a href={{ route("studentNameList") }}>Search</a></li>
                      </ul>
                  </li>
                  <li>

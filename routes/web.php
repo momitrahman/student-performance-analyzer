@@ -15,12 +15,14 @@ Route::prefix('/admin')->group(function () {
 	Route::get('/', function () {
 		return view('admin.home');
 	})->name('adminHome');
+	
 	Route::prefix('/student')->group(function () {
 		Route::match(['get', 'post'], '/', 'StudentInfoController@studentInfoIdGenerator')->name('studentInfoIdGenerator');
 		Route::match(['get', 'post'], '/next', 'StudentInfoController@studentInfoOther')->name('studentInfoOther');
 		Route::match(['get', 'post'], '/store', 'StudentInfoController@studentInfoStore')->name('studentInfoStore');
 		Route::get('/view/{sid?}', 'StudentInfoController@studentInfoSubmitView')->name('studentInfoSubmitView');
 		Route::get('/search', 'StudentInfoController@studentSearch')->name('studentSearch');
+		Route::match(['get', 'post'], '/namesearch', 'StudentInfoController@studentNameList')->name('studentNameList');
 	});
 
 	Route::prefix('/mark')->group(function () {

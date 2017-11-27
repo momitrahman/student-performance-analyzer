@@ -1,4 +1,6 @@
-@extends('master') @section('content') @include('admin.layouts.sidebar')
+@extends('master') 
+@section('content')
+@include('admin.layouts.sidebar')
 <!--page-content  -->
 <div id="page-content">
     @include('admin.layouts.header')
@@ -39,35 +41,23 @@
                                                 </tr>
                                             </thead>
                                             <tbody style="background:#fff">
-
+                                            @foreach($student_list as $student)   
                                                 <tr>
-                                                    <td>2010-05-32-02</td>
-                                                    <td>Ms. Arden Bradtke</td>
-                                                    <td>Wilmer Rogahn</td>
-                                                    <td>Loren Jacobi</td>
+                                                    <td>{{ $student->sid }}</td>
+                                                    <td>{{ ucwords($student->name) }}</td>
+                                                    <td>{{ ucwords($student->father_name) }}</td>
+                                                    <td>{{ ucwords($student->mother_name) }}</td>
                                                     <td>
-                                                        <button class="details-icon">
+                                                        <a href="{{ route('studentInfoSubmitView', [$student->sid]) }}" target="_blank" class="details-icon">
                                                             <span>Click Here</span>
-                                                        </button>
+                                                        </a>                                                         
                                                     </td>
                                                 </tr>
-
-                                                <tr>
-                                                    <td>2010-05-32-02</td>
-                                                    <td>Ms. Arden Bradtke</td>
-                                                    <td>Wilmer Rogahn</td>
-                                                    <td>Loren Jacobi</td>
-                                                    <td>
-                                                        <button class="details-icon">
-                                                            <span>Click Here</span>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-
+                                            @endforeach
                                             </tbody>
                                         </table>
                                         <div class="form-group">
-                                            <a href="index.html" class="btn btn-success button" role="button">Ok
+                                            <a href="{{ route("studentNameList") }}" class="btn btn-success button" role="button">Ok
                                                 <i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i>
                                             </a>
                                             <!-- <a href="input-registration.html" class="btn button button-unique" role="button">Update</a> -->

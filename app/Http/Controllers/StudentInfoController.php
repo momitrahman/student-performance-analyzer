@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
+use Egulias\EmailValidator\Exception\ExpectingDomainLiteralClose;
 
 class StudentInfoController extends Controller
 {
@@ -117,4 +118,27 @@ class StudentInfoController extends Controller
 		}
 	}
 
+	// public function studentNameSearch(Request $request)
+	// {
+	// 	return view("admin.studentNameSearch");
+	// }
+
+	public function studentNameList(Request $request)
+	{
+		if ($request->filled("name")) {
+			$name = strtolower($request->input("name"));
+			$student_list = DB::table("student_info")->where("name", "like", "%$name%")->orderBy("name", "asc")->get();
+			if (count($student_list) === 0) {
+				$name = explode(" ", $name);
+				if (count($name) === 1) {
+					$student_list = DB::table("student_info")->where("name", "like", "%$name[0]%")->orderBy("name", "asc")->get();
+				} elseif (count($name) === 2) {
+					$student_list = DB::table("student_info")->where("name", "like", "%$name[1]%")->orderBy("name", "asc")->get();
+				}
+			}
+			return view("admin.studentNameSearchList", compact("student_list"));
+		}
+
+		return view("admin.studentNameSearch");
+	}
 }
