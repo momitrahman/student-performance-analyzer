@@ -42,11 +42,11 @@
 							   <input type="hidden" name="year" value={{ $year }}>
 							   <input type="hidden" name="semester_slot" value={{ $semester_slot }}>
 
-							  @foreach ($subject_list as $subject)
 
 							  <div class="row subject-section">
 								  <div class="form-group">
 									  <div class="searchable-container">
+									  	@foreach ($subject_list as $subject)
 										  <div class="items col-sm-4 col-md-3 col-lg-3">
 											  <div class="info-block block-info clearfix">
 												  <div class="square-box pull-left">
@@ -63,16 +63,17 @@
 												  </div>
 											  </div>
 										  </div>
+										@endforeach
 									  </div>
 								  </div>
 							  </div>
 							  <!--/.row  -->
-							  @endforeach
+
 							  <!--========= Subject list end here =========-->
 
 							  <div class="form-group">
 								  {{-- <a href={{ route('checkStudentIdMark') }} class="btn button button-green" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a> --}}
-								  <button type="submit" class="btn btn-success button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
+								  <button type="submit" class="btn btn-success button next-btn">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
 							  </div>
 						  </form>
 
@@ -81,7 +82,7 @@
 							  <div class="form-group">
 								  <input type="hidden" name="sid" value={{ $sid }}>
 								 <input type="hidden" name="name" value="{{ $name }}">
-								  <button type="submit" class="btn button button-green ">Back<i class="fa fa-backward back-icon" aria-hidden="true"></i></button>
+								  <button type="submit" class="btn button button-green back-btn"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</button>
 							  </div>
 						  </form>
 						  </div>

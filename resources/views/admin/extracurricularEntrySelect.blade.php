@@ -115,7 +115,7 @@
 
 
                     <div class="form-group">
-                    	 <button type="submit" class="btn btn-success button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
+                    	 <button type="submit" class="btn btn-success button next-btn">Next<i class="fa fa-forward next-icon " aria-hidden="true"></i></button>
                     </div>
 					</form>
 					<form class="" action={{ route('checkBasicInfoExtra') }} method="post">
@@ -123,7 +123,7 @@
 						<div class="form-group">
 							<input type="hidden" name="sid" value={{ $sid }}>
 						   	<input type="hidden" name="name" value="{{ $name }}">
-							<button type="submit" class="btn button button-green ">Back<i class="fa fa-backward back-icon" aria-hidden="true"></i></button>
+							<button type="submit" class="btn button button-green back-btn"><i class="fa fa-backward back-icon " aria-hidden="true"></i>Back</button>
 						</div>
 					</form>
 

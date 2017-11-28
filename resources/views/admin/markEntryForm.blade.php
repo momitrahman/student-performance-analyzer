@@ -94,7 +94,9 @@
 				   <!--/.row  -->
 
 				   <!-- Trigger the modal with a button -->
-				   <button type="button" class="btn btn-success button" data-toggle="modal" data-target="#myModal">Save<i class="fa fa-floppy-o save-icon" aria-hidden="true"></i></button>
+				   <div class="form-group">
+						<button type="button" class="btn btn-success button next-btn" data-toggle="modal" data-target="#myModal">Save<i class="fa fa-floppy-o save-icon" aria-hidden="true"></i></button>
+					</div>
 
 				   <!-- modal -->
 				   <div class="modal fade " id="myModal" role="dialog">
@@ -118,8 +120,6 @@
 					   </div>
 				   </div>
 				   <!-- /.modal -->
-			   </div>
-			   <!--/.container  -->
 		   </form>
 
 		   <form class="" action={{ route('selectSubject') }} method="post">
@@ -130,10 +130,11 @@
  					 <input type="hidden" name="class" value="{{ $class  }}">
  					 <input type="hidden" name="year" value={{ $year }}>
  					 <input type="hidden" name="semester_slot" value={{ $semester_slot }}>
-					  <button type="submit" class="btn button button-green ">Back<i class="fa fa-backward back-icon" aria-hidden="true"></i></button>
+					  <button type="submit" class="btn button button-green back-btn "><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</button>
 				  </div>
 			  </form>
-
+			</div>
+			<!--/.constainer  -->
 	   </div>
 	   <!--/ .panel-body  -->
    </div>
