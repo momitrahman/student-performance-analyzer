@@ -47,10 +47,10 @@
                                                     <td>{{ ucwords($student->name) }}</td>
                                                     <td>{{ ucwords($student->father_name) }}</td>
                                                     <td>{{ ucwords($student->mother_name) }}</td>
-                                                    <td>
+                                                    <td class="details-link">
                                                         <a href="{{ route('studentInfoSubmitView', [$student->sid]) }}" target="_blank" class="details-icon">
                                                             <span>Click Here</span>
-                                                        </a>                                                         
+                                                        </a> 
                                                     </td>
                                                 </tr>
                                             @endforeach

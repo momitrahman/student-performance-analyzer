@@ -43,10 +43,8 @@
                                                     <td>{{ $data->total_subject }}</td>
                                                     <td>{{ $data->total_mark }}</td>
                                                     <td>{{ $data->avg_mark }}</td>
-                                                    <td>
-                                                        <button class="details-icon">
-															<span>Click Here</span>
-														</button>
+                                                    <td class="details-link">
+                                                        <a href="#"  class="details-icon"><span>Click Here</span></a>
   													 </td>
   												 </tr>
   										 @endforeach

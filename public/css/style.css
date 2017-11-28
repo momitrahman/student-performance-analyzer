@@ -30,11 +30,17 @@ ul {
     list-style-type: none;
 }
 
+/* a,
+a:hover {
+    text-decoration: none;
+    color: #555;
+} */
 a,
 a:hover {
     text-decoration: none;
     color: #555;
 }
+
 
 
 /* ======= Icon =======  */
@@ -719,7 +725,13 @@ label.btn.active span.glyphicon {
 
 /* ======= view-student-lit page start =======  */
 
-.details-icon {
+.details-link{
+    width: 200px;
+}
+
+.details-link .details-icon {
+    display: inline-block;
+    width: 150px;        
     border-radius: 4px;
     background-color: rgba(22, 160, 133, 1.0);
     border: none;
@@ -728,33 +740,32 @@ label.btn.active span.glyphicon {
     font-size: 100%;
     transition: all 0.5s;
     cursor: pointer;
-    width: 150px;
     padding: 10px;
     font-weight: bold;
 }
 
-.details-icon span {
+.details-link .details-icon span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.details-icon span:after {
+.details-link .details-icon span:after {
     content: '\00bb';
     font-size: 20px;
     position: absolute;
-    opacity: 0;
     top: -5px;
     right: -20px;
+    opacity: 0;
     transition: 0.5s;
 }
 
-.details-icon:hover span{
+.details-link .details-icon:hover span{
     padding-right: 25px;
 }
 
-.details-icon:hover span:after {
+.details-link .details-icon:hover span:after {
     opacity: 1;
     right: 0;
 }

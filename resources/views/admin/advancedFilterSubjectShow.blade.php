@@ -47,11 +47,9 @@
 													<td>{{ $data->year }}</td>
 													<td>{{ $data->sem_slot }}</td>
 													<td>{{ $data->avg_mark }}</td>
-													<td>
-														<button class="details-icon">
-															<span>Click Here</span>
-														</button>
-													</td>
+													<td class="details-link">
+                                                        <a href="#"  class="details-icon"><span>Click Here</span></a>
+  													 </td>
 												</tr>
 												@endforeach
 
