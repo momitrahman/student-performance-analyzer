@@ -642,6 +642,8 @@ label.btn.active span.glyphicon {
     width: 100%;
     padding: 15px 0px;
     margin-bottom: 20px;
+    font-size: 110%;
+    font-weight: bold;
 }
 
 
@@ -667,9 +669,9 @@ label.btn.active span.glyphicon {
 }
 
 .info-row label {
-    -webkit-box-flex: 2;
-    -ms-flex: 2;
-    flex: 2;
+    -webkit-box-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
 }
 
 .info-row span {

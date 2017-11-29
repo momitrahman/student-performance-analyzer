@@ -17,21 +17,21 @@
                      </ul>
                  </li>
                  <li>
-                     <div class="link"><i class="fa fa-code"></i>Student Performance Entry<i class="fa fa-chevron-down"></i></div>
+                     <div class="link"><i class="fa fa-list-alt"></i>Student Performance Entry<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
                          <li><a href={{ route('checkStudentIdMark') }}>Marks</a></li>
                          <li><a href={{ route('checkStudentIdExtra') }}>Extra Curricular</a></li>
                      </ul>
                  </li>
                  <li>
-                     <div class="link"><i class="fa fa-globe"></i>Subject<i class="fa fa-chevron-down"></i></div>
+                     <div class="link"><i class="fa fa-book"></i>Subject<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
                          <li><a href={{ route('addSubject') }}>New </a></li>
                          <li><a href={{ route('subjectShow') }}>List</a></li>
                      </ul>
                  </li>
                  <li>
-                     <div class="link"><i class="fa fa-globe"></i>Extra Curricular Activities<i class="fa fa-chevron-down"></i></div>
+                     <div class="link"><i class="fa fa-th-large"></i>Extra Curricular Activities<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
                          <li><a href={{ route('addExtracurricular') }}>New</a></li>
                          <li><a href={{ route('extracurricularShow') }}>List</a></li>
