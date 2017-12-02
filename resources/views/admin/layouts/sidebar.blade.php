@@ -2,10 +2,21 @@
          <!--========= Sidebar part start here =========-->
          <section class="sidebar" id="sidebar">
              <!--logo  -->
-             <div class="logo">
-                 <a href={{ route('adminHome') }}><img src="/img/logo.png" alt="logo"></a>
-             </div>
-             <!--/logo  -->
+            <!-- <div class="logo">
+                <a href="index.html"><img src="assets/resources/img/logo.png" alt="logo"></a>
+            </div> -->
+            <a href="{{ route('adminHome') }}">
+                <div class="logo">
+                    <div class="logo-short-form">
+                        S
+                        <span>P</span> A
+                    </div>
+                    <div class="logo-full-form">
+                        <p>Student Performance Analyzer</p>
+                    </div>
+                </div>
+            </a>
+            <!--/logo  -->
 
              <ul id="accordion" class="accordion">
                  <li>
