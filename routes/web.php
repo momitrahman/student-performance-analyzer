@@ -62,3 +62,7 @@ Route::prefix('/admin')->group(function () {
 		Route::match(['get', 'post'], '/show', 'AdvancedfilterController@showFilterResult')->name('showFilterResult');
 	});
 });
+
+Route::get('/test', function(){
+	return view('admin.advancedFilterExtraView');
+});
