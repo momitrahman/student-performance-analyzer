@@ -37,13 +37,13 @@
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="name">Full Name</label>
-										   <input type="text" class="form-control" id="name" name="name" placeholder="Student Full Name" value="{{ old('name') }}">
+										   <input type="text" class="form-control" id="name" name="name" placeholder="Student Full Name" value="{{ old('name') }}" required>
 									   </div>
 								   </div>
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="sBirthNo">Birth Certificate No.</label>
-										   <input type="text" class="form-control" id="sBirthNo" name="birth_number" placeholder="Student Birth Certificate No." value={{ old('birth_number') }}>
+										   <input type="text" class="form-control" id="sBirthNo" name="birth_number" placeholder="Student Birth Certificate No." value="{{ old('birth_number') }}" required>
 									   </div>
 								   </div>
 							   </div>
@@ -52,13 +52,13 @@
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="fName">Father's Name</label>
-										   <input type="text" class="form-control" id="fName" name="father_name" placeholder="Student Father's Name" value="{{ old('father_name') }}">
+										   <input type="text" class="form-control" id="fName" name="father_name" placeholder="Student Father's Name" value="{{ old('father_name') }}" required>
 									   </div>
 								   </div>
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="mName">Mother's Name</label>
-										   <input type="text" class="form-control" id="mName" name="mother_name" placeholder="Student Mother's Name" value="{{ old('mother_name') }}">
+										   <input type="text" class="form-control" id="mName" name="mother_name" placeholder="Student Mother's Name" value="{{ old('mother_name') }}" required>
 									   </div>
 								   </div>
 							   </div>
@@ -67,7 +67,7 @@
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="selectname">Select Guardian</label>
-										   <select class="form-control" id="selectname" name="guardian_name">
+										   <select class="form-control" id="selectname" name="guardian_name" >
 											    <option value=""></option>
 											   <option value="Father">Father</option>
 											   <option value="Mother">Mother</option>
@@ -120,9 +120,7 @@
 											   <button type="button" class="close" data-dismiss="modal">&times;</button>
 											   <h4 class="modal-title">Do you want to Save?</h4>
 										   </div>
-										   <!-- <div class="modal-body">
-											   <p>Do you want to Save?</p>
-										   </div> -->
+
 										   <div class="modal-footer">
 											 <button type="submit"  class="btn btn-info">Yes</button>
 											 <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>

@@ -14,10 +14,17 @@
 			 @endif
 			 <!--warning message  -->
 
+			<!--success alert message  -->
+			   @if (!empty($message))
+				   <div class="alert alert-success">
+					   <strong> {{ $message }}</strong>
+				   </div>
+			   @endif
+			<!--success alert message  -->
 			 <form  action= {{ route('checkStudentIdMark') }} method="get">
 			 <div class="search">
 				 <div class="input-group">
-					 <input type="text" class="form-control" placeholder="Enter Student ID..." name="sid">
+					 <input type="text" class="form-control" placeholder="Enter Student ID..." name="sid" required>
 					 <span class="input-group-btn">
 					 <button type="submit" class="btn btn-success">
 						 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>

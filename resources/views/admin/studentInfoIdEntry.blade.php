@@ -30,7 +30,7 @@
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="year">Year</label>
-										   <input class="yearselect sample form-control" name="year" id="year" value="2017" >
+										   <input class="yearselect sample form-control" name="year" id="year" value="2017">
 									   </div>
 								   </div>
 								   <div class="col-md-6">
@@ -56,7 +56,7 @@
 								   <div class="col-md-6">
 									   <div class="form-group">
 										   <label for="roll">Roll</label>
-										   <input type="text" class="form-control" id="roll" name="roll" placeholder="Student Current Roll Number" value={{ old('roll') }}>
+										   <input type="text" class="form-control" id="roll" name="roll" placeholder="Student Current Roll Number" value="{{ old('roll') }}" required>
 									   </div>
 								   </div>
 								   <div class="col-md-6">

@@ -10,7 +10,16 @@
 				   <div class="panel panel-primary">
 					   <div class="panel-heading">Advanced Filter</div>
 					   <div class="panel-body">
-
+							<!--success alert message  -->
+								@if (!empty($message))
+									<div class="alert alert-success">
+										<ul>
+											<li><strong> {{ $message }}</strong></li>
+											<li>You query was wrong. Please try again.</strong></li>
+										</ul>
+									</div>
+								@endif
+							<!--success alert message  -->
 						   <form action={{ route("selectFilter") }} method="post">
 							   {{ csrf_field() }}
 							   <div class="row">

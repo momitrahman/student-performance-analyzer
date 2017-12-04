@@ -34,7 +34,9 @@
 					   <div class="row ">
 
 						   <div class="table-responsive col-md-12">
-
+								<div class="alert alert-info">
+									<strong>Please fillout all place field.</strong>
+								</div>
 							   <table id="sort2" class=" table table-bordered table-striped  table-hover">
 
 								   @if(!empty($indoor_list) || !empty($outdoor_list) )
@@ -52,9 +54,9 @@
 										@foreach ($indoor_list as $name)
 									   	<tr>
 										   <td>Indoor</td>
-										   <td>{{ $name }}</td>
+										   <td>{{ ucwords($name) }}</td>
 										   <input type="hidden" name="indoor_list[]" value="{{ $name }}">
-										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.."></td>
+										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.." required></td>
 										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  Reward.."></td>
 									   	</tr>
 								   		@endforeach
@@ -64,9 +66,9 @@
 										@foreach ($outdoor_list as $name)
 									   	<tr>
 										   <td>Indoor</td>
-										   <td>{{ $name }}</td>
+										   <td>{{ ucwords($name) }}</td>
 										   <input type="hidden" name="outdoor_list[]" value="{{ $name }}">
-										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.."></td>
+										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.." required></td>
 										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  Reward.."></td>
 									   	</tr>
 								   		@endforeach
@@ -108,7 +110,7 @@
 						   </div>
 					   </div>
 					   <!-- /.modal -->
-				   
+
 
 			   </form>
 

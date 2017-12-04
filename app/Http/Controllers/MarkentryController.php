@@ -7,20 +7,22 @@ use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class MarkentryController extends Controller
 {
-	public function checkStudentId(Request $request)
+	public function checkStudentId(Request $request, $message = null)
 	{
-		// find info throug student id
+		// find info through student id
 		if ($request->filled('sid')) {
 			$sid = $request->input('sid');
 			$sid_infos = DB::table('student_info')->where('sid', $sid)->get();
 
-			// sutdent id not found
+			// student id not found
 			if (empty(json_decode($sid_infos, true))) {
 				return view('admin.markEntryStudentSearch')->with('noid', 'Student ID not found.');
 			}
 
-			// show student inforamtion
+			// show student information
 			return view('admin.markEntryStudentConfirm', compact('sid_infos', 'sid'));
+		} else if (!empty($message)) {
+			return view('admin.markEntryStudentSearch', compact('message'));
 		} else {
 			return view('admin.markEntryStudentSearch');
 		}
@@ -53,7 +55,7 @@ class MarkentryController extends Controller
 	}
 
 	public function subjectMarkEntry(Request $request)
-	{	
+	{
 		if ($request->has(['sid', 'name', 'class', 'year', 'semester_slot'])) {
 			$sid = $request->input('sid');
 			$name = $request->input('name');
@@ -61,7 +63,7 @@ class MarkentryController extends Controller
 			$year = $request->input('year');
 			$semester_slot = $request->input('semester_slot');
 			$subject_list = $request->input('subject_list');
-			
+
 			return view('admin.markEntryForm', compact('subject_list', 'sid', 'name', 'class', 'year', 'semester_slot'));
 		}
 		return redirect()->route('checkStudentIdMark');
@@ -105,7 +107,7 @@ class MarkentryController extends Controller
 						'sem_1' => $sem_mark[0],
 						'sem_2' => $sem_mark[1],
 						'sem_3' => $sem_mark[2],
-						'avg_mark' => ceil( $subject_avg_mark),
+						'avg_mark' => ceil($subject_avg_mark),
 					]
 				);
 
@@ -129,8 +131,8 @@ class MarkentryController extends Controller
 					'avg_mark' => ceil($class_avg_mark),
 				]
 			);
-
-			return redirect()->route('checkStudentIdMark');
+			$markAddMess = "All Marks Successfully Added";
+			return redirect()->route('checkStudentIdMark', [$markAddMess]);
 		}
 		return redirect()->route('checkStudentIdMark');
 	}

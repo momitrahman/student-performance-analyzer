@@ -19,10 +19,20 @@
 
 				@if (!empty($noclass))
 					<div class="alert alert-warning">
-					<h5>{{ $noclass }}</h5>
+					<ul>
+						<li>{{ $noclass }}</h5></li>
+					</ul>
 					</div>
 				@endif
 			   <!--warning message  -->
+
+				<!--success alert message  -->
+			  	 @if (!empty($message) && empty($noclass) && !$errors->any())
+				   <div class="alert alert-success">
+					   <strong> {{ $message }}</strong>
+				   </div>
+			  	 @endif
+			   	<!--success alert message  -->
 
 			   <div class="x-panel">
 				   <div class="panel panel-primary">
@@ -39,7 +49,7 @@
 								   <div class="col-md-12">
 									   <div class="form-group">
 										   <label>Subject Name</label>
-										   <input type="text" class="form-control" name="subject_name" value="{{ old('subject_name') }}">
+										   <input type="text" class="form-control" name="subject_name" value="{{ old('subject_name') }}" required>
 									   </div>
 								   </div>
 							   </div>

@@ -24,14 +24,17 @@
 
                                                 <thead>
                                                     <tr class="bg-info">
-                                                        <th>Game Name</th>
-                                                        <th>Game Type</th>
+                                                        <th class="text-center">No.</th>
+                                                        <th class="text-center">Game Name</th>
+                                                        <th class="text-center">Game Type</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody style="background:#fff">
+                                                    @php $no = 1; @endphp
                                                     @foreach($extracurricular_list as $extracurricular)
 
 													<tr>
+                                                        <td>{{ $no++ }}</td>
                                                         <td>{{ ucwords($extracurricular->title) }}</td>
                                                         <td>{{ ucwords($extracurricular->type) }}</td>
                                                     </tr>

@@ -6,20 +6,22 @@ use Illuminate\Support\Facades\DB;
 
 class ExtracurricularentryController extends Controller
 {
-	public function checkStudentId(Request $request)
+	public function checkStudentId(Request $request, $message = null)
 	{
-		// find info throug student id
+		// find info through student id
 		if ($request->filled('sid')) {
 			$sid = $request->input('sid');
 			$sid_infos = DB::table('student_info')->where('sid', $sid)->get();
 
-			// sutdent id not found
+			// student id not found
 			if (empty(json_decode($sid_infos, true))) {
 				return view('admin.extracurricularEntryStudentSearch')->with('noid', 'Student ID not found.');
 			}
 
-			// show student inforamtion
+			// show student information
 			return view('admin.extracurricularEntryStudentConfirm', compact('sid_infos', 'sid'));
+		} else if (!empty($message)) {
+			return view('admin.extracurricularEntryStudentSearch', compact('message'));
 		} else {
 			return view('admin.extracurricularEntryStudentSearch');
 		}
@@ -103,7 +105,9 @@ class ExtracurricularentryController extends Controller
 				]
 			);
 		}
-		return redirect()->route('checkStudentIdExtra');
+
+		$extraAddMess = "All Extra Curricular Activity Details Successfully Added";
+		return redirect()->route('checkStudentIdExtra', [$extraAddMess]);
 	}
 
 }

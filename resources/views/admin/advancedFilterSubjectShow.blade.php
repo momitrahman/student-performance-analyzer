@@ -1,4 +1,6 @@
-@extends('master') @section('content') @include('admin.layouts.sidebar')
+@extends('master')
+@section('content')
+@include('admin.layouts.sidebar')
 <!--page-content  -->
 <div id="page-content">
 	@include('admin.layouts.header')
@@ -31,6 +33,7 @@
 
 											<thead>
 												<tr class="bg-info ">
+													<th class="text-center">No.</th>
 													<th class="text-center">Student ID</th>
 													<th class="text-center">Class</th>
 													<th class="text-center">Year</th>
@@ -40,8 +43,10 @@
 												</tr>
 											</thead>
 											<tbody style="background:#fff">
+												@php $no = 1 @endphp
 												@foreach ($datas as $data)
 												<tr>
+													<td>{{ $no++ }}</td>
 													<td>{{ $data->sid }}</td>
 													<td>{{ ucwords($data->class) }}</td>
 													<td>{{ $data->year }}</td>
@@ -55,11 +60,6 @@
 
 											</tbody>
 										</table>
-										<div class="form-group">
-											<a href="#" class="btn btn-success button" role="button">Ok
-												<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i>
-											</a>
-										</div>
 										<!--/.table-responsive  -->
 
 									</div>

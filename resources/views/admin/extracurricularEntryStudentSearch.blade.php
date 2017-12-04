@@ -13,6 +13,13 @@
 			 </div>
 			 @endif
 			 <!--warning message  -->
+			<!--success alert message  -->
+			   @if (!empty($message))
+				   <div class="alert alert-success">
+					   <strong> {{ $message }}</strong>
+				   </div>
+			   @endif
+			<!--success alert message  -->
 
 			 <form  action= {{ route('checkStudentIdExtra') }} method="get">
 			 <div class="search">

@@ -9,8 +9,11 @@ use Illuminate\Database\Migrations\Migration;
 
 class SubjectController extends Controller
 {
-	public function addSubject()
+	public function addSubject($message = null)
 	{
+		if (!empty($message)) {
+			return view('admin.subjectEntry', compact('message'));
+		}
 		return view('admin.subjectEntry');
 	}
 
@@ -24,7 +27,7 @@ class SubjectController extends Controller
 
 			$class_count = 0;
 
-		// Input data store
+		// // Input data store
 			$subject_name = strtolower($request->input('subject_name'));
 			$one = $two = $three = $four = $five = $six = $seven = $eight = $nine = $ten = 0;
 
@@ -68,7 +71,7 @@ class SubjectController extends Controller
 				$ten = 1;
 				$class_count += 1;
 			}
-		 
+
 		// no class selected
 			if ($class_count == 0) {
 				return view('admin.subjectEntry')->with('noclass', 'The class selection required')->with('subject_name', $subject_name);
@@ -103,9 +106,9 @@ class SubjectController extends Controller
 					$table->integer('avg_mark');
 				});
 
-				return redirect()->route('addSubject');
+				$subjectAddMess = ucwords($subject_name) . " : subject successfully added.";
+				return redirect()->route('addSubject', [$subjectAddMess]);
 			}
-
 		}
 		return redirect()->route('addSubject');
 	}

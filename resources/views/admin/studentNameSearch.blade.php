@@ -1,5 +1,5 @@
-@extends('master') 
-@section('content') 
+@extends('master')
+@section('content')
 @include('admin.layouts.sidebar')
 <!--page-content  -->
 <div id="page-content">
@@ -7,12 +7,19 @@
 
 	<!--========= Content part Start here =========-->
 	<div class="content">
+	 <!--warning message  -->
+			 @if (!empty($noname))
+			 <div class="alert alert-warning">
+				 <strong>{{ $noname }}</strong>
+			 </div>
+			 @endif
+			 <!--warning message  -->
 		<!--search  -->
 		<div class="search">
 			<form action={{ route("studentNameList") }} method="post">
                 {{ csrf_field() }}
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search for name..." name="name">
+					<input type="text" class="form-control" placeholder="Search for name..." name="name" required>
 					<span class="input-group-btn">
 						<button type="submit" class="btn btn-success " role="button">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>

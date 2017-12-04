@@ -51,7 +51,9 @@
 				   <div class="row ">
 
 					   <div class="table-responsive col-md-12">
-
+							<div class="alert alert-info">
+								<strong>Please fillout all the mark field.</strong>
+							</div>
 						   <table id="sort2" class=" table table-bordered table-striped  table-hover">
 
 
@@ -74,7 +76,7 @@
 										<input type="hidden" name='subject_list[]' value="{{ $subject }}">
 
 									 @for ($i=1; $i <= $semester_slot; $i++)
-										 <td><input type="text" name={{ $subject . '[]'}}  class="form-control" placeholder="Enter mark"></td>
+										 <td><input type="text" name={{ $subject . '[]'}}  class="form-control" placeholder="Enter mark" required></td>
 									 @endfor
 									</tr>
 								</tbody>

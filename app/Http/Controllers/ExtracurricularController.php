@@ -6,8 +6,11 @@ use Illuminate\Support\Facades\DB;
 
 class ExtracurricularController extends Controller
 {
-	public function addExtracurricular()
+	public function addExtracurricular($message = null)
 	{
+		if (!empty($message)) {
+			return view('admin.extracurricularEntry', compact('message'));
+		}
 		return view('admin.extracurricularEntry');
 	}
 
@@ -26,7 +29,9 @@ class ExtracurricularController extends Controller
 					'type' => strtolower($request->input('type'))
 				]
 			);
-			return redirect()->route('addExtracurricular');
+
+			$extraAddMess = ucwords($request->input('title')) . " : extra curricular activity successfully added.";
+			return redirect()->route('addExtracurricular', [$extraAddMess]);
 		}
 		return redirect()->route('addExtracurricular');
 	}

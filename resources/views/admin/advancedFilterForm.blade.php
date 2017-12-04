@@ -1,5 +1,5 @@
-@extends('master') 
-@section('content') 
+@extends('master')
+@section('content')
 @include('admin.layouts.sidebar')
 <!--page-content  -->
 <div id="page-content">
@@ -102,7 +102,7 @@
 
                             @else
                             <input type="hidden" name="subject" value="all">
-                            <input type="hidden" name="class[]" value="{{ $class }}"> 
+                            <input type="hidden" name="class[]" value="{{ $class }}">
 							@endif
 
                             <div class="col-md-12">
@@ -167,14 +167,14 @@
                                         <!--For Rang  -->
                                         <input type="hidden" name="mark[]" value="range">
                                         <div class="col-md-5 " style="padding:0">
-                                            <input type="text" class="form-control " name="mark[]">
+                                            <input type="text" class="form-control " name="mark[]" required>
                                         </div>
                                         <div class="col-md-2" style="text-align:center">
                                             <label> to </label>
                                         </div>
                                         <div class="col-md-5 " style="padding:0">
                                             <div class="form-group">
-                                                <input type="text" class="form-control " name="mark[]">
+                                                <input type="text" class="form-control " name="mark[]" required>
                                             </div>
                                         </div>
                                     </div>
@@ -184,7 +184,7 @@
                                             <!--For Equal to  -->
                                             <input type="hidden" name="mark[]" value="equal">
                                             <div>
-                                                <input type="text" class="form-control" name="mark[]" placeholder="Equal To">
+                                                <input type="text" class="form-control" name="mark[]" placeholder="Equal To" required>
                                             </div>
                                             <!--For Equal to  -->
                                         </div>
@@ -195,7 +195,7 @@
                                             <!--Less than Equal to  -->
                                             <input type="hidden" name="mark[]" value="less_than">
                                             <div>
-                                                <input type="text" class="form-control" name="mark[]" placeholder="Less than Equal to">
+                                                <input type="text" class="form-control" name="mark[]" placeholder="Less than Equal to" required>
                                             </div>
                                             <!--Less than Equal to  -->
                                         </div>
@@ -206,7 +206,7 @@
                                             <!--Greater than Equal to  -->
                                             <input type="hidden" name="mark[]" value="greater_than">
                                             <div>
-                                                <input type="text" class="form-control" name="mark[]" placeholder="Greater than Equal to">
+                                                <input type="text" class="form-control" name="mark[]" placeholder="Greater than Equal to" required>
                                             </div>
                                             <!--Greater than Equal to  -->
                                         </div>
@@ -266,7 +266,7 @@
                                     <div class="col-md-10">
                                         <div class="form-group">
                                             <!-- Maximum -->
-                                            <input type="text" class="form-control" name="output_limit" placeholder="Maximum Limit.">
+                                            <input type="text" class="form-control" name="output_limit" placeholder="Maximum Limit." required>
                                             <!-- Maximum  -->
                                         </div>
                                     </div>

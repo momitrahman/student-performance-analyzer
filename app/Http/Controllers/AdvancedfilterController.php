@@ -7,8 +7,11 @@ use Illuminate\Database\QueryException;
 
 class AdvancedfilterController extends Controller
 {
-	public function selectOption()
+	public function selectOption($message = null)
 	{
+		if(!empty($message)) {
+			return view("admin.advancedFilterOption", compact('message'));
+		}
 		return view("admin.advancedFilterOption");
 	}
 
@@ -17,7 +20,7 @@ class AdvancedfilterController extends Controller
 		if ($request->has('option')) {
 			$option = $request->input('option');
 			if ($option === 'subject') {
-				$subject_list = DB::table("subject_class")->pluck("subject_name");
+				$subject_list = DB::table("subject_class")->orderBy("subject_name")->pluck("subject_name");
 				return view("admin.advancedFilterSelect", compact('subject_list'));
 			} else {
 				return view("admin.advancedFilterSelect");
@@ -133,9 +136,10 @@ class AdvancedfilterController extends Controller
 			} else {
 				return view('admin.advancedFilterSubjectShow', compact('datas', 'subject'));
 			}
-			return $datas;
+			// return $datas;
 		} catch (QueryException $ex) {
-			return redirect()->route('selectOption');
+			$message = "No Data Found";
+			return redirect()->route('selectOption', [$message]);
 		}
 	}
 }

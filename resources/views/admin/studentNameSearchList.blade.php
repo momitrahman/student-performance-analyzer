@@ -1,4 +1,4 @@
-@extends('master') 
+@extends('master')
 @section('content')
 @include('admin.layouts.sidebar')
 <!--page-content  -->
@@ -33,6 +33,7 @@
                                         <table id="sort2" class=" table table-bordered table-striped  table-hover text-center">
                                             <thead>
                                                 <tr class="bg-info ">
+                                                    <th class="text-center">No.</th>
                                                     <th class="text-center">Student ID</th>
                                                     <th class="text-center">Name</th>
                                                     <th class="text-center">Father Name</th>
@@ -41,8 +42,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody style="background:#fff">
-                                            @foreach($student_list as $student)   
+                                            @php $no = 1; @endphp
+                                            @foreach($student_list as $student)
                                                 <tr>
+                                                    <td>{{ $no++ }}</td>
                                                     <td>{{ $student->sid }}</td>
                                                     <td>{{ ucwords($student->name) }}</td>
                                                     <td>{{ ucwords($student->father_name) }}</td>
@@ -50,18 +53,12 @@
                                                     <td class="details-link">
                                                         <a href="{{ route('studentInfoSubmitView', [$student->sid]) }}" target="_blank" class="details-icon">
                                                             <span>Click Here</span>
-                                                        </a> 
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
                                         </table>
-                                        <div class="form-group">
-                                            <a href="{{ route("studentNameList") }}" class="btn btn-success button" role="button">Ok
-                                                <i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i>
-                                            </a>
-                                            <!-- <a href="input-registration.html" class="btn button button-unique" role="button">Update</a> -->
-                                        </div>
                                     </div>
                                     <!--/.table-responsive  -->
 

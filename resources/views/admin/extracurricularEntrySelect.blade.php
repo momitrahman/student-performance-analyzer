@@ -57,7 +57,7 @@
                                                 <div class="bizcontent">
                                                     <input type="checkbox" name="indoor_list[]" autocomplete="off" value="{{ $extra->title  }}">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                    <h4>{{ $extra->title  }}</h4>
+                                                    <h4>{{ ucwords($extra->title) }}</h4>
                                                 </div>
                                             </label>
                                         </div>
@@ -95,7 +95,7 @@
                                                 <div class="bizcontent">
                                                     <input type="checkbox" name="outdoor_list[]" autocomplete="off" value="{{ $extra->title  }}">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                    <h4>{{ $extra->title  }}</h4>
+                                                    <h4>{{ ucwords($extra->title) }}</h4>
                                                 </div>
                                             </label>
                                         </div>

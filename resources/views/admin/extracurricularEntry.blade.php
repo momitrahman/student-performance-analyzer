@@ -18,6 +18,14 @@
 	 	 		@endif
 			   <!--warning message  -->
 
+				<!--success alert message  -->
+			   	@if (!empty($message)  && !$errors->any())
+				   <div class="alert alert-success">
+					   <strong> {{ $message }}</strong>
+				   </div>
+			  	@endif
+			   <!--success alert message  -->
+
 			   <div class="x-panel">
 
 				   <form action={{ route('extracurricularStore') }} method="post">
@@ -30,7 +38,7 @@
 							   <div class="row">
 								   <div class="form-group">
 									   <label>Game Name</label>
-									   <input type="text" class="form-control" name="title" value="{{ old("title") }}" >
+									   <input type="text" class="form-control" name="title" value="{{ old("title") }}" required>
 								   </div>
 							   </div>
 							   <div class="row">
@@ -57,9 +65,7 @@
    								   <button type="button" class="close" data-dismiss="modal">&times;</button>
    								   <h4 class="modal-title">Do you want to Save?</h4>
    							   </div>
-   							   <!-- <div class="modal-body">
-   								   <p>Do you want to Save?</p>
-   							   </div> -->
+
    							   <div class="modal-footer">
    								   <button type="submit"  class="btn btn-info">Yes</button>
    								   <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>

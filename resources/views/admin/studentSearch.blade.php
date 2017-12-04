@@ -18,7 +18,7 @@
 			 <form  action= {{ route('studentSearch') }} method="get">
 			 <div class="search">
 				 <div class="input-group">
-					 <input type="text" class="form-control" placeholder="Enter Student ID..." name="sid">
+					 <input type="text" class="form-control" placeholder="Enter Student ID..." name="sid" required>
 					 <span class="input-group-btn">
 					 <button type="submit" class="btn btn-success">
 						 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
