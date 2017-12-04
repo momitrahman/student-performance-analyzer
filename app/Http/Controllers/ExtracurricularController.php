@@ -17,6 +17,9 @@ class ExtracurricularController extends Controller
 	public function extracurricularStore(Request $request)
 	{
 		if ($request->has('title')) {
+			$snake_case_title = str_replace(" ", "_", $request->input("title"));
+			$request->merge(['title' => $snake_case_title]);
+
 		// Validation
 			$validatedData = $request->validate([
 				'title' => 'required|unique:extracurricular,title',
@@ -30,7 +33,7 @@ class ExtracurricularController extends Controller
 				]
 			);
 
-			$extraAddMess = ucwords($request->input('title')) . " : extra curricular activity successfully added.";
+			$extraAddMess = ucwords(str_replace("_", " ", $request->input('title'))) . " : extra curricular activity successfully added.";
 			return redirect()->route('addExtracurricular', [$extraAddMess]);
 		}
 		return redirect()->route('addExtracurricular');

@@ -15,7 +15,6 @@
 									<div class="alert alert-success">
 										<ul>
 											<li><strong> {{ $message }}</strong></li>
-											<li>You query was wrong. Please try again.</strong></li>
 										</ul>
 									</div>
 								@endif

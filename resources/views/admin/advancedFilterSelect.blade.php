@@ -21,7 +21,7 @@
 										   <label for="subject">Subject</label>
 										   <select class="form-control" id="showsub" name="subject">
 											   @foreach ($subject_list as $subject)
-											  	 <option value="{{ $subject }}">{{ ucwords("$subject") }}</option>
+											  	 <option value="{{ $subject }}">{{ ucwords(str_replace("_", " ", $subject)) }}</option>
 											   @endforeach
 										   </select>
 									   </div>

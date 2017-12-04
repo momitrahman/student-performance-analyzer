@@ -51,9 +51,11 @@
 				   <div class="row ">
 
 					   <div class="table-responsive col-md-12">
+					   		<!--info alert message  -->
 							<div class="alert alert-info">
-								<strong>Please fillout all the mark field.</strong>
+								<strong>Please fillout all marks field.</strong>
 							</div>
+							<!--info alert message  -->
 						   <table id="sort2" class=" table table-bordered table-striped  table-hover">
 
 

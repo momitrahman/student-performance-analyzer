@@ -49,7 +49,7 @@
 								   <div class="col-md-12">
 									   <div class="form-group">
 										   <label>Subject Name</label>
-										   <input type="text" class="form-control" name="subject_name" value="{{ old('subject_name') }}" required>
+										   <input type="text" class="form-control" name="subject_name" value="{{ ucwords(str_replace("_", " ", old('subject_name'))) }}" required>
 									   </div>
 								   </div>
 							   </div>

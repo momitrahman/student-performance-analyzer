@@ -33,6 +33,14 @@
 			<div class="panel-body">
 				<form action={{ route('selectSubject') }} method="post">
 					{{ csrf_field() }}
+					<!--info alert message  -->
+						<div class="alert alert-info">
+							Mark already added for class:
+						@foreach($mark_entered_class as $class_title)
+							<strong>{{ ucfirst($class_title) . ", " }}</strong>
+						@endforeach
+						</div>
+					<!--info alert message  -->
 					<input type="hidden" name="sid" value={{ $sid }}>
 					<input type="hidden" name="name" value="{{ $name }}">
 					<div class="form-group">

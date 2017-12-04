@@ -106,7 +106,7 @@ class ExtracurricularentryController extends Controller
 			);
 		}
 
-		$extraAddMess = "All Extra Curricular Activity Details Successfully Added";
+		$extraAddMess = "All extra curricular activity details successfully added";
 		return redirect()->route('checkStudentIdExtra', [$extraAddMess]);
 	}
 

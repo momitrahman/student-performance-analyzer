@@ -34,16 +34,18 @@
 					   <div class="row ">
 
 						   <div class="table-responsive col-md-12">
+						  		 <!--info alert message  -->
 								<div class="alert alert-info">
-									<strong>Please fillout all place field.</strong>
+									Please fillout all place field.
 								</div>
+								<!--info alert message  -->
 							   <table id="sort2" class=" table table-bordered table-striped  table-hover">
 
 								   @if(!empty($indoor_list) || !empty($outdoor_list) )
 								   <thead>
 									   <tr class="bg-info">
-										   <th>Game Type</th>
-										   <th>Game Name</th>
+										   <th>Activities Type</th>
+										   <th>Activities Name</th>
 										   <th>Place</th>
 										   <th>Reward</th>
 									   </tr>
@@ -54,7 +56,7 @@
 										@foreach ($indoor_list as $name)
 									   	<tr>
 										   <td>Indoor</td>
-										   <td>{{ ucwords($name) }}</td>
+										   <td>{{ ucwords((str_replace("_", " ", $name))) }}</td>
 										   <input type="hidden" name="indoor_list[]" value="{{ $name }}">
 										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.." required></td>
 										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  Reward.."></td>
@@ -66,7 +68,7 @@
 										@foreach ($outdoor_list as $name)
 									   	<tr>
 										   <td>Indoor</td>
-										   <td>{{ ucwords($name) }}</td>
+										   <td>{{ ucwords((str_replace("_", " ", $name))) }}</td>
 										   <input type="hidden" name="outdoor_list[]" value="{{ $name }}">
 										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.." required></td>
 										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  Reward.."></td>

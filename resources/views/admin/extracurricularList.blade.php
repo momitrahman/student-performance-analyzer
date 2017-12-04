@@ -11,7 +11,7 @@
 
                     <div class="panel panel-primary">
                         <div class="clearfix"></div>
-                        <div class="panel-heading">List of Game</div>
+                        <div class="panel-heading">List of Activities</div>
                         <div class="panel-body">
 
                             <form>
@@ -25,8 +25,8 @@
                                                 <thead>
                                                     <tr class="bg-info">
                                                         <th class="text-center">No.</th>
-                                                        <th class="text-center">Game Name</th>
-                                                        <th class="text-center">Game Type</th>
+                                                        <th class="text-center">Activities Name</th>
+                                                        <th class="text-center">Activities Type</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody style="background:#fff">
@@ -35,7 +35,7 @@
 
 													<tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ ucwords($extracurricular->title) }}</td>
+                                                        <td>{{ ucwords((str_replace("_", " ", $extracurricular->title))) }}</td>
                                                         <td>{{ ucwords($extracurricular->type) }}</td>
                                                     </tr>
 

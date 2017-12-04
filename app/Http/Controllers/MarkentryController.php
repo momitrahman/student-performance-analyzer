@@ -33,7 +33,8 @@ class MarkentryController extends Controller
 		if ($request->has(['sid', 'name'])) {
 			$sid = $request->input('sid');
 			$name = $request->input('name');
-			return view('admin.markEntryBasic', compact('sid', 'name'));
+			$mark_entered_class = DB::table("class_avg_mark")->distinct()->pluck("class");
+			return view('admin.markEntryBasic', compact('sid', 'name', 'mark_entered_class'));
 		}
 		return redirect()->route('checkStudentIdMark');
 	}
@@ -131,7 +132,7 @@ class MarkentryController extends Controller
 					'avg_mark' => ceil($class_avg_mark),
 				]
 			);
-			$markAddMess = "All Marks Successfully Added";
+			$markAddMess = "All marks successfully added";
 			return redirect()->route('checkStudentIdMark', [$markAddMess]);
 		}
 		return redirect()->route('checkStudentIdMark');

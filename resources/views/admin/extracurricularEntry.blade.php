@@ -37,13 +37,13 @@
 						   <div class="container-fluid">
 							   <div class="row">
 								   <div class="form-group">
-									   <label>Game Name</label>
-									   <input type="text" class="form-control" name="title" value="{{ old("title") }}" required>
+									   <label>Activities Name</label>
+									   <input type="text" class="form-control" name="title" value="{{ ucwords(str_replace("_", " ",old("title"))) }}" required>
 								   </div>
 							   </div>
 							   <div class="row">
 								   <div class="form-group">
-									   <label>Game Type</label>
+									   <label>Activities Type</label>
 									   <select class="form-control" name="type">
 										   <option value="indoor">Indoor</option>
 										   <option value="outdoor">Outdoor</option>

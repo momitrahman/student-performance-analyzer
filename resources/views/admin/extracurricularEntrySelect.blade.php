@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="form-group">
                             <div>
-                                <input type="search" class="form-control" id="search" placeholder="search your game..">
+                                <input type="search" class="form-control" id="search" placeholder="search your activities name..">
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="row subject-section">
                         <div class="form-group">
                             <div class="searchable-container">
-                                <h3 class="well well-sm text-primary ">Indoor Game </h3>
+                                <h3 class="well well-sm text-primary ">Indoor Activities </h3>
 
 								<!-- items  -->
 
@@ -57,7 +57,7 @@
                                                 <div class="bizcontent">
                                                     <input type="checkbox" name="indoor_list[]" autocomplete="off" value="{{ $extra->title  }}">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                    <h4>{{ ucwords($extra->title) }}</h4>
+                                                    <h4> {{ ucwords((str_replace("_", " ", $extra->title))) }}</h4>
                                                 </div>
                                             </label>
                                         </div>
@@ -79,7 +79,7 @@
 					<div class="row subject-section">
                         <div class="form-group">
                             <div class="searchable-container">
-                                <h3 class="well well-sm text-primary ">Outdoor Game </h3>
+                                <h3 class="well well-sm text-primary ">Outdoor Activities </h3>
 
 								<!-- items  -->
 
@@ -95,7 +95,7 @@
                                                 <div class="bizcontent">
                                                     <input type="checkbox" name="outdoor_list[]" autocomplete="off" value="{{ $extra->title  }}">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                    <h4>{{ ucwords($extra->title) }}</h4>
+                                                    <h4>{{ ucwords((str_replace("_", " ", $extra->title))) }}</h4>
                                                 </div>
                                             </label>
                                         </div>

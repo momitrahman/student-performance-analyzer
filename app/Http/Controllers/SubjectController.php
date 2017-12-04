@@ -20,14 +20,15 @@ class SubjectController extends Controller
 	public function subjectStore(Request $request)
 	{
 		if ($request->has('subject_name')) {
-		// Validation
+			$snake_case_subject_name  = str_replace(" ", "_", $request->input("subject_name"));
+			$request->merge(['subject_name' => $snake_case_subject_name]);
+			// Validation
 			$validatedData = $request->validate([
 				'subject_name' => 'required|unique:subject_class,subject_name',
 			]);
-
 			$class_count = 0;
 
-		// // Input data store
+			// Input data store
 			$subject_name = strtolower($request->input('subject_name'));
 			$one = $two = $three = $four = $five = $six = $seven = $eight = $nine = $ten = 0;
 
@@ -72,7 +73,7 @@ class SubjectController extends Controller
 				$class_count += 1;
 			}
 
-		// no class selected
+			// no class selected
 			if ($class_count == 0) {
 				return view('admin.subjectEntry')->with('noclass', 'The class selection required')->with('subject_name', $subject_name);
 			} else {
@@ -106,7 +107,7 @@ class SubjectController extends Controller
 					$table->integer('avg_mark');
 				});
 
-				$subjectAddMess = ucwords($subject_name) . " : subject successfully added.";
+				$subjectAddMess = ucwords(str_replace("_", " ", $subject_name)) . " : subject successfully added.";
 				return redirect()->route('addSubject', [$subjectAddMess]);
 			}
 		}

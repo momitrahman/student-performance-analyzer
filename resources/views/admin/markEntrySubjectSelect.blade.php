@@ -57,7 +57,7 @@
 														  <div class="bizcontent">
 															  <input type="checkbox" name="subject_list[]" autocomplete="off" value="{{ $subject }}">
 															  <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-															  <h4>{{ ucwords($subject) }}</h4>
+															  <h4>{{ ucwords(str_replace("_", " ", $subject)) }}</h4>
 														  </div>
 													  </label>
 												  </div>
