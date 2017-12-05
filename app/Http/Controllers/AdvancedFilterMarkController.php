@@ -5,14 +5,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 
-class AdvancedfilterController extends Controller
+class AdvancedFilterMarkController extends Controller
 {
 	public function selectOption($message = null)
 	{
 		if(!empty($message)) {
-			return view("admin.advancedFilterOption", compact('message'));
+			return view("admin.advancedFilterMarkOption", compact('message'));
 		}
-		return view("admin.advancedFilterOption");
+		return view("admin.advancedFilterMarkOption");
 	}
 
 	public function selectFilter(Request $request)
@@ -21,9 +21,9 @@ class AdvancedfilterController extends Controller
 			$option = $request->input('option');
 			if ($option === 'subject') {
 				$subject_list = DB::table("subject_class")->orderBy("subject_name")->pluck("subject_name");
-				return view("admin.advancedFilterSelect", compact('subject_list'));
+				return view("admin.advancedFilterMarkSelect", compact('subject_list'));
 			} else {
-				return view("admin.advancedFilterSelect");
+				return view("admin.advancedFilterMarkSelect");
 			}
 		}
 		return redirect()->route('selectOption');
@@ -35,7 +35,7 @@ class AdvancedfilterController extends Controller
 			$subject = $request->input("subject");
 			$class = $request->input("class");
 
-			return view("admin.advancedFilterFormSelect", compact("subject", "class"));
+			return view("admin.advancedFilterMarkFormSelect", compact("subject", "class"));
 		}
 		return redirect()->route('selectOption');
 	}
@@ -50,7 +50,7 @@ class AdvancedfilterController extends Controller
 			$order = $request->input("order");
 			$output_limit = $request->input("output_limit");
 
-			return view("admin.advancedFilterForm", compact(
+			return view("admin.advancedFilterMarkForm", compact(
 				"subject",
 				"class",
 				"year",
@@ -132,9 +132,9 @@ class AdvancedfilterController extends Controller
 			$datas = DB::select($new_query);
 			if ($subject === "all") {
 				$class = $class[0];
-				return view('admin.advancedFilterClassShow', compact('datas', 'class'));
+				return view('admin.advancedFilterMarkClassShow', compact('datas', 'class'));
 			} else {
-				return view('admin.advancedFilterSubjectShow', compact('datas', 'subject'));
+				return view('admin.advancedFilterMarkSubjectShow', compact('datas', 'subject'));
 			}
 			// return $datas;
 		} catch (QueryException $ex) {

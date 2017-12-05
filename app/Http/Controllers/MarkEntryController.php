@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
-class MarkentryController extends Controller
+class MarkEntryController extends Controller
 {
 	public function checkStudentId(Request $request, $message = null)
 	{

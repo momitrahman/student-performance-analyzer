@@ -26,20 +26,20 @@ Route::prefix('/admin')->group(function () {
 	});
 
 	Route::prefix('/mark')->group(function () {
-		Route::get('/id/{message?}', 'MarkentryController@checkStudentId')->name('checkStudentIdMark');
-		Route::match(['get', 'post'], '/next', 'MarkentryController@checkBasicInfo')->name('checkBasicInfoMark');
-		Route::match(['get', 'post'], '/select', 'MarkentryController@selectSubject')->name('selectSubject');
-		Route::match(['get', 'post'], '/entry', 'MarkentryController@subjectMarkEntry')->name('subjectMarkEntry');
-		Route::match(['get', 'post'], '/store', 'MarkentryController@storeSubjectMark')->name('storeSubjectMark');
+		Route::get('/id/{message?}', 'MarkEntryController@checkStudentId')->name('checkStudentIdMark');
+		Route::match(['get', 'post'], '/next', 'MarkEntryController@checkBasicInfo')->name('checkBasicInfoMark');
+		Route::match(['get', 'post'], '/select', 'MarkEntryController@selectSubject')->name('selectSubject');
+		Route::match(['get', 'post'], '/entry', 'MarkEntryController@subjectMarkEntry')->name('subjectMarkEntry');
+		Route::match(['get', 'post'], '/store', 'MarkEntryController@storeSubjectMark')->name('storeSubjectMark');
 
 	});
 
 	Route::prefix('/extra')->group(function () {
-		Route::get('/id/{message?}', 'ExtracurricularentryController@checkStudentId')->name('checkStudentIdExtra');
-		Route::match(['get', 'post'], '/next', 'ExtracurricularentryController@checkBasicInfo')->name('checkBasicInfoExtra');
-		Route::match(['get', 'post'], '/select', 'ExtracurricularentryController@selectExtra')->name('selectExtra');
-		Route::match(['get', 'post'], '/entry', 'ExtracurricularentryController@extraEntry')->name('extraEntry');
-		Route::match(['get', 'post'], '/store', 'ExtracurricularentryController@storeExtraEntry')->name('storeExtraEntry');
+		Route::get('/id/{message?}', 'ExtracurricularEntryController@checkStudentId')->name('checkStudentIdExtra');
+		Route::match(['get', 'post'], '/next', 'ExtracurricularEntryController@checkBasicInfo')->name('checkBasicInfoExtra');
+		Route::match(['get', 'post'], '/select', 'ExtracurricularEntryController@selectExtra')->name('selectExtra');
+		Route::match(['get', 'post'], '/entry', 'ExtracurricularEntryController@extraEntry')->name('extraEntry');
+		Route::match(['get', 'post'], '/store', 'ExtracurricularEntryController@storeExtraEntry')->name('storeExtraEntry');
 
 	});
 
@@ -55,11 +55,11 @@ Route::prefix('/admin')->group(function () {
 	});
 
 	Route::prefix('/filter')->group(function () {
-		Route::get('/start/{message?}', 'AdvancedfilterController@selectOption')->name('selectOption');
-		Route::match(['get', 'post'], '/next', 'AdvancedfilterController@selectFilter')->name('selectFilter');
-		Route::match(['get', 'post'], '/select', 'AdvancedfilterController@filterFormSelect')->name('filterFormSelect');
-		Route::match(['get', 'post'], '/entry', 'AdvancedfilterController@entryFilter')->name('entryFilter');
-		Route::match(['get', 'post'], '/show', 'AdvancedfilterController@showFilterResult')->name('showFilterResult');
+		Route::get('/start/{message?}', 'AdvancedFilterMarkController@selectOption')->name('selectOption');
+		Route::match(['get', 'post'], '/next', 'AdvancedFilterMarkController@selectFilter')->name('selectFilter');
+		Route::match(['get', 'post'], '/select', 'AdvancedFilterMarkController@filterFormSelect')->name('filterFormSelect');
+		Route::match(['get', 'post'], '/entry', 'AdvancedFilterMarkController@entryFilter')->name('entryFilter');
+		Route::match(['get', 'post'], '/show', 'AdvancedFilterMarkController@showFilterResult')->name('showFilterResult');
 	});
 });
 
