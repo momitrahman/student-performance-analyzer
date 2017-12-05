@@ -20,7 +20,7 @@
 
 			  <div class="x-panel">
 				  <div class="panel panel-primary">
-					  <div class="panel-heading">List of Subject</div>
+					  <div class="panel-heading">Select Subject</div>
 					  <div class="panel-body">
 
 						  <div class="container-fluid">

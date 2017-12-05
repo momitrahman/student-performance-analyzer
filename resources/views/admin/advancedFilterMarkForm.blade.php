@@ -20,10 +20,10 @@
 
         <div class="x-panel">
             <div class="panel panel-primary">
-                <div class="panel-heading">Advanced Filter</div>
+                <div class="panel-heading">Fillup all field</div>
                 <div class="panel-body">
 
-                    <form action={{ route( "showFilterResult") }} method="post">
+                    <form action={{ route( "showFilterResultMark") }} method="post">
                         {{ csrf_field() }}
                         <div class="row">
                             @if (!empty($subject))

@@ -51,15 +51,14 @@
 				   <div class="row ">
 
 					   <div class="table-responsive col-md-12">
-					   		<!--info alert message  -->
-							<div class="alert alert-info">
-								<strong>Please fillout all marks field.</strong>
-							</div>
-							<!--info alert message  -->
+							@if (!empty($subject_list))
+								<!--info alert message  -->
+								<div class="alert alert-info">
+									<strong>Please fillout all marks field.</strong>
+								</div>
+								<!--info alert message  -->
 						   <table id="sort2" class=" table table-bordered table-striped  table-hover">
 
-
-							@if (!empty($subject_list))
 								<thead>
 									<tr class="bg-info">
 										<th>Subject</th>

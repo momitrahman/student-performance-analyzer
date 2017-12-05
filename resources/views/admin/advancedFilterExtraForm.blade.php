@@ -6,36 +6,28 @@
     @include('admin.layouts.header')
     <!--========= Content part Start here =========-->
     <div class="content">
-        <!--warning message  -->
-        
-        <div class="alert alert-warning">
-           
-        </div>
-       
-        <!--warning message  -->
 
         <div class="x-panel">
             <div class="panel panel-primary">
-                <div class="panel-heading">Advanced Filter</div>
+                <div class="panel-heading">Fillup all field</div>
                 <div class="panel-body">
 
-                    <form action=method="post">
-                        
+                    <form action={{ route("showFilterResultExtra") }} method="post">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="extra" value="{{ $extra }}" >
                         <div class="row">
-                            
-                            <input type="hidden" name="subject" value="">
                             <div class="col-md-12">
                                 <div class="col-md-2">
                                     <label for="class">Class</label>
                                 </div>
-                               
+                                 @if ($class === "all")
                                 <div class="col-md-10">
                                     <div class="form-group">
                                         <label for="all" style="font-weight:bold">All</label>
                                         <input type="hidden" name="class[]" value="all">
                                     </div>
                                 </div>
-                                
+                                @elseif ($class === "single")
                                 <div class="col-md-10">
                                     <div class="form-group">
                                         <input type="hidden" name="class[]" value="single">
@@ -53,7 +45,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+                                @else
                                 <div class="col-md-10">
                                     <input type="hidden" name="class[]" value="range">
                                     <div class="col-md-5" style="padding:0">
@@ -90,29 +82,26 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                                 <!-- /.col-md-10 -->
                                 <!-- <label for="subject" class="col-md-10" style="font-weight:bold">All</label> -->
-                               
+
                             </div>
                             <!-- /. col-md-12 -->
 
-                           
-                            <input type="hidden" name="subject" value="all">
-                            <input type="hidden" name="class[]" value="">
-							
 
                             <div class="col-md-12">
                                 <div class="col-md-2">
                                     <label for="year">Year</label>
                                 </div>
-                               
+                                @if($year === "all")
                                 <div class="col-md-10">
                                     <div class="form-group">
                                         <input type="hidden" name="year[]" value="all">
                                         <label for="year" style="font-weight:bold">All</label>
                                     </div>
                                 </div>
-                                
+                                @elseif ($year === "single")
                                 <div class="col-md-10">
                                     <!--Single year  -->
                                     <div>
@@ -123,7 +112,7 @@
                                     </div>
                                     <!--Single year  -->
                                 </div>
-                                
+                                @else
                                 <div class="col-md-10">
                                     <!--Rang year  -->
                                     <input type="hidden" name="year[]" value="range">
@@ -141,6 +130,7 @@
                                     <!--Rang year  -->
 
                                 </div>
+                                @endif
                                 <!-- /.col-md-10 -->
                             </div>
                             <!-- /. col-md-12 -->
@@ -150,40 +140,45 @@
                                     <div class="col-md-2">
                                         <label for="reward">Reward</label>
                                     </div>
-                                    
+                                    @if ($reward === "all")
                                     <div class="col-md-10">
                                         <div class="form-group">
-                                            <input type="hidden" name="mark[]" value="all">
+                                            <input type="hidden" name="reward" value="all">
                                             <label for="" style="font-weight:bold">All</label>
                                         </div>
                                     </div>
-                                   
-                                    
+                                    @elseif ($reward === "with")
                                     <div class="col-md-10">
                                         <div class="form-group">
-                                            <!--True -->
-                                            <input type="hidden" name="mark[]" value="equal">
-                                            <div>
-                                                <input type="text" class="form-control" name="mark[]" placeholder="Reward position.." required>
-                                            </div>
-                                            <!--True  -->
+                                            <input type="hidden" name="reward" value="with">
+                                            <label for="" style="font-weight:bold">With Reward</label>
                                         </div>
                                     </div>
-                                   
+                                    @else
                                     <div class="col-md-10">
-                                        <!-- False -->
-                                        <div class="form-group">
-                                            <input type="hidden" name="mark[]" value="false">
-                                            <label for="" style="font-weight:bold">False</label>
+                                         <div class="form-group">
+                                            <input type="hidden" name="reward" value="without">
+                                            <label for="" style="font-weight:bold">Without Reward</label>
                                         </div>
                                     </div>
-                                   
+                                    @endif
                                 </div>
                                 <!-- /.form-group -->
                             </div>
+                              <div class="col-md-12">
+                                <div class="col-md-2">
+                                    <!-- Trigger the modal with a button -->
+                                    <button type="submit" class="btn btn-success button">Next
+                                        <i class="fa fa-forward next-icon" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-10"></div>
+
+                            </div>
+
                             <!-- /.col-md-12 -->
 
-                            
+
                     </form>
                 </div>
                 <!--/ .panel-body  -->

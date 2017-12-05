@@ -8,10 +8,10 @@
 		   <div class="content">
 			   <div class="x-panel">
 				   <div class="panel panel-primary">
-					   <div class="panel-heading">Advanced Filter</div>
+					   <div class="panel-heading">Select an option</div>
 					   <div class="panel-body">
 
-						   <form action={{ route("filterFormSelect") }} method="post">
+						   <form action={{ route("filterFormSelectMark") }} method="post">
 							   {{ csrf_field() }}
 
 								@if(!empty($subject_list))
@@ -50,7 +50,7 @@
 						   	@endif
 
 							   <!-- Trigger the modal with a button -->
-								<a href={{ route('selectOption') }} class="btn button button-green" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a>
+								<a href={{ route('selectOptionMark') }} class="btn button button-green" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a>
 							   <button type="submit" class="btn btn-success button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
 
 						   </form>

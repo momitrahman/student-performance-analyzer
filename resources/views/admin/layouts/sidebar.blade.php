@@ -50,9 +50,10 @@
                  </li>
 
                  <li>
-                     <div class="link"><i class="fa fa-filter"></i>Student Filter<i class="fa fa-chevron-down"></i></div>
+                     <div class="link"><i class="fa fa-filter"></i>Advanced Student Filter<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
-                         <li><a href={{ route('selectOption')}}>Advanced Filter</a></li>
+                         <li><a href={{ route('selectOptionMark')}}>Marks</a></li>
+                         <li><a href={{ route('selectOptionExtra')}}>Extra Curricular</a></li>
                      </ul>
                  </li>
 

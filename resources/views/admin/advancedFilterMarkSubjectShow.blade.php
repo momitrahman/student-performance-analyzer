@@ -1,4 +1,4 @@
-@extends('master')
+ @extends('master')
 @section('content')
 @include('admin.layouts.sidebar')
 <!--page-content  -->
@@ -21,7 +21,7 @@
 				<!--full-Screen Button end -->
 
 				<div class="panel panel-primary">
-					<div class="panel-heading">{{ 'Subject : ' . ucwords($subject) }}</div>
+					<div class="panel-heading">{{ 'Subject : ' . ucwords(str_replace("_", " ", $subject)) }}</div>
 					<div class="panel-body">
 						<form>
 							<div class="container panel-content">
@@ -30,7 +30,7 @@
 									<div class="table-responsive col-md-12 ">
 
 										<table id="sort2" class=" table table-bordered table-striped  table-hover text-center">
-
+											@if (!empty($datas))
 											<thead>
 												<tr class="bg-info ">
 													<th class="text-center">No.</th>
@@ -57,7 +57,11 @@
   													 </td>
 												</tr>
 												@endforeach
-
+												@else
+													<div class="alert alert-info">
+														<strong>No Data Found</strong>
+													</div>
+												@endif
 											</tbody>
 										</table>
 										<!--/.table-responsive  -->

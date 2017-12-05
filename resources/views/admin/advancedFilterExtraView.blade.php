@@ -30,7 +30,7 @@
 									<div class="table-responsive col-md-12 ">
 
 										<table id="sort2" class=" table table-bordered table-striped  table-hover text-center">
-
+											@if (!empty($datas))
 											<thead>
 												<tr class="bg-info ">
 													<th class="text-center">No.</th>
@@ -39,24 +39,25 @@
 													<th class="text-center">Year</th>
 													<th class="text-center">Place</th>
 													<th class="text-center">Reward</th>
-													<th class="text-center">Details</th>
 												</tr>
 											</thead>
 											<tbody style="background:#fff">
-												
+												@php $no=1 @endphp
+												@foreach ($datas as $data)
 												<tr>
-													<td>1</td>
-													<td>23432</td>
-													<td>3</td>
-													<td>2010</td>
-													<td>sjflsjd</td>
-													<td>2nd</td>
-													<td class="details-link">
-                                                        <a href="#"  class="details-icon"><span>Click Here</span></a>
-  													 </td>
+													<td>{{ $no++ }}</td>
+													<td>{{ $data->sid}}</td>
+													<td>{{ ucwords($data->class) }}</td>
+													<td>{{ $data->year}}</td>
+													<td>{{ ucwords($data->place) }}</td>
+													<td>{{ ucwords($data->reward) }}</td>
 												</tr>
-												
-
+												@endforeach
+											@else
+											<div class="alert alert-info">
+  												<strong>No Data Found</strong>
+											</div>
+											@endif
 											</tbody>
 										</table>
 										<!--/.table-responsive  -->

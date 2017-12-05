@@ -8,14 +8,12 @@
 		   <div class="content">
 			   <div class="x-panel">
 				   <div class="panel panel-primary">
-					   <div class="panel-heading">Advanced Filter</div>
+					   <div class="panel-heading">Select Options</div>
 					   <div class="panel-body">
 
-						  	<form action={{ route("entryFilter") }} method="post">
+						  	<form action={{ route("entryFilterExtra") }} method="post">
 								{{ csrf_field() }}
-
-								
-								<input type="hidden" name="subject" value="">
+								<input type="hidden" name="extra" value="{{ $extra }}">
 							   	<div class="row">
 								   <div class="col-md-12">
 									   <div class="form-group">
@@ -28,7 +26,6 @@
 									   </div>
 								   </div>
 							   </div>
-						   		
 
 							   <div class="row">
 								   <div class="col-md-12">
@@ -46,11 +43,11 @@
 							    <div class="row">
 								   <div class="col-md-12">
 									   <div class="form-group">
-										   <label for="reward"> Reward</label>
+										   <label for="reward">Reward</label>
 										   <select class="form-control" id="rewardd" name="reward">
 											   <option value="all">All</option>
-											   <option value="single">True</option>
-											   <option value="range">False</option>
+											   <option value="with">With Reward</option>
+											   <option value="without">Without reward</option>
 										   </select>
 									   </div>
 								   </div>
@@ -58,7 +55,7 @@
 
 
 							   <!-- Trigger the modal with a button -->
-								<a href={{ route('selectOption') }} class="btn button button-green" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a>
+								<a href={{ route('selectOptionExtra') }} class="btn button button-green" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a>
 							   <button type="submit" class="btn btn-success button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
 						   </form>
 

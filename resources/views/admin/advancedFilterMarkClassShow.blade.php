@@ -26,7 +26,7 @@
                                     <div class="table-responsive col-md-12 ">
 
                                         <table id="sort2" class=" table table-bordered table-striped  table-hover text-center">
-
+                                            @if (!empty($datas))
                                             <thead>
                                                 <tr class="bg-info ">
                                                     <th class="text-center">No.</th>
@@ -52,7 +52,12 @@
                                                         <a href="#"  class="details-icon"><span>Click Here</span></a>
   													 </td>
   												 </tr>
-  										 @endforeach
+  										         @endforeach
+                                            @else
+                                            <div class="alert alert-info">
+                                                <strong>No Data Found</strong>
+                                            </div>
+                                            @endif
 									   </tbody>
 								   </table>
                                 </div>

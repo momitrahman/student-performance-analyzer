@@ -17,7 +17,7 @@
 
 	                 <div class="x-panel">
 	                    <div class="panel panel-primary">
-	                        <div class="panel-heading">Please Select Information</div>
+	                        <div class="panel-heading">Select Options</div>
 	                        <div class="panel-body">
 	                         <form action={{ route('selectExtra') }} method="post">
 								 {{ csrf_field() }}

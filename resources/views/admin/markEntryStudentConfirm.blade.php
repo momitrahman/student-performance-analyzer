@@ -8,7 +8,7 @@
 		   <div class="content">
 			   <div class="x-panel">
 				   <div class="panel panel-primary">
-					   <div class="panel-heading">Check Student Information</div>
+					   <div class="panel-heading">Check Student Information </div>
 					   <div class="panel-body">
 
 						    @foreach ($sid_infos as $sid_info)

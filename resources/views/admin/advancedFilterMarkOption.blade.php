@@ -8,18 +8,16 @@
 		   <div class="content">
 			   <div class="x-panel">
 				   <div class="panel panel-primary">
-					   <div class="panel-heading">Advanced Filter</div>
+					   <div class="panel-heading">Select an option</div>
 					   <div class="panel-body">
-							<!--success alert message  -->
+							<!--waring alert message  -->
 								@if (!empty($message))
-									<div class="alert alert-success">
-										<ul>
-											<li><strong> {{ $message }}</strong></li>
-										</ul>
+									<div class="alert alert-warning">
+										<strong>Your given query have some error.</strong>
 									</div>
 								@endif
-							<!--success alert message  -->
-						   <form action={{ route("selectFilter") }} method="post">
+							<!--warning alert message  -->
+						   <form action={{ route("selectFilterMark") }} method="post">
 							   {{ csrf_field() }}
 							   <div class="row">
 								   <div class="col-md-6">
