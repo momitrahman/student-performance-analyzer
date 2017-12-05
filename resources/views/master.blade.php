@@ -9,6 +9,9 @@
     <meta name="author" content="Rasel, Momit">
     <title>Student Performance Analyser</title>
 
+	<!-- Favicon -->
+    <link rel="shortcut icon" href="img/fav-icon/favicon.ico">
+
     <!-- Font Awesome -->
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <!-- Bootstrap vendors -->
