@@ -30,7 +30,7 @@
 									<div class="table-responsive col-md-12 ">
 
 										<table id="sort2" class=" table table-bordered table-striped  table-hover text-center">
-											@if (!empty($datas))
+											@if (!empty(json_decode($datas, true)))
 											<thead>
 												<tr class="bg-info ">
 													<th class="text-center">No.</th>

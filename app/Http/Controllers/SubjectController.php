@@ -81,16 +81,16 @@ class SubjectController extends Controller
 				DB::table('subject_class')->insertGetID(
 					[
 						'subject_name' => $subject_name,
-						'one' => $one,
-						'two' => $two,
-						'three' => $three,
-						'four' => $four,
-						'five' => $five,
-						'six' => $six,
-						'seven' => $seven,
-						'eight' => $eight,
-						'nine' => $nine,
-						'ten' => $ten,
+						'1' => $one,
+						'2' => $two,
+						'3' => $three,
+						'4' => $four,
+						'5' => $five,
+						'6' => $six,
+						'7' => $seven,
+						'8' => $eight,
+						'9' => $nine,
+						'10' => $ten,
 
 					]
 				);
@@ -98,7 +98,7 @@ class SubjectController extends Controller
 				Schema::create($subject_name, function (Blueprint $table) {
 					$table->increments('id');
 					$table->integer('sid');
-					$table->string('class');
+					$table->integer('class');
 					$table->integer('year');
 					$table->integer('sem_slot');  // sem shortform of semseter
 					$table->integer('sem_1')->nullable();

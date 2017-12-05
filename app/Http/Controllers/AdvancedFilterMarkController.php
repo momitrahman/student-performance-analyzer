@@ -3,15 +3,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\QueryException;
 
 class AdvancedFilterMarkController extends Controller
 {
-	public function selectOption($message = null)
+	public function selectOption()
 	{
-		if (!empty($message)) {
-			return view("admin.advancedFilterMarkOption", compact('message'));
-		}
 		return view("admin.advancedFilterMarkOption");
 	}
 
@@ -64,6 +60,7 @@ class AdvancedFilterMarkController extends Controller
 
 	public function showFilterResult(Request $request)
 	{
+		// return $request->all();
 		if ($request->has('subject') || $request->has('class')) {
 			$subject = $request->input("subject");
 			$class = $request->input("class");
@@ -71,78 +68,95 @@ class AdvancedFilterMarkController extends Controller
 			$mark = $request->input("mark");
 			$order = $request->input("order");
 			$output_limit = $request->input("output_limit");
-			$query = "";
-
-			if ($subject === "all") {
-				$query = "SELECT * FROM class_avg_mark ";
-			} else {
-				$query = "SELECT * FROM $subject ";
-			}
 
 			if ($class[0] === "single") {
-				$query .= "WHERE class='$class[1]' ";
+				$class_query = "class = ?";
+				$class_value = [$class[1]];
 			} else if ($class[0] === "range") {
-				$query .= "WHERE (class BETWEEN '$class[1]' AND '$class[2])' ";
-			} else if ($subject === "all") {
-				$query .= "WHERE class='$class[0]' ";
+				$class_query = "class BETWEEN ? AND ? ";
+				$class_value = [$class[1], $class[2]];
+			} else if ($class[0] === "all") {
+				$class_query = "class IS NOT NULL";
+				$class_value = [];
 			}
 
 			if ($year[0] === "single") {
-				$query .= "WHERE year=$year[1] ";
+				$year_query = "year = ? ";
+				$year_value = [$year[1]];
 			} else if ($year[0] === "range") {
-				$query .= "WHERE (year BETWEEN $year[1] AND $year[2]) ";
+				$year_query = "year BETWEEN ? AND ? ";
+				$year_value = [$year[1], $year[2]];
+			} else if ($year[0] === "all") {
+				$year_query = "year IS NOT NULL ";
+				$year_value = [];
 			}
 
 			if ($mark[0] === "equal") {
-				$query .= "WHERE avg_mark=$mark[1] ";
+				$mark_query = "avg_mark = ? ";
+				$mark_value = $mark[1];
 			} else if ($mark[0] === "less_than") {
-				$query .= "WHERE avg_mark<=$mark[1] ";
+				$mark_query = "avg_mark <= ? ";
+				$mark_value = $mark[1];
 			} else if ($mark[0] === "greater_than") {
-				$query .= "WHERE avg_mark>=$mark[1] ";
+				$mark_query = "avg_mark >= ? ";
+				$mark_value = $mark[1];
 			} else if ($mark[0] === "range") {
-				$query .= "WHERE (avg_mark BETWEEN $mark[1] AND $mark[2]) ";
+				$mark_query = "avg_mark BETWEEN ? AND ? ";
+				$mark_value = [$mark[1], $mark[2]];
+			} else if ($mark[0] === "all") {
+				$mark_query = "avg_mark IS NOT NULL";
+				$mark_value = [];
 			}
 
 			if ($order === "asc") {
-				$query .= "ORDER BY avg_mark ASC ";
+				$order_query = "avg_mark ASC ";
 			} else {
-				$query .= "ORDER BY avg_mark DESC ";
+				$order_query = "avg_mark DESC ";
 			}
 
-			if ($output_limit !== "all") {
-				$query .= "LIMIT $output_limit ";
-			}
-
-			$new_query = "";
-			if (strpos($query, "WHERE") !== false) {
-				if (strpos($query, "WHERE") == strrpos($query, "WHERE")) {
-					$new_query = $query;
+			// DB::enableQueryLog();
+			// dd(DB::getQueryLog());
+			if ($subject === "all") {
+				if ($output_limit === "all") {
+					$datas = DB::table("class_avg_mark")
+						->selectRaw('*')
+						->whereRaw($year_query, $year_value)
+						->whereRaw($mark_query, $mark_value)
+						->orderByRaw($order_query)
+						->get();
 				} else {
-					$position = strpos($query, "WHERE");
-					$new_query_start = substr($query, 0, ($position + 5));
-					$new_query_end = substr($query, $position + 5);
-					$new_query_end = str_replace("WHERE", "AND", $new_query_end);
-					$new_query = $new_query_start . $new_query_end;
+					$datas = DB::table("class_avg_mark")
+						->selectRaw('*')
+						->whereRaw($year_query, $year_value)
+						->whereRaw($mark_query, $mark_value)
+						->orderByRaw($order_query)
+						->limit($output_limit)
+						->get();
 				}
+				$class = $class[0];
+				return view('admin.advancedFilterMarkClassShow', compact('datas', 'class'));
 			} else {
-				$new_query = $query;
-			}
-
-		//  return $new_query;
-			try {
-				$datas = DB::select($new_query);
-				if ($subject === "all") {
-					$class = $class[0];
-					return view('admin.advancedFilterMarkClassShow', compact('datas', 'class'));
+				if ($output_limit === "all") {
+					$datas = DB::table($subject)
+						->selectRaw('*')
+						->whereRaw($class_query, $class_value)
+						->whereRaw($year_query, $year_value)
+						->whereRaw($mark_query, $mark_value)
+						->orderByRaw($order_query)
+						->get();
 				} else {
-					return view('admin.advancedFilterMarkSubjectShow', compact('datas', 'subject'));
+					$datas = DB::table($subject)
+						->selectRaw('*')
+						->whereRaw($class_query, $class_value)
+						->whereRaw($year_query, $year_value)
+						->whereRaw($mark_query, $mark_value)
+						->orderByRaw($order_query)
+						->limit($output_limit)
+						->get();
 				}
-			// return $datas;
-			} catch (QueryException $ex) {
-				$message =  "query_error";
-				return redirect()->route('selectOptionMark', [$message]);
+				return view('admin.advancedFilterMarkSubjectShow', compact('datas', 'subject'));
 			}
 		}
-		return redirect()->route('selectOptionMark');
 	}
 }
+

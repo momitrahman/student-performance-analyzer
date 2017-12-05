@@ -34,28 +34,30 @@
 				<form action={{ route('selectSubject') }} method="post">
 					{{ csrf_field() }}
 					<!--info alert message  -->
+						@if (!empty($mark_entered_clas))
 						<div class="alert alert-info">
 							Mark already added for class:
 						@foreach($mark_entered_class as $class_title)
 							<strong>{{ ucfirst($class_title) . ", " }}</strong>
 						@endforeach
 						</div>
+						@endif
 					<!--info alert message  -->
 					<input type="hidden" name="sid" value={{ $sid }}>
 					<input type="hidden" name="name" value="{{ $name }}">
 					<div class="form-group">
 						<label>Class</label>
 						<select class="form-control" id="class" name="class">
-	 					   <option>One</option>
-	 					   <option>Two</option>
-	 					   <option>Three</option>
-	 					   <option>Four</option>
-	 					   <option>Five</option>
-	 					   <option>Six</option>
-	 					   <option>Seven</option>
-	 					   <option>Eight</option>
-	 					   <option>Nine</option>
-	 					   <option>Ten</option>
+	 					  	<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+							<option value="4">Four</option>
+							<option value="5">Five</option>
+							<option value="6">Six</option>
+							<option value="7">Seven</option>
+							<option value="8">Eight</option>
+							<option value="9">Nine</option>
+							<option value="10">Ten</option>
 	 				   </select>
 					</div>
 					<div class="form-group">

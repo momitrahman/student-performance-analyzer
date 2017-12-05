@@ -55,7 +55,7 @@ Route::prefix('/admin')->group(function () {
 	});
 
 	Route::prefix('/mark-filter')->group(function () {
-		Route::get('/start/{message?}', 'AdvancedFilterMarkController@selectOption')->name('selectOptionMark');
+		Route::get('/start', 'AdvancedFilterMarkController@selectOption')->name('selectOptionMark');
 		Route::match(['get', 'post'], '/next', 'AdvancedFilterMarkController@selectFilter')->name('selectFilterMark');
 		Route::match(['get', 'post'], '/select', 'AdvancedFilterMarkController@filterFormSelect')->name('filterFormSelectMark');
 		Route::match(['get', 'post'], '/entry', 'AdvancedFilterMarkController@entryFilter')->name('entryFilterMark');
@@ -63,7 +63,7 @@ Route::prefix('/admin')->group(function () {
 	});
 
 	Route::prefix('/extra-filter')->group(function () {
-		Route::get('/start/{message?}', 'AdvancedFilterExtraController@selectOption')->name('selectOptionExtra');
+		Route::get('/start', 'AdvancedFilterExtraController@selectOption')->name('selectOptionExtra');
 		Route::match(['get', 'post'], '/select', 'AdvancedFilterExtraController@filterFormSelect')->name('filterFormSelectExtra');
 		Route::match(['get', 'post'], '/entry', 'AdvancedFilterExtraController@entryFilter')->name('entryFilterExtra');
 		Route::match(['get', 'post'], '/show', 'AdvancedFilterExtraController@showFilterResult')->name('showFilterResultExtra');

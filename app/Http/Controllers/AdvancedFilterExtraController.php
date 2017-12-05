@@ -3,15 +3,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\QueryException;
 
 class AdvancedFilterExtraController extends Controller
 {
-    public function selectOption($message = null)
+    public function selectOption()
     {
-        if (!empty($message)) {
-            return view("admin.advancedFilterExtraSelect", compact('message'));
-        }
         $extracurricular = DB::table("extracurricular")->pluck("title");
         return view("admin.advancedFilterExtraSelect", compact("extracurricular"));
     }
@@ -40,55 +36,55 @@ class AdvancedFilterExtraController extends Controller
 
     public function showFilterResult(Request $request)
     {
+        // return $request->all();
         if ($request->has('extra')) {
             $extra = $request->input("extra");
             $class = $request->input("class");
             $year = $request->input("year");
             $reward = $request->input("reward");
 
-            $query = "SELECT * FROM student_extracurricular WHERE name='$extra' ";
-
             if ($class[0] === "single") {
-                $query .= "WHERE class='$class[1]' ";
+                $class_query = "class = ?";
+                $class_value = [$class[1]];
             } else if ($class[0] === "range") {
-                $query .= "WHERE (class BETWEEN '$class[1]' AND '$class[2])' ";
+                $class_query = "class BETWEEN ? AND ? ";
+                $class_value = [$class[1], $class[2]];
+            } else if ($class[0] === "all") {
+                $class_query = "class IS NOT NULL";
+                $class_value = [];
             }
 
             if ($year[0] === "single") {
-                $query .= "WHERE year=$year[1] ";
+                $year_query = "year = ? ";
+                $year_value = [$year[1]];
             } else if ($year[0] === "range") {
-                $query .= "WHERE (year BETWEEN $year[1] AND $year[2]) ";
+                $year_query = "year BETWEEN ? AND ? ";
+                $year_value = [$year[1], $year[2]];
+            } else if ($year[0] === "all") {
+                $year_query = "year IS NOT NULL ";
+                $year_value = [];
             }
 
             if ($reward === "with") {
-                $query .= "WHERE reward!='' ";
+                $reward_query = "reward != ?";
+                $reward_value = "";
             } else if ($reward === "without") {
-                $query .= "WHERE reward=''";
+                $reward_query = "reward = ?";
+                $reward_value = "";
+            } else if ($reward === "all") {
+                $reward_query = "reward IS NOT NULL";
+                $reward_value = "";
             }
 
-            if (strpos($query, "WHERE") !== false) {
-                if (strpos($query, "WHERE") == strrpos($query, "WHERE")) {
-                    $new_query = $query;
-                } else {
-                    $position = strpos($query, "WHERE");
-                    $new_query_start = substr($query, 0, ($position + 5));
-                    $new_query_end = substr($query, $position + 5);
-                    $new_query_end = str_replace("WHERE", "AND", $new_query_end);
-                    $new_query = $new_query_start . $new_query_end;
-                }
-            } else {
-                $new_query = $query;
-            }
-
-        // return $new_query;
-            try {
-                $datas = DB::select($new_query);
-            // return $datas;
-                return view("admin.advancedFilterExtraView", compact("datas"));
-            } catch (QueryException $ex) {
-                $message = "query_error";
-                return redirect()->route('selectOptionExtra');
-            }
+            DB::enableQueryLog();
+            $datas = DB::table("student_extracurricular")
+                ->selectRaw('*')
+                ->whereRaw($class_query, $class_value)
+                ->whereRaw($year_query, $year_value)
+                ->whereRaw($reward_query, $reward_value)
+                ->get();
+            // dd(DB::getQueryLog());
+            return view("admin.advancedFilterExtraView", compact("datas"));
         }
         return redirect()->route('selectOptionExtra');
     }

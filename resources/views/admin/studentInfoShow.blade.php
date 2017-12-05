@@ -34,26 +34,7 @@
 											   <span>:</span>
 											   <strong>{{ ucwords($sid_info->name) }}</strong>
 										   </div>
-										   {{--  <div class="info-row flex-second-row ">
-											   <label for="">Year</label>
-											   <span>:</span>
-											   <strong>{{ ucwords($sid_info->year) }}</strong>
-										   </div>
-										   <div class="info-row flex-second-row ">
-											   <label for="">Class</label>
-											   <span>:</span>
-											   <strong>{{ ucwords($sid_info->class) }}</strong>
-										   </div>
-										   <div class="info-row flex-second-row ">
-										   		<label for="">Roll</label>
-										   		<span>:</span>
-										   		<strong>{{ ucwords($sid_info->roll) }}</strong>
-									   		</div>
-										   <div class="info-row flex-second-row ">
-											   <label for="">Section</label>
-											   <span>:</span>
-											   <strong>{{ ucwords($sid_info->section) }}</strong>
-										   </div>  --}}
+
 										   <div class="info-row flex-second-row ">
 											   <label for="">Student Birth Certificate No.</label>
 											   <span>:</span>

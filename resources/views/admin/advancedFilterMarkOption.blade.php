@@ -10,13 +10,6 @@
 				   <div class="panel panel-primary">
 					   <div class="panel-heading">Select an option</div>
 					   <div class="panel-body">
-							<!--waring alert message  -->
-								@if (!empty($message))
-									<div class="alert alert-warning">
-										<strong>Your given query have some error.</strong>
-									</div>
-								@endif
-							<!--warning alert message  -->
 						   <form action={{ route("selectFilterMark") }} method="post">
 							   {{ csrf_field() }}
 							   <div class="row">
