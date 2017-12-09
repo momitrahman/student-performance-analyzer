@@ -47,66 +47,65 @@
 												       <td>{{ $no++ }}</td>
                                                        <td>{{ ucwords(str_replace("_", " ", $subject->subject_name)) }}</td>
 
-													   @if($subject->one === 1)
+													   @if($subject->{1} === 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
 													   @else
                                                     		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
 													   @endif
 
-													   @if($subject->two === 1)
+													   @if($subject->{2} == 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
 													   @else
                                                     		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
 													   @endif
 
-													   @if($subject->three === 1)
+													   @if($subject->{3} == 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
 													   @else
                                                     		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
 													   @endif
 
-													   @if($subject->four === 1)
+													   @if($subject->{4} == 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
 													   @else
                                                     		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
 													   @endif
 
-													   @if($subject->five === 1)
+													   @if($subject->{5} == 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
 													   @else
                                                     		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
 													   @endif
 
-													   @if($subject->six === 1)
+													   @if($subject->{6} == 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
 													   @else
                                                     		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
 													   @endif
 
-													   @if($subject->seven === 1)
+													   @if($subject->{7} === 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
 													   @else
                                                     		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
 													   @endif
 
-													   @if($subject->eight === 1)
+													   @if($subject->{8} === 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
 													   @else
                                                     		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
 													   @endif
 
-													   @if($subject->nine === 1)
+													   @if($subject->{9} === 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
 													   @else
                                                     		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
 													   @endif
 
-													   @if($subject->ten === 1)
+													   @if($subject->{10} === 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
 													   @else
                                                     		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
 													   @endif
-
 
                                                    </tr>
 											   @endforeach

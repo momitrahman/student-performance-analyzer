@@ -115,25 +115,27 @@ class AdvancedFilterMarkController extends Controller
 			}
 
 			// DB::enableQueryLog();
-			// dd(DB::getQueryLog());
 			if ($subject === "all") {
 				if ($output_limit === "all") {
 					$datas = DB::table("class_avg_mark")
 						->selectRaw('*')
+						->whereRaw($class_query, $class_value)
 						->whereRaw($year_query, $year_value)
 						->whereRaw($mark_query, $mark_value)
 						->orderByRaw($order_query)
 						->get();
-				} else {
-					$datas = DB::table("class_avg_mark")
+					} else {
+						$datas = DB::table("class_avg_mark")
 						->selectRaw('*')
+						->whereRaw($class_query, $class_value)
 						->whereRaw($year_query, $year_value)
 						->whereRaw($mark_query, $mark_value)
 						->orderByRaw($order_query)
 						->limit($output_limit)
 						->get();
-				}
-				$class = $class[0];
+					}
+					$class = $class[1];
+					// dd(DB::getQueryLog());
 				return view('admin.advancedFilterMarkClassShow', compact('datas', 'class'));
 			} else {
 				if ($output_limit === "all") {
@@ -154,6 +156,7 @@ class AdvancedFilterMarkController extends Controller
 						->limit($output_limit)
 						->get();
 				}
+				// dd(DB::getQueryLog());
 				return view('admin.advancedFilterMarkSubjectShow', compact('datas', 'subject'));
 			}
 		}

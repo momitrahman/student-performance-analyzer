@@ -102,6 +102,7 @@
 
                             @else
                             <input type="hidden" name="subject" value="all">
+                            <input type="hidden" name="class[]" value="single">
                             <input type="hidden" name="class[]" value="{{ $class }}">
 							@endif
 

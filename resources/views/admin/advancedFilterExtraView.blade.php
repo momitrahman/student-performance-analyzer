@@ -21,7 +21,7 @@
 				<!--full-Screen Button end -->
 
 				<div class="panel panel-primary">
-					<div class="panel-heading">Advance Filter Show</div>
+					<div class="panel-heading"> {{ "Activites Name: " . ucwords(str_replace("_", " ", $extra)) }}</div>
 					<div class="panel-body">
 						<form>
 							<div class="container panel-content">

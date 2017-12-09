@@ -14,7 +14,6 @@ class AdvancedFilterExtraController extends Controller
 
     public function filterFormSelect(Request $request)
     {
-        // return $request->all();
         if ($request->has('extra')) {
             $extra = $request->input("extra");
             return view("admin.advancedFilterExtraFormSelect", compact("extra"));
@@ -76,15 +75,16 @@ class AdvancedFilterExtraController extends Controller
                 $reward_value = "";
             }
 
-            DB::enableQueryLog();
+            // DB::enableQueryLog();
             $datas = DB::table("student_extracurricular")
                 ->selectRaw('*')
+                ->whereRaw("name = ?", $extra)
                 ->whereRaw($class_query, $class_value)
                 ->whereRaw($year_query, $year_value)
                 ->whereRaw($reward_query, $reward_value)
                 ->get();
             // dd(DB::getQueryLog());
-            return view("admin.advancedFilterExtraView", compact("datas"));
+            return view("admin.advancedFilterExtraView", compact("datas", "extra"));
         }
         return redirect()->route('selectOptionExtra');
     }
