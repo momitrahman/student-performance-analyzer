@@ -17,7 +17,7 @@
     <!-- Bootstrap vendors -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS   -->
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/adminStyle.css" rel="stylesheet">
 
     <!-- Fonts  -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -45,7 +45,7 @@
 		<script type="text/javascript" src="/js/jquery.fullscreen.min.js"></script>
 
 		<!--Custom JS  -->
-		<script type="text/javascript " src="/js/script.js "></script>
+		<script type="text/javascript " src="/js/adminScript.js "></script>
 	@show
 </div>
 </body>
