@@ -1,4 +1,13 @@
 /* ==============================
+                Header,Button COLOR 
+        background-color: rgb(13, 131, 139);
+        background-hover: rgb(14, 141, 150);
+        
+
+=================================*/
+
+
+/* ==============================
 BASIC SETUP
 =================================*/
 
@@ -36,7 +45,8 @@ a:hover {
     color: #555;
 } */
 a,
-a:hover {
+a:hover,
+a:active {
     text-decoration: none;
     color: #555;
 }
@@ -91,7 +101,7 @@ a:hover {
     font-family: sans-serif;
     text-shadow: 2px 0px 0 rgba(0, 0, 0, 0.2);
     font-weight: bold;
-    border-radius:
+    border-radius: 50px;
 }
 
 .button-small {
@@ -111,13 +121,15 @@ a:hover {
 }
 
 .button-green {
-    background: #1fa08e;
+    /* background: #1fa08e; */
+    background: rgb(13, 131, 139);
     color: #ffffff;
     margin-right: 15px;
 }
 
 .button-green:hover {
-    background: #23b5a1;
+    /* background: #23b5a1; */
+    background: rgb(14, 141, 150);
     color: #ffffff;
     /* box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.12), 0px 8px 8px 0px rgba(0, 0, 0, 0.24); */
 }
@@ -244,9 +256,10 @@ CUSTOMIZE BOOTSTRAP
 /* ======= Overall Customize start =======  */
 
 .panel-heading {
-    font-family: teko;
-    font-size: 150%;
+    font-family: oleo;
+    font-size: 130%;
     text-shadow: 0px 0px 2px #000;
+    font-weight: 700;
 }
 
 label {
@@ -482,18 +495,15 @@ PAGE CONTENT SECTION
 =================================*/
 
 #page-content {
-    width: 80%;
-    position: absolute;
-    /* left: 250px; */
-    left: 20%;
+    width: 100%;
+    /* position: absolute; */
+    /* left: 20%; */
     -webkit-transition: all 500ms;
     transition: all 500ms;
-    /* display: flex; */
-    /* align-items: stretch; */
 }
 
 #page-content.active {
-    left: 0;
+    /* left: 0; */
     width: 100%;
 }
 
@@ -503,46 +513,36 @@ HEADER SECTION
 =================================*/
 
 .nav-section {
-    background: #fff;
-    position: fixed;
-    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    /* box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12); */
+    background: rgb(13, 131, 139);
+    /* position: fixed; */
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     height: 60px;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    
 }
 
 #nav-section {
-    width: 80%;
-    font-family: ole;
+    width: 100%;
+    font-family: oleo;
+    font-weight: 400;
+    font-size: 120%;
     z-index: 3;
+    
 }
 
 #nav-section.active {
     width: 100%;
 }
 
-.toggle-btn {
-    position: absolute;
-    top: 15px;
-    font-size: 140%;
-    color: #555;
-    left: 15px;
-    cursor: pointer;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-.nav-section.sticky {
-    /* background: rgba(211, 84, 0, 0.9); */
-    background: #fff;
+/* .nav-section.sticky {
+    background: rgb(13, 131, 139);
     height: 55px;
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
     z-index: 1;
-}
-
+} */
 .nav-section.sticky .toggle-btn {
     top: 10px;
 }
@@ -569,8 +569,9 @@ HEADER SECTION
     width: 30px;
     white-space: nowrap;
     border-radius: 1000px;
-    vertical-align: bottom;
+    /* vertical-align: bottom; */
 }
+
 
 .admin i {
     position: absolute;
@@ -596,21 +597,64 @@ HEADER SECTION
 }
 
 
+.head-menu {
+    color: #fff;
+    float: left;
+    margin-left: 11%;
+}
+.head-menu li{
+    display: inline-block;
+    padding-top: 15px;
+}
+.head-menu li a {
+    padding: 20px 20px;
+    color: #fff;
+    transition: .5s;
+    margin-right: -5px;
+    /* text-transform: uppercase; */
+    font-size: 110%;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px #000;
+}
+    
+.head-menu li a:hover {
+    background: rgb(14, 141, 150);
+    color: #fff;
+}
+
+.user-stdn {
+    float: right;
+    margin-right: 11%;
+}
+.user-name-stdn {
+    color: #fff;
+    font-size: 110%;
+    text-shadow: 0px 0px 2px #000;
+}
+.user-name-stdn-id {
+    text-align: center;
+    line-height: .5px;
+    font-size: 85%;
+    position: relative;
+    top: 10px;
+}
+
 /* ==============================
 CONTENT SECTION
 =================================*/
 
 .content {
-    /* background: #fff; */
-    margin: 80px 20px 0px 0px;
+    /* margin: 80px 20px 0px 0px; */
     padding: 20px;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .x-panel {
     width: 100%;
-    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    /* -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);    */
+    /* margin-top: 60px; */
 }
 
 .search {
@@ -707,9 +751,9 @@ label.btn.active span.glyphicon {
 }
 
 .info-row label {
-    -webkit-box-flex: 3;
-    -ms-flex: 3;
-    flex: 3;
+    -webkit-box-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
 }
 
 .info-row span {
@@ -775,9 +819,9 @@ label.btn.active span.glyphicon {
 
 .details-link .details-icon {
     display: inline-block;
-    width: 150px;
+    width: 150px;        
     border-radius: 4px;
-    background-color: rgba(22, 160, 133, 1.0);
+    background-color: rgb(13, 131, 139);
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -793,6 +837,7 @@ label.btn.active span.glyphicon {
     display: inline-block;
     position: relative;
     transition: 0.5s;
+    text-shadow: 0 0 2px #000;
 }
 
 .details-link .details-icon span:after {
@@ -816,3 +861,36 @@ label.btn.active span.glyphicon {
 
 
 /* ======= view-student-list page end =======  */
+
+/* Student Search Page start */
+.search-stdn {
+    margin: 0 auto;
+    width: 50%;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+}
+.inner-search-stdn {
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+.btn-search-stdn {
+    width: 200px;
+    height: 45px;
+    margin-left: 40%;
+    font-size: 120%;
+    border-radius: 50px;
+}
+/* Student Search Page end */
+
+/* Student Subject Show Page Start */
+
+.bg-info {
+    background-color: #337ab7;
+    color: #fff;
+    text-shadow: 0px 0px 2px #000;
+}
+
+/*  Student Subject Show Page End */
