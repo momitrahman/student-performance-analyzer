@@ -274,7 +274,7 @@ label {
 }
 
 .panel-body {
-    background-image: url(/img/background1.png);
+    /* background-image: url(/img/background1.png); */
 }
 
 
@@ -618,7 +618,7 @@ HEADER SECTION
 }
     
 .head-menu li a:hover {
-    background: rgb(14, 141, 150);
+    background: rgb(14, 146, 150);
     color: #fff;
 }
 
@@ -894,3 +894,87 @@ label.btn.active span.glyphicon {
 }
 
 /*  Student Subject Show Page End */
+
+/* StudentSubjectMarksList Page Start */
+/* StudentSubjectMarksList Page Start */
+#chart {
+    width: 90%;
+    height: 500px;
+    margin: 30px auto 0;
+    display: block;
+    font-size: 110%;
+}
+#chart #numbers {
+    width: 5%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: left;
+}
+#chart #numbers li {
+    text-align: right;
+    padding-right: 1em;
+    list-style: none;
+    height: 45px;
+    border-bottom: 1px solid #444;
+    position: relative;
+    bottom: 45px;
+}
+  /* #chart #numbers li:last-child {
+    height: 30px;
+  } */
+  #chart #numbers li span {
+    /* color: #eee; */
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+  }
+  #chart #bars {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.2);
+    width: 95%;
+    height: 449px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 0 1px #444;
+}
+#chart #bars li {
+    display: table-cell;
+    width: 124px;
+    height: 449px;
+    margin: 0;
+    text-align: center;
+    position: relative;
+}
+#chart #bars li .bar {
+    display: block;
+    width: 80%;
+    margin-left: 18px;
+    background: rgb(13, 131, 139);
+    position: absolute;
+    bottom: 0;
+}
+  #chart #bars li .bar:hover {
+    background: rgb(14, 141, 150);
+    cursor: pointer;
+  }
+  #chart #bars li .bar:hover:before {
+    /* color: white; */
+    content: attr(data-percentage) '%';
+    position: relative;
+    bottom: 25px;
+  }
+  #chart #bars li span {
+    /* color: #eee; */
+    width: 100%;
+    position: absolute;
+    bottom: -30px;
+    left: 6px;
+    text-align: center;
+}
+  
+  /* StudentSubjectMarksList Page End */
+  
+  /* StudentSubjectMarksList Page End */
+

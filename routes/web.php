@@ -71,5 +71,5 @@ Route::prefix('/admin')->group(function () {
 });
 
 Route::get('/test', function(){
-	return view('student.home');
+	return view('student.studentDashboard');
 });
