@@ -166,3 +166,17 @@ $(function() {
 });
 
 // full screen end
+
+// Student Chart Start
+
+$(function() {
+    $("#bars li .bar").each( function( key, bar ) {
+      var percentage = $(this).data('percentage');
+      
+      $(this).animate({
+        'height' : percentage + '%'
+      }, 1000);
+    });
+  });
+
+// Student Chart End
