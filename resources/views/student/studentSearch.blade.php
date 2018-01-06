@@ -1,4 +1,5 @@
-@extends('student.master') @section('content')
+@extends('student.master')
+@section('content')
 
 
 
@@ -7,6 +8,13 @@
 
 	<!--========= Content part Start here =========-->
 	<div class="content">
+		<!--warning message  -->
+		@if (!empty($noid))
+		<div class="alert alert-warning">
+			<strong>Error!</strong> {{ $noid }}
+		</div>
+		@endif
+		<!--warning message  -->
 		<form action="">
 			<div class="search-stdn">
 				<input type="text" class="form-control inner-search-stdn" placeholder="Enter Student ID..." name="sid">
@@ -15,7 +23,7 @@
 					<span>Search</span>
 				</button>
 			</div>
-
+			{{ session('test')}}
 		</form>
 	</div>
 	<!--========= Content part End here =========-->

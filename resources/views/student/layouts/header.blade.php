@@ -16,16 +16,16 @@
 		<div class="head-menu">
 			<ul>
 				<li>
-					<a href="#">Sucject</a>
+					<a href="{{ route('dash') }}">Home</a>
 				</li>
 				<li>
-					<a href="#">Class</a>
+					<a href="{{ route('subjectSelect') }}">Subject</a>
 				</li>
 				<li>
-					<a href="#">Status</a>
+					<a href="{{ route('classSelect') }}">Class</a>
 				</li>
 				<li>
-					<a href="#">Extra Curricular</a>
+					<a href="{{ route('extraList') }}">Extra Curricular</a>
 				</li>
 			</ul>
 		</div>
@@ -39,10 +39,10 @@
 
 							<span class="user-name-stdn">
 								<span class="user-name-stdn-innner">
-									<strong>Muhammad Rasel</strong>
+									<strong>{{ ucwords(session('name')) }}</strong>
 									<span class="caret"></span>
 									<br/>
-									<p class="user-name-stdn-id">2017105</p>
+									<p class="user-name-stdn-id">{{ session('id') }}</p>
 								</span>
 
 							</span>
@@ -58,7 +58,7 @@
 							</li>
 							<li role="separator" class="divider"></li> -->
 							<li>
-								<a href="#">
+								<a href={{ route('logout')}}>
 									<i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
 							</li>
 						</ul>

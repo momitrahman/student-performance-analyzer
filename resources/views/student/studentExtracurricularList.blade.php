@@ -10,7 +10,7 @@
 
                     <div class="panel panel-primary">
                         <div class="clearfix"></div>
-                        <div class="panel-heading">Game List</div>
+                        <div class="panel-heading">Extra Curricular Participant List : </div>
                         <div class="panel-body">
 
                             <form>
@@ -23,45 +23,22 @@
 
                                                 <thead>
                                                     <tr class="bg-info">
-                                                        <th class="text-center">Game Type</th>
-                                                        <th class="text-center">Game Name</th>
-                                                        <th class="text-center">Participant Count</th>
-                                                        <th class="text-center">Reward Count</th>
+                                                        <th class="text-center">Name</th>
+                                                        <th class="text-center">Reward</th>
                                                         <th class="text-center">Details</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody style="background:#fff">
-                                                    
+                                                    @foreach($all_extra_details_list as $key=>$value)
 													<tr>
-                                                        <td class="text-center">Indor</td>
-                                                        <td class="text-center">Debate</td>
-                                                        <td class="text-center">3</td>
-                                                        <td class="text-center">1</td>
+                                                        <td class="text-center">{{ ucwords($key )}}</td>
+                                                        {{--  <td class="text-center">{{ $extra->}}</td>  --}}
+                                                        <td class="text-center">{{ $value }}</td>
                                                         <td class="details-link text-center">
-                                                            <a href="#"  class="details-icon"><span>Click Here</span></a>
+                                                            <a href="{{ route('extraDetails', ['extraName' => $key]) }}"  class="details-icon"><span>Click Here</span></a>
   													    </td>
                                                     </tr>
-
-                                                    <tr>
-                                                        <td class="text-center">Indor</td>
-                                                        <td class="text-center">Debate</td>
-                                                        <td class="text-center">3</td>
-                                                        <td class="text-center">1</td>
-                                                        <td class="details-link text-center">
-                                                            <a href="#"  class="details-icon"><span>Click Here</span></a>
-  													    </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td class="text-center">Indor</td>
-                                                        <td class="text-center">Debate</td>
-                                                        <td class="text-center">3</td>
-                                                        <td class="text-center">1</td>
-                                                        <td class="details-link text-center">
-                                                            <a href="#"  class="details-icon"><span>Click Here</span></a>
-  													    </td>
-                                                    </tr>
-		
+                                                    @endforeach
 
                                                 </tbody>
                                             </table>
@@ -76,7 +53,7 @@
 
                             </form>
 
-                            
+
 
                         </div>
                         <!--/ .panel-body  -->

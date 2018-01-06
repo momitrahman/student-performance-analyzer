@@ -9,7 +9,7 @@
 
             <div class="panel panel-primary">
                 <div class="clearfix"></div>
-                <div class="panel-heading">Bangla</div>
+                <div class="panel-heading">Subject : {{ ucwords($subject_name) }}</div>
                 <div class="panel-body">
 
                     <form>
@@ -24,6 +24,7 @@
                                             <tr class="bg-info">
                                                 <th class="text-center">Class</th>
                                                 <th class="text-center">Year</th>
+                                                <th class="text-center">Semester Slot</th>
                                                 <th class="text-center">Semester 1</th>
                                                 <th class="text-center">Semester 2</th>
                                                 <th class="text-center">Semester 3</th>
@@ -31,99 +32,21 @@
                                             </tr>
                                         </thead>
                                         <tbody style="background:#fff">
-
+                                            @foreach($subject_marks as $subject_mark)
                                             <tr>
-                                                <td class="text-center">7</td>
-                                                <td class="text-center">2010</td>
-                                                <td class="text-center">65</td>
-                                                <td class="text-center">56</td>
-                                                <td class="text-center">45</td>
-                                                <td class="text-center">65</td>
+                                                <td class="text-center">{{ $subject_mark->class }}</td>
+                                                <td class="text-center">{{ $subject_mark->year }}</td>
+                                                <td class="text-center">{{ $subject_mark->sem_slot }}</td>
+                                                <td class="text-center">{{ $subject_mark->sem_1 }}</td>
+                                                <td class="text-center">{{ $subject_mark->sem_2 }}</td>
+                                                @if($subject_mark->sem_slot === 2)
+                                                <td class="text-center"></td>
+                                                @else
+                                                <td class="text-center">{{ $subject_mark->sem_3 }}</td>
+                                                @endif
+                                                <td class="text-center">{{ $subject_mark->avg_mark }}</td>
                                             </tr>
-
-                                            <tr>
-                                                <td class="text-center">7</td>
-                                                <td class="text-center">2010</td>
-                                                <td class="text-center">65</td>
-                                                <td class="text-center">56</td>
-                                                <td class="text-center">45</td>
-                                                <td class="text-center">65</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="text-center">7</td>
-                                                <td class="text-center">2010</td>
-                                                <td class="text-center">65</td>
-                                                <td class="text-center">56</td>
-                                                <td class="text-center">45</td>
-                                                <td class="text-center">65</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="text-center">7</td>
-                                                <td class="text-center">2010</td>
-                                                <td class="text-center">65</td>
-                                                <td class="text-center">56</td>
-                                                <td class="text-center">45</td>
-                                                <td class="text-center">65</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="text-center">7</td>
-                                                <td class="text-center">2010</td>
-                                                <td class="text-center">65</td>
-                                                <td class="text-center">56</td>
-                                                <td class="text-center">45</td>
-                                                <td class="text-center">65</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="text-center">7</td>
-                                                <td class="text-center">2010</td>
-                                                <td class="text-center">65</td>
-                                                <td class="text-center">56</td>
-                                                <td class="text-center">45</td>
-                                                <td class="text-center">65</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="text-center">7</td>
-                                                <td class="text-center">2010</td>
-                                                <td class="text-center">65</td>
-                                                <td class="text-center">56</td>
-                                                <td class="text-center">45</td>
-                                                <td class="text-center">65</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="text-center">7</td>
-                                                <td class="text-center">2010</td>
-                                                <td class="text-center">65</td>
-                                                <td class="text-center">56</td>
-                                                <td class="text-center">45</td>
-                                                <td class="text-center">65</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="text-center">7</td>
-                                                <td class="text-center">2010</td>
-                                                <td class="text-center">65</td>
-                                                <td class="text-center">56</td>
-                                                <td class="text-center">45</td>
-                                                <td class="text-center">65</td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="text-center">7</td>
-                                                <td class="text-center">2010</td>
-                                                <td class="text-center">65</td>
-                                                <td class="text-center">56</td>
-                                                <td class="text-center">45</td>
-                                                <td class="text-center">65</td>
-                                            </tr>
-
-
-
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -159,7 +82,7 @@
                 </div>
                 <!--full-Screen Button end -->
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Bangla</div>
+                    <div class="panel-heading">Graph</div>
                     <div class="panel-body">
 
                         <div id="chart">
@@ -200,48 +123,12 @@
                             </ul>
 
                             <ul id="bars">
+                                @foreach($subject_marks as $subject_mark)
                                 <li>
-                                    <div data-percentage="50" class="bar"></div>
-                                    <span>Class 1</span>
+                                    <div data-percentage="{{ $subject_mark->avg_mark }}" class="bar">{{ $subject_mark->avg_mark }}</div>
+                                    <span>Class {{ $subject_mark->class }}</span>
                                 </li>
-                                <li>
-                                    <div data-percentage="20" class="bar"></div>
-                                    <span>Class 2</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="30" class="bar"></div>
-                                    <span>Class 3</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="40" class="bar"></div>
-                                    <span>Class 4</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="50" class="bar"></div>
-                                    <span>Class 5</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="60" class="bar"></div>
-                                    <span>Class 6</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="70" class="bar"></div>
-                                    <span>Class 7</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="80" class="bar"></div>
-                                    <span>Class 8</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="90" class="bar"></div>
-                                    <span>Class 9</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="100" class="bar"></div>
-                                    <span>Class 10</span>
-                                </li>
-
-
+                                @endforeach
 
                             </ul>
                         </div>

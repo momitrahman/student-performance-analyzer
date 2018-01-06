@@ -10,7 +10,7 @@
 
                     <div class="panel panel-primary">
                         <div class="clearfix"></div>
-                        <div class="panel-heading">Class Seven</div>
+                        <div class="panel-heading">Class : {{ $class }} , Year : {{ $year[0]}} </div>
                         <div class="panel-body">
 
                             <form>
@@ -24,6 +24,7 @@
                                                 <thead>
                                                     <tr class="bg-info">
                                                         <th class="text-center">Subject Name</th>
+                                                        <th class="text-center">Semester Slot</th>
                                                         <th class="text-center">Semester 1</th>
                                                         <th class="text-center">Semester 2</th>
                                                         <th class="text-center">Semester 3</th>
@@ -31,42 +32,31 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody style="background:#fff">
-                                                    
-													<tr>
-                                                        <td class="text-center">Bangla</td>
-                                                        <td class="text-center">54</td>
-                                                        <td class="text-center">65</td>
-                                                        <td class="text-center">56</td>
-                                                        <td class="text-center">65</td>
-                                                    </tr>
+                                                    @php
+                                                        $subject_marks = [];
+                                                    @endphp
+                                                    @foreach($all_subject_mark_list as $key => $value)
+                                                       <tr>
 
-                                                    <tr>
-                                                        <td class="text-center">Bangla</td>
-                                                        <td class="text-center">54</td>
-                                                        <td class="text-center">65</td>
-                                                        <td class="text-center">56</td>
-                                                        <td class="text-center">65</td>
-                                                    </tr>
+                                                        <td class="text-center">{{ ucwords($key) }}</td>
 
-                                                    <tr>
-                                                        <td class="text-center">Bangla</td>
-                                                        <td class="text-center">54</td>
-                                                        <td class="text-center">65</td>
-                                                        <td class="text-center">56</td>
-                                                        <td class="text-center">65</td>
-                                                    </tr>
+                                                        @foreach($value as $subject)
+                                                            <td class="text-center">{{ $subject->sem_slot }}</td>
+                                                            <td class="text-center">{{ $subject->sem_1 }}</td>
+                                                            <td class="text-center">{{ $subject->sem_2 }}</td>
+                                                            @if($subject->sem_slot === 2)
+                                                            <td class="text-center"></td>
+                                                            @else
+                                                            <td class="text-center">{{ $subject->sem_3 }}</td>
+                                                            @endif
+                                                            <td class="text-center">{{ $subject->avg_mark }}</td>
+                                                            @php
+                                                                $subject_marks[$key] = $subject->avg_mark;
+                                                            @endphp
+                                                        @endforeach
 
-                                                    <tr>
-                                                        <td class="text-center">Bangla</td>
-                                                        <td class="text-center">54</td>
-                                                        <td class="text-center">65</td>
-                                                        <td class="text-center">56</td>
-                                                        <td class="text-center">65</td>
-                                                    </tr>
-
-                                                    
-													
-
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -80,7 +70,7 @@
 
                             </form>
 
-                            
+
 
                         </div>
                         <!--/ .panel-body  -->
@@ -103,7 +93,7 @@
                 </div>
                 <!--full-Screen Button end -->
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Class Seven</div>
+                    <div class="panel-heading">Graph</div>
                     <div class="panel-body">
 
                         <div id="chart">
@@ -144,22 +134,12 @@
                             </ul>
 
                             <ul id="bars">
-                                <li>
-                                    <div data-percentage="87" class="bar"></div>
-                                    <span>Bangla</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="20" class="bar"></div>
-                                    <span>English</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="75" class="bar"></div>
-                                    <span>Math</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="84" class="bar"></div>
-                                    <span>Science</span>
-                                </li>                             
+                                 @foreach($subject_marks as $subject=>$avg_mark)
+                                    <li>
+                                        <div data-percentage="{{ $avg_mark }}" class="bar">{{ $avg_mark }}</div>
+                                        <span>{{ ucwords($subject) }}</span>
+                                    </li>
+                                @endforeach
 
                             </ul>
                         </div>
