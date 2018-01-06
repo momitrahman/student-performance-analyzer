@@ -62,47 +62,12 @@
                             </ul>
 
                             <ul id="bars">
-                                <li>
-                                    <div data-percentage="50" class="bar"></div>
-                                    <span>Class 1</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="20" class="bar"></div>
-                                    <span>Class 2</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="30" class="bar"></div>
-                                    <span>Class 3</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="40" class="bar"></div>
-                                    <span>Class 4</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="50" class="bar"></div>
-                                    <span>Class 5</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="60" class="bar"></div>
-                                    <span>Class 6</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="70" class="bar"></div>
-                                    <span>Class 7</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="80" class="bar"></div>
-                                    <span>Class 8</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="90" class="bar"></div>
-                                    <span>Class 9</span>
-                                </li>
-                                <li>
-                                    <div data-percentage="100" class="bar"></div>
-                                    <span>Class 10</span>
-                                </li>
-
+                                @foreach ($all_avg_marks as $mark)
+                                    <li>
+                                        <div data-percentage="{{ $mark->avg_mark }}" class="bar">{{ $mark->avg_mark }}</div>
+                                        <span>Class {{ $mark->class }}</span>
+                                    </li>
+                                @endforeach
                             </ul>
 
                         </div>
