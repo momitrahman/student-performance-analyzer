@@ -78,9 +78,9 @@ Route::prefix('/student')->group(function () {
 	Route::get('/', 'StudentController@search')->name('search');
 	Route::get('/dash', 'StudentController@dashboard')->name('dash');
 	Route::get('/subject-select', 'StudentController@subjectSelect')->name('subjectSelect');
-	Route::post('/subject-mark', 'StudentController@subjectMark')->name('subjectMark');
+	Route::match(['get', 'post'], '/subject-mark', 'StudentController@subjectMark')->name('subjectMark');
 	Route::get('/class-select', 'StudentController@classSelect')->name('classSelect');
-	Route::post('/class-mark', 'StudentController@classMark')->name('classMark');
+	Route::match(['get', 'post'], '/class-mark', 'StudentController@classMark')->name('classMark');
 	Route::get('/extra-list', 'StudentController@extraList')->name('extraList');
 	Route::get('/extra-details/{extraName}', 'StudentController@extraDetails')->name('extraDetails');
 	Route::get('/logout', 'StudentController@logout')->name('logout');
