@@ -1,11 +1,10 @@
-@extends('student.master')
-@section('content')
+@extends('student.master') @section('content')
 <!--page-content  -->
 <div id="page-content">
     @include('student.layouts.header')
 
-<!--========= Content part Start here =========-->
-            <div class="content">
+    <!--========= Content part Start here =========-->
+    <div class="content">
 
         <!-- Chart Start-->
         <div id="fullscreen">
@@ -63,10 +62,10 @@
 
                             <ul id="bars">
                                 @foreach ($all_avg_marks as $mark)
-                                    <li>
-                                        <div data-percentage="{{ $mark->avg_mark }}" class="bar">{{ $mark->avg_mark }}</div>
-                                        <span>Class {{ $mark->class }}</span>
-                                    </li>
+                                <li>
+                                    <div data-percentage="{{ $mark->avg_mark }}" class="bar"><h4>{{ $mark->avg_mark }}%</h4></div>
+                                    <span>Class {{ $mark->class }}</span>
+                                </li>
                                 @endforeach
                             </ul>
 
@@ -82,8 +81,8 @@
         <!--/ #fullscreen  -->
         <!-- Chart End -->
 
-                    </div>
-            <!--========= Content part End here =========-->
+    </div>
+    <!--========= Content part End here =========-->
 
 </div>
 @endsection

@@ -136,7 +136,7 @@
                             <ul id="bars">
                                  @foreach($subject_marks as $subject=>$avg_mark)
                                     <li>
-                                        <div data-percentage="{{ $avg_mark }}" class="bar">{{ $avg_mark }}</div>
+                                        <div data-percentage="{{ $avg_mark }}" class="bar"><h4>{{ $avg_mark }}%</h4></div>
                                         <span>{{ ucwords($subject) }}</span>
                                     </li>
                                 @endforeach

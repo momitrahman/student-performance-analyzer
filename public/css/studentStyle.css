@@ -274,7 +274,7 @@ label {
 }
 
 .panel-body {
-    /* background-image: url(/img/background1.png); */
+    background-image: url(/img/background1.png);
 }
 
 
@@ -959,12 +959,12 @@ label.btn.active span.glyphicon {
     background: rgb(14, 141, 150);
     cursor: pointer;
   }
-  #chart #bars li .bar:hover:before {
-    /* color: white; */
+  /* #chart #bars li .bar:hover:before {
+    color: white;
     content: attr(data-percentage) '%';
     position: relative;
     bottom: 25px;
-  }
+  } */
   #chart #bars li span {
     /* color: #eee; */
     width: 100%;
@@ -973,8 +973,12 @@ label.btn.active span.glyphicon {
     left: 6px;
     text-align: center;
 }
+.bar h4{ 
+    color: #fff;
+    font-size: 110%
+}
   
   /* StudentSubjectMarksList Page End */
   
-  /* StudentSubjectMarksList Page End */
+
 
