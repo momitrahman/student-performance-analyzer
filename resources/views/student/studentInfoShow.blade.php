@@ -56,8 +56,8 @@
 										   </div>
 									   </div>
 									   <div class="form-group">
-										   <a href={{ route('dash') }} class="btn button-green button" role="button">Ok<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i></a>
-										   <!-- <a href="input-registration.html" class="btn button button-unique" role="button">Update</a> -->
+										   <a href={{ route('search') }} class="btn button-brown button" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a>
+										   <a href={{ route('dash') }} class="btn button-green button" role="button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></a>
 									   </div>
 
 								   </div>
