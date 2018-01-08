@@ -63,7 +63,7 @@ class StudentController extends Controller
 			$sid = session('id');
 
 			$subject_marks = DB::table($subject_name)->where('sid', $sid)->orderBy('class', 'asc')->get();
-		// return $subject_marks;
+			// return $subject_marks;
 
 			return view('student.studentSubjectMarksList', compact('subject_marks', 'subject_name'));
 		} else {

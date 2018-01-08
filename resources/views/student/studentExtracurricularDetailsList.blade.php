@@ -23,6 +23,7 @@
 
                                                 <thead>
                                                     <tr class="bg-info">
+                                                        <th class="text-center">No. </th>
                                                         <th class="text-center">Class</th>
                                                         <th class="text-center">Year</th>
                                                         <th class="text-center">Place</th>
@@ -30,8 +31,12 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody style="background:#fff">
+                                                    @php
+                                                        $no = 1;
+                                                    @endphp
                                                     @foreach($extra_details as $extra)
 													<tr>
+                                                        <td class="text-center">{{ $no++ }}</td>
                                                         <td class="text-center">{{ $extra->class}}</td>
                                                         <td class="text-center">{{ $extra->year}}</td>
                                                         <td class="text-center">{{ ucwords($extra->place) }}</td>

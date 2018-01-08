@@ -5,12 +5,12 @@
 	@include('student.layouts.header')
 <!--========= Content part Start here =========-->
             <div class="content">
-
+                @if (!empty($all_subject_mark_list))
                 <div class="x-panel">
 
                     <div class="panel panel-primary">
                         <div class="clearfix"></div>
-                        <div class="panel-heading">Class : {{ $class }} , Year : {{ $year[0]}} </div>
+                        <div class="panel-heading">Class : {{ $class }} , Year : @if (!empty($year)) {{ $year[0] }} @endif </div>
                         <div class="panel-body">
 
                             <form>
@@ -23,6 +23,7 @@
 
                                                 <thead>
                                                     <tr class="bg-info">
+                                                        <th class="text-center">No. </th>
                                                         <th class="text-center">Subject Name</th>
                                                         <th class="text-center">Semester Slot</th>
                                                         <th class="text-center">Semester 1</th>
@@ -34,10 +35,12 @@
                                                 <tbody style="background:#fff">
                                                     @php
                                                         $subject_marks = [];
+                                                        $no = 1;
                                                     @endphp
                                                     @foreach($all_subject_mark_list as $key => $value)
                                                        <tr>
 
+                                                        <td class="text-center">{{ $no++ }}</td>
                                                         <td class="text-center">{{ ucwords($key) }}</td>
 
                                                         @foreach($value as $subject)
@@ -153,7 +156,12 @@
         </div>
         <!--/ #fullscreen  -->
         <!-- Chart End -->
+        @else
+            <div class="alert alert-info">
+            <strong> Class {{ $class }} is not taken yet </strong>.
             </div>
+        @endif
+        </div>
             <!--========= Content part End here =========-->
 
           </div>

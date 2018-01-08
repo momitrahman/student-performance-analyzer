@@ -23,19 +23,24 @@
 
                                                 <thead>
                                                     <tr class="bg-info">
+                                                        <th class="text-center">No. </th>
                                                         <th class="text-center">Name</th>
                                                         <th class="text-center">Reward</th>
                                                         <th class="text-center">Details</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody style="background:#fff">
+                                                    @php
+                                                        $no = 1;
+                                                    @endphp
                                                     @foreach($all_extra_details_list as $key=>$value)
 													<tr>
+                                                        <td class="text-center">{{ $no++ }}</td>
                                                         <td class="text-center">{{ ucwords($key )}}</td>
                                                         {{--  <td class="text-center">{{ $extra->}}</td>  --}}
                                                         <td class="text-center">{{ $value }}</td>
                                                         <td class="details-link text-center">
-                                                            <a href="{{ route('extraDetails', ['extraName' => $key]) }}"  class="details-icon"><span>Click Here</span></a>
+                                                            <a href="{{ route('extraDetails', ['extraName' => $key]) }}"  class="details-icon" target="_blank"><span>Click Here</span></a>
   													    </td>
                                                     </tr>
                                                     @endforeach
@@ -52,8 +57,6 @@
                                 <!--/.container  -->
 
                             </form>
-
-
 
                         </div>
                         <!--/ .panel-body  -->

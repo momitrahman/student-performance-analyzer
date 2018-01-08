@@ -5,6 +5,7 @@
     <!--========= Content part Start here =========-->
     <div class="content">
         <!-- Table Start -->
+        @if (!empty(json_decode($subject_marks, true)))
         <div class="x-panel">
 
             <div class="panel panel-primary">
@@ -22,6 +23,7 @@
 
                                         <thead>
                                             <tr class="bg-info">
+                                                <th class="text-center">No. </th>
                                                 <th class="text-center">Class</th>
                                                 <th class="text-center">Year</th>
                                                 <th class="text-center">Semester Slot</th>
@@ -32,8 +34,12 @@
                                             </tr>
                                         </thead>
                                         <tbody style="background:#fff">
+                                            @php
+                                              $no = 1;
+                                            @endphp
                                             @foreach($subject_marks as $subject_mark)
                                             <tr>
+                                                <td class="text-center">{{ $no++ }}</td>
                                                 <td class="text-center">{{ $subject_mark->class }}</td>
                                                 <td class="text-center">{{ $subject_mark->year }}</td>
                                                 <td class="text-center">{{ $subject_mark->sem_slot }}</td>
@@ -142,7 +148,11 @@
         </div>
         <!--/ #fullscreen  -->
         <!-- Chart End -->
-
+         @else
+            <div class="alert alert-info">
+                <strong> {{ ucwords($subject_name) }} : Subject is not taken yet </strong>.
+            </div>
+        @endif
     </div>
     <!--========= Content part End here =========-->
 
