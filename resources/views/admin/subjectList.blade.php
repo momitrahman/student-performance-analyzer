@@ -44,8 +44,8 @@
 											   @php $no = 1; @endphp
 											   @foreach($subject_list as $subject)
                                                    <tr>
-												       <td>{{ $no++ }}</td>
-                                                       <td>{{ ucwords(str_replace("_", " ", $subject->subject_name)) }}</td>
+												       <td class="text-center">{{ $no++ }}</td>
+                                                       <td class="text-center">{{ ucwords(str_replace("_", " ", $subject->subject_name)) }}</td>
 
 													   @if($subject->{1} === 1)
                                                       	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>

@@ -34,9 +34,9 @@
                                                     @foreach($extracurricular_list as $extracurricular)
 
 													<tr>
-                                                        <td>{{ $no++ }}</td>
-                                                        <td>{{ ucwords((str_replace("_", " ", $extracurricular->title))) }}</td>
-                                                        <td>{{ ucwords($extracurricular->type) }}</td>
+                                                        <td class="text-center">{{ $no++ }}</td>
+                                                        <td class="text-center">{{ ucwords((str_replace("_", " ", $extracurricular->title))) }}</td>
+                                                        <td class="text-center">{{ ucwords($extracurricular->type) }}</td>
                                                     </tr>
 
 													@endforeach

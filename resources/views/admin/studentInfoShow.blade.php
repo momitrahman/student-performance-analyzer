@@ -68,7 +68,7 @@
 
 									   </div>
 									   <div class="form-group">
-										   <a href={{ route('studentSearch') }} class="btn btn-success button" role="button">Ok<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i></a>
+										   <a href={{ route('studentSearch') }} class="btn button-green button" role="button">Ok<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i></a>
 										   <!-- <a href="input-registration.html" class="btn button button-unique" role="button">Update</a> -->
 									   </div>
 

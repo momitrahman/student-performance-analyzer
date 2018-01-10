@@ -26,7 +26,7 @@
 							   </div>
 
 							   <!-- Trigger the modal with a button -->
-							   <button type="submit" class="btn btn-success button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
+							   <button type="submit" class="btn button-green button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
 						   </form>
 					   </div>
 					   <!--/ .panel-body  -->

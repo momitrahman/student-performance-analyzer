@@ -19,9 +19,9 @@
 			<form action={{ route("studentNameList") }} method="post">
                 {{ csrf_field() }}
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search for name..." name="name" required>
+					<input type="text" class="form-control search-inner-admin" placeholder="Search for name..." name="name" required>
 					<span class="input-group-btn">
-						<button type="submit" class="btn btn-success " role="button">
+						<button type="submit" class="btn button-green btn-search" role="button">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 							<span>Search</span>
 					</span>

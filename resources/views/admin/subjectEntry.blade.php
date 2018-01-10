@@ -49,7 +49,7 @@
 								   <div class="col-md-12">
 									   <div class="form-group">
 										   <label>Subject Name</label>
-										   <input type="text" class="form-control" name="subject_name" value="{{ ucwords(str_replace("_", " ", old('subject_name'))) }}" required>
+										   <input type="text" class="form-control" name="subject_name" value="{{ ucwords(str_replace("_", " ", old('subject_name'))) }}" required placeholder="Subject Name...">
 									   </div>
 								   </div>
 							   </div>
@@ -58,7 +58,7 @@
     								   <div class="col-md-12">
     									   <div class="form-group">
     										   <label>Subject Name</label>
-    										   <input type="text" class="form-control" name="subject_name" value= "{{ $subject_name }}">
+    										   <input type="text" class="form-control" name="subject_name" value= "{{ $subject_name }}"  >
     									   </div>
     								   </div>
     							   </div>
@@ -147,7 +147,7 @@
 
 						   <div class="col-md-12">
 							   <!-- Trigger the modal with a button -->
-							   <button type="button" class="btn btn-success button" data-toggle="modal" data-target="#myModal">Save<i class="fa fa-floppy-o save-icon" aria-hidden="true"></i></button>
+							   <button type="button" class="btn button-green button" data-toggle="modal" data-target="#myModal">Save<i class="fa fa-floppy-o save-icon" aria-hidden="true"></i></button>
 						   </div>
 
 						   <!-- modal -->
@@ -163,8 +163,8 @@
 										   <p>Do you want to Save?</p>
 									   </div> -->
 									   <div class="modal-footer">
-										   <button type="submit"  class="btn btn-info">Yes</button>
-										   <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+										   <button type="submit"  class="btn button-green">Yes</button>
+										   <button type="button" class="btn button-brown" data-dismiss="modal">No</button>
 									   </div>
 								   </div>
 								   <!-- Modal content-->

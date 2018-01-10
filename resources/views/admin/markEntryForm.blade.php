@@ -98,7 +98,7 @@
 
 				   <!-- Trigger the modal with a button -->
 				   <div class="form-group">
-						<button type="button" class="btn btn-success button next-btn" data-toggle="modal" data-target="#myModal">Save<i class="fa fa-floppy-o save-icon" aria-hidden="true"></i></button>
+						<button type="button" class="btn button-green button next-btn" data-toggle="modal" data-target="#myModal">Save<i class="fa fa-floppy-o save-icon" aria-hidden="true"></i></button>
 					</div>
 
 				   <!-- modal -->
@@ -114,8 +114,8 @@
 								   <p>Do you want to Save?</p>
 							   </div> -->
 							   <div class="modal-footer">
-								   <button type="submit"  class="btn btn-info">Yes</button>
-								   <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+								   <button type="submit"  class="btn button-green">Yes</button>
+								   <button type="button" class="btn button-brown" data-dismiss="modal">No</button>
 							   </div>
 						   </div>
 						   <!-- Modal content-->
@@ -133,7 +133,7 @@
  					 <input type="hidden" name="class" value="{{ $class  }}">
  					 <input type="hidden" name="year" value={{ $year }}>
  					 <input type="hidden" name="semester_slot" value={{ $semester_slot }}>
-					  <button type="submit" class="btn button button-green back-btn "><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</button>
+					  <button type="submit" class="btn button button-brown back-btn "><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</button>
 				  </div>
 			  </form>
 			</div>

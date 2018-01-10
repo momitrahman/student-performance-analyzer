@@ -45,7 +45,7 @@
 	                                </div>
 
 	                                <div class="form-group">
-	                                    	<button type="submit" class="btn btn-success button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
+	                                    	<button type="submit" class="btn button-green button">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
 	                                </div>
 	                            </form>
 	                        </div>

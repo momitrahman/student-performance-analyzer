@@ -79,7 +79,7 @@
 							   </div>
 
 							   <!-- Trigger the modal with a button -->
-							   <button type="button" class="btn btn-success button" data-toggle="modal" data-target="#myModal">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
+							   <button type="button" class="btn button-green button" data-toggle="modal" data-target="#myModal">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
 
 							   <!-- modal -->
 							   <div class="modal fade " id="myModal" role="dialog">
@@ -94,8 +94,8 @@
 											   <p>Do you want to Save?</p>
 										   </div> -->
 										   <div class="modal-footer">
-											   <button type="submit"  class="btn btn-info">Yes</button>
-											   <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+											   <button type="submit"  class="btn button-green">Yes</button>
+											   <button type="button" class="btn button-brown" data-dismiss="modal">No</button>
 										   </div>
 									   </div>
 									   <!-- Modal content-->

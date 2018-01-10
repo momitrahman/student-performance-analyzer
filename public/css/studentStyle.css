@@ -125,6 +125,7 @@ a:active {
     background: rgb(13, 131, 139);
     color: #ffffff;
     margin-right: 15px;
+    text-shadow: 0 0 2px #000;
 }
 
 .button-green:hover {
@@ -147,6 +148,7 @@ a:active {
 .button-brown {
     background-color: #795548;
     color: #fff;
+    text-shadow: 0 0 2px #000;
 }
 
 .button-brown:hover {
@@ -271,6 +273,7 @@ label {
 .form-control {
     font-family: oleo;
     border-radius: 0;
+    font-size: 110%;
 }
 
 .panel-body {
@@ -882,6 +885,8 @@ label.btn.active span.glyphicon {
     margin-left: 40%;
     font-size: 120%;
     border-radius: 50px;
+    text-shadow: 0 0 2px #000;
+    font-weight: 700;
 }
 /* Student Search Page end */
 

@@ -73,7 +73,7 @@
 
 							  <div class="form-group">
 								  {{-- <a href={{ route('checkStudentIdMark') }} class="btn button button-green" role="button"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</a> --}}
-								  <button type="submit" class="btn btn-success button next-btn">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
+								  <button type="submit" class="btn button-green button next-btn">Next<i class="fa fa-forward next-icon" aria-hidden="true"></i></button>
 							  </div>
 						  </form>
 
@@ -82,7 +82,7 @@
 							  <div class="form-group">
 								  <input type="hidden" name="sid" value={{ $sid }}>
 								 <input type="hidden" name="name" value="{{ $name }}">
-								  <button type="submit" class="btn button button-green back-btn"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</button>
+								  <button type="submit" class="btn button button-brown back-btn"><i class="fa fa-backward back-icon" aria-hidden="true"></i>Back</button>
 							  </div>
 						  </form>
 						  </div>

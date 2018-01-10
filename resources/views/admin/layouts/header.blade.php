@@ -27,7 +27,8 @@
 					   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						   <span class="admin admin-online">
 						   <img src="/img/admin.png" alt="admin"><i></i>
-					   </span> Admin <span class="caret"></span>
+					   </span> <strong class="admin-login">Admin</strong>  
+					   <span class="caret" ></span>
 					   </a>
 					   <ul class="dropdown-menu user">
 						   <li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile</a></li>

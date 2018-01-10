@@ -168,7 +168,7 @@
                               <div class="col-md-12">
                                 <div class="col-md-2">
                                     <!-- Trigger the modal with a button -->
-                                    <button type="submit" class="btn btn-success button">Next
+                                    <button type="submit" class="btn button-green button">Next
                                         <i class="fa fa-forward next-icon" aria-hidden="true"></i>
                                     </button>
                                 </div>
