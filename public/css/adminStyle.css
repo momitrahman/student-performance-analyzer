@@ -47,7 +47,8 @@ a:hover {
 } */
 a,
 a:hover,
-a:focus {
+a:focus,
+a:active {
     text-decoration: none;
     color: #555;
 }
@@ -91,6 +92,23 @@ a:focus {
 
 
 /* ======= Button =======  */
+.button-action {
+    width: 100px;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
+    -webkit-transition: all 250ms;
+    transition: all 250ms;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    text-shadow: 2px 0px 0 rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    border-radius: 50px;
+}
+.button-green-action {
+    background: rgb(13, 131, 139);
+    color: #ffffff;
+    text-shadow: 0 0 2px #000;
+}
 
 .button {
     width: 100px;
@@ -156,6 +174,10 @@ a:focus {
 .button-brown:hover {
     background: #896052;
     color: #fff;
+}
+.button-brown:hover,
+.button-brown:focus{
+    color: #ffffff;
 }
 
 .next-btn {
@@ -809,6 +831,7 @@ label.btn.active span.glyphicon {
     width: 200px;
 }
 
+
 .details-link .details-icon {
     display: inline-block;
     width: 150px;        
@@ -853,3 +876,66 @@ label.btn.active span.glyphicon {
 
 
 /* ======= view-student-list page end =======  */
+
+/* ======= admin list page end =======  */
+.action{
+    width: 250px;
+}
+
+.button-action {
+    width: 100px;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
+    -webkit-transition: all 250ms;
+    transition: all 250ms;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    text-shadow: 2px 0px 0 rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+.button-green-action {
+    background: rgb(13, 131, 139);
+    color: #ffffff;
+    text-shadow: 0 0 2px #000;
+}
+
+.button-green-action:hover,
+.button-green-action:focus{
+    /* background: #23b5a1; */
+    background: rgb(14, 141, 150);
+    color: #ffffff;
+    /* box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.12), 0px 8px 8px 0px rgba(0, 0, 0, 0.24); */
+}
+
+/* ======= admin list page end =======  */
+
+/* ======= admin-or-student-selection  page end =======  */
+
+.admin-or-student-selection {
+    margin: 0 auto;
+    width: 60%;
+    position: absolute;
+    top: 35%;
+    left: 20%;
+}
+
+/* ======= admin-or-student-selection  page end =======  */
+
+
+/* ======= admin-login page end =======  */
+
+.admin-login-page {
+    margin: 0 auto;
+    width: 40%;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 5px 30px 20px 30px;
+    font-family: oleo;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 11px 11px 15px 0px rgba(0, 0, 0, 0.3);
+}
+/* ======= admin-login page end =======  */

@@ -56,6 +56,13 @@
                          <li><a href={{ route('selectOptionExtra')}}>Extra Curricular</a></li>
                      </ul>
                  </li>
+                 <li>
+                     <div class="link"><i class="fa fa-filter"></i>Admin<i class="fa fa-chevron-down"></i></div>
+                     <ul class="submenu">
+                         <li><a href={{ route('selectOptionMark')}}>Admin Create</a></li>
+                         <li><a href={{ route('selectOptionExtra')}}>Admin List</a></li>
+                     </ul>
+                 </li>
 
              </ul>
              <!-- /.accordion  -->
