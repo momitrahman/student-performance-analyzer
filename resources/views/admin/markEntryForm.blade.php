@@ -10,10 +10,10 @@
 <div class="card card-light text-center">
 	<div class="card-body">
 		<label for="">Student ID: <strong>{{ $sid }}</strong></label>
-		<label for=""> | Name: <strong>{{ ucwords($name) }}</strong></label>
-		<label for=""> | Class: <strong>{{ ucwords($class) }}</strong></label>
-		<label for=""> | Year: <strong>{{ ucwords($year) }}</strong></label>
-		<label for=""> | Semester Slot: <strong>{{ ucwords($semester_slot) }}</strong></label>
+		<label for=""> , Name: <strong>{{ ucwords($name) }}</strong></label>
+		<label for=""> , Class: <strong>{{ ucwords($class) }}</strong></label>
+		<label for=""> , Year: <strong>{{ ucwords($year) }}</strong></label>
+		<label for=""> , Semester Slot: <strong>{{ ucwords($semester_slot) }}</strong></label>
 	</div>
 </div>
 <!--Info Panel  -->

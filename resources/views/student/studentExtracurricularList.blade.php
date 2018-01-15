@@ -5,7 +5,7 @@
 	@include('student.layouts.header')
 <!--========= Content part Start here =========-->
             <div class="content">
-
+            @if(!empty($all_extra_details_list))
                 <div class="x-panel">
 
                     <div class="panel panel-primary">
@@ -64,6 +64,11 @@
                     <!--/.panel  -->
                 </div>
                 <!--/ .x-panel  -->
+            @else
+            <div class="alert alert-info">
+                <strong> No Participation Yet</strong>.
+                </div>
+            @endif
             </div>
             <!--========= Content part End here =========-->
 

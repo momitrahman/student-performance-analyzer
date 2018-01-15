@@ -6,7 +6,7 @@
 	@include('admin.layouts.header')
 	<!--========= Content part Start here =========-->
 		   <div class="content">
-
+			
 			   <div id="fullscreen">
 				   <div class="x-panel">
 					   <!--full-Screen Button start -->
@@ -68,8 +68,9 @@
 
 									   </div>
 									   <div class="form-group">
-										   <a href={{ route('studentSearch') }} class="btn button-green button" role="button">Ok<i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i></a>
-										   <!-- <a href="input-registration.html" class="btn button button-unique" role="button">Update</a> -->
+										   <a href={{ route('studentSearch') }} class="btn button-green button" role="button"><i class="fa fa-check-square-o ok-icon" aria-hidden="true"></i> Ok</a>
+
+								  			<a href="{{ route("showById", ['sid' => $sid_info->sid]) }}" class="btn button-brown button" role="button" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i> More</a>
 									   </div>
 
 								   </div>

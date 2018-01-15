@@ -5,7 +5,7 @@
 
     <!--========= Content part Start here =========-->
     <div class="content">
-
+        @if(!empty($$all_avg_marks))
         <!-- Chart Start-->
         <div id="fullscreen">
             <div class="x-panel">
@@ -80,7 +80,11 @@
         </div>
         <!--/ #fullscreen  -->
         <!-- Chart End -->
-
+          @else
+            <div class="alert alert-info">
+                <strong> Any Class Not Completed Yet</strong>.
+                </div>
+            @endif
     </div>
     <!--========= Content part End here =========-->
 

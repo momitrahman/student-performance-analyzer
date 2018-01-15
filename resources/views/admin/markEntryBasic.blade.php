@@ -9,8 +9,8 @@
 	<!--Info Panel  -->
 	<div class="card card-light text-center">
 		<div class="card-body">
-			<label for="">Student ID: <strong>{{ $sid }}</strong></label>&nbsp;&nbsp;
-			<label for="">Name: <strong>{{ ucwords($name) }}</strong></label>
+			<label for="">Student ID: <strong>{{ $sid }}</strong></label>
+			<label for="">, Name: <strong>{{ ucwords($name) }}</strong></label>
 		</div>
 	</div>
 	<!--Info Panel  -->

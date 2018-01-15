@@ -33,6 +33,31 @@ class StudentController extends Controller
 		}
 	}
 
+	public function showById(Request $request, $sid = 0)
+	{
+		// find info through student id
+		if (!$sid === 0) {
+			session()->flush();
+			$sid_infos = DB::table('student_info')->where('sid', $sid)->get();
+
+			// student id not found
+			if (empty(json_decode($sid_infos, true))) {
+				return redirect()->route('search');;
+			}
+
+			$name = DB::table('student_info')->where('sid', $sid)->pluck('name');
+			// return $sid_infos;
+			session(['id' => $sid, 'name' => $name[0]]);
+			// show student information
+			return redirect()->route('dash');
+
+		} else {
+			// return to student id search page
+			session()->flush();
+			return redirect()->route('search');
+		}
+	}
+
 	public function dashboard(Request $request)
 	{
 		if (session()->has('id')) {

@@ -11,6 +11,12 @@
 |
  */
 
+Route::get('/', function() {
+	return view('adminOrStudentSelection');
+})->name("home");
+
+
+
 Route::prefix('/admin')->group(function () {
 	Route::get('/', function () {
 		return view('admin.home');
@@ -68,6 +74,18 @@ Route::prefix('/admin')->group(function () {
 		Route::match(['get', 'post'], '/entry', 'AdvancedFilterExtraController@entryFilter')->name('entryFilterExtra');
 		Route::match(['get', 'post'], '/show', 'AdvancedFilterExtraController@showFilterResult')->name('showFilterResultExtra');
 	});
+
+	Route::prefix('/user')->group(function () {
+		Route::get('/login', function() {
+			return view('admin.adminLogin');
+		})->name('adminLogin');
+		Route::post('/login', 'adminAuthController@login')->name('adminLoginAttempt');
+		Route::get('/logout', 'adminAuthController@logout')->name('adminLogout');
+		Route::get('/new', 'adminAuthController@adminCreate')->name('adminCreate');
+		Route::post('/store', 'adminAuthController@adminStore')->name('adminStore');
+		Route::get('/list', 'adminAuthController@adminList')->name('adminList');
+
+	});
 });
 
 Route::get('/test', function(){
@@ -84,5 +102,5 @@ Route::prefix('/student')->group(function () {
 	Route::get('/extra-list', 'StudentController@extraList')->name('extraList');
 	Route::get('/extra-details/{extraName}', 'StudentController@extraDetails')->name('extraDetails');
 	Route::get('/logout', 'StudentController@logout')->name('logout');
-
+	Route::get('/show-id/{sid?}', 'StudentController@showById')->name('showById');
 });

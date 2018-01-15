@@ -53,7 +53,7 @@
 													<td>{{ $data->sem_slot }}</td>
 													<td>{{ $data->avg_mark }}</td>
 													<td class="details-link">
-                                                        <a href="#"  class="details-icon"><span>Click Here</span></a>
+                                                        <a href="{{ route("showById", ['sid' => $data->sid]) }}"  class="details-icon" target="_blank"><span>Click Here</span></a>
   													 </td>
 												</tr>
 												@endforeach

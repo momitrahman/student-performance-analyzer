@@ -57,11 +57,13 @@
                      </ul>
                  </li>
                  <li>
+                     @if(session('admin_type') == 0)
                      <div class="link"><i class="fa fa-filter"></i>Admin<i class="fa fa-chevron-down"></i></div>
                      <ul class="submenu">
-                         <li><a href={{ route('selectOptionMark')}}>Admin Create</a></li>
-                         <li><a href={{ route('selectOptionExtra')}}>Admin List</a></li>
+                         <li><a href={{ route('adminCreate')}}>Admin Create</a></li>
+                         <li><a href={{ route('adminList')}}>Admin List</a></li>
                      </ul>
+                     @endif
                  </li>
 
              </ul>

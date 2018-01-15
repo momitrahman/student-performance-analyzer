@@ -26,22 +26,27 @@
                                                     <tr class="bg-info">
                                                         <th class="text-center">No.</th>
                                                         <th class="text-center">Full Name</th>
-                                                        <th class="text-center">Mobile</th>                                     
+                                                        <th class="text-center">Mobile</th>
                                                         <th class="text-center">Occupation</th>
-                                                        <th class="text-center">Action</th>
+                                                        <th class="text-center">Super Admin</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody style="background:#fff">                                                 
+                                                <tbody style="background:#fff">                                              @php
+                                                        $no = 1;
+                                                    @endphp
+                                                    @foreach($admin_list as $admin)
 													<tr>
-                                                        <td class="text-center">1</td>
-                                                        <td class="text-center">Doyle Abbott</td>
-                                                        <td class="text-center">1-105-541-1209 x242</td>
-                                                        <td class="text-center">Teacher</td>
-                                                        <td class="action text-center">
-                                                            <a href="#"  class="btn button button-green-action" ><span>Edit</span></a>
-                                                            <a href="#"  class="btn button button-brown" ><span>Delete</span></a>
-  													    </td>
-                                                    </tr>											
+                                                        <td class="text-center">{{ $no++ }}</td>
+                                                        <td class="text-center">{{ ucwords($admin->name) }}</td>
+                                                        <td class="text-center">0{{ $admin->mobile }}</td>
+                                                        <td class="text-center">{{ ucwords($admin->occupation) }}</td>
+                                                        @if($admin->type == 0)
+                                                      	 	<td class="text-center"><i class="fa fa-check-circle-o check-icon" aria-hidden="true"></i></td>
+													    @else
+                                                    		<td class="text-center"><i class="fa fa-times-circle-o times-icon" aria-hidden="true"></i></td>
+													    @endif
+                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>

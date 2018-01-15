@@ -27,14 +27,11 @@
 					   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						   <span class="admin admin-online">
 						   <img src="/img/admin.png" alt="admin"><i></i>
-					   </span> <strong class="admin-login">Admin</strong>  
+					   </span> <strong class="admin-login">{{ ucwords(session("admin_name")) }}</strong>
 					   <span class="caret" ></span>
 					   </a>
 					   <ul class="dropdown-menu user">
-						   <li><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile</a></li>
-						   <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> My Account</a></li>
-						   <li role="separator" class="divider"></li>
-						   <li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
+						   <li><a href="{{ route("adminLogout") }}"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
 					   </ul>
 				   </li>
 			   </ul>
