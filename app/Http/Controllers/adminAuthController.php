@@ -46,9 +46,18 @@ class adminAuthController extends Controller
         return redirect()->route("home");
     }
 
+    public function admin()
+    {
+        if (session()->has('admin_login')) {
+            return view('admin.home');
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
     public function adminCreate()
     {
-        if (session()->has('admin_login') && session('type') === 0) {
+        if (session()->has('admin_login') && session('admin_type') === 0) {
             return view("admin.adminInfoEntry");
         } else {
             return redirect()->route('adminHome');
@@ -57,7 +66,7 @@ class adminAuthController extends Controller
 
     public function adminStore(Request $request)
     {
-        if (session()->has('admin_login') && session('type') === 0) {
+        if (session()->has('admin_login') && session('admin_type') === 0) {
 
             $validatedData = $request->validate([
                 'name' => 'required|string',
@@ -83,7 +92,7 @@ class adminAuthController extends Controller
 
     public function adminList(Request $request)
     {
-        if (session()->has('admin_login') && session('type') === 0) {
+        if (session()->has('admin_login') && session('admin_type') === 0) {
 
             $admin_list = DB::table('admin')->select('mobile', 'name', 'occupation', 'type')->get();
             return view("admin.adminInfoList", compact("admin_list"));
