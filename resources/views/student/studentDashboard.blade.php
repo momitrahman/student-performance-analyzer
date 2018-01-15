@@ -5,7 +5,7 @@
 
     <!--========= Content part Start here =========-->
     <div class="content">
-        @if(!empty($$all_avg_marks))
+        @if(count($all_avg_marks) > 0)
         <!-- Chart Start-->
         <div id="fullscreen">
             <div class="x-panel">

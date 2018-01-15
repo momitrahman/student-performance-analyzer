@@ -63,6 +63,7 @@ class StudentController extends Controller
 		if (session()->has('id')) {
 			$sid = session('id');
 			$all_avg_marks = DB::table('class_avg_mark')->where('sid', $sid)->orderBy('class', 'asc')->get();
+			// return $all_avg_marks;
 			return view('student.studentDashboard', compact('all_avg_marks'));
 		} else {
 			return redirect()->route('search');
