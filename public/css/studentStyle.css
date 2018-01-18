@@ -987,3 +987,18 @@ label.btn.active span.glyphicon {
   
 
 
+ /* Student Nav Menu Highlight Start */ 
+ .home .active a{
+    background: rgb(14, 146, 150);
+ }
+ .subject .active a{
+    background: rgb(14, 146, 150);
+ }
+ .class .active a{
+    background: rgb(14, 146, 150);
+ }
+ .extra-curricular .active a{
+    background: rgb(14, 146, 150);
+ }
+ 
+ /* Student Nav Menu Highlight End */

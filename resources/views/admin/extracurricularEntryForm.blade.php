@@ -44,10 +44,10 @@
 								<!--info alert message  -->
 								   <thead>
 									   <tr class="bg-info">
-										   <th>Activities Type</th>
-										   <th>Activities Name</th>
-										   <th>Place</th>
-										   <th>Reward</th>
+										   <th class="text-center">Activities Type</th>
+										   <th class="text-center">Activities Name</th>
+										   <th class="text-center">Place</th>
+										   <th class="text-center">Reward</th>
 									   </tr>
 								   </thead>
 
@@ -55,11 +55,11 @@
 										@if(!empty($indoor_list))
 										@foreach ($indoor_list as $name)
 									   	<tr>
-										   <td>Indoor</td>
-										   <td>{{ ucwords((str_replace("_", " ", $name))) }}</td>
+										   <td class="text-center">Indoor</td>
+										   <td class="text-center">{{ ucwords((str_replace("_", " ", $name))) }}</td>
 										   <input type="hidden" name="indoor_list[]" value="{{ $name }}">
-										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.." required></td>
-										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  Reward.."></td>
+										   <td class="text-center"><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.." required></td>
+										   <td class="text-center"><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  Reward.."></td>
 									   	</tr>
 								   		@endforeach
 										@endif

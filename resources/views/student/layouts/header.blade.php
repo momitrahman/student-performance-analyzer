@@ -14,7 +14,7 @@
 			</button>
 		</div>
 		<div class="head-menu">
-			<ul>
+			<ul class="navmenu">
 				<li>
 					<a href="{{ route('dash') }}">Home</a>
 				</li>

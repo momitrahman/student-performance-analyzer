@@ -1,7 +1,7 @@
 @extends('student.master')
 @section('content')
 <!--page-content  -->
-<div id="page-content">
+<div id="page-content" class="class">
 	@include('student.layouts.header')
 	<!--========= Content part Start here =========-->
 		   <div class="content">

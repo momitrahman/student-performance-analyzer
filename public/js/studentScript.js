@@ -180,3 +180,26 @@ $(function() {
   });
 
 // Student Chart End
+
+// Active Nav Menu
+
+/*
+$('.navmenu').on('click','a',function(){
+    $('.navmenu a.active').removeClass('active');
+    $(this).addClass('active');
+});
+*/
+
+/*
+$(document).ready(function(){
+    $('.navmenu li a').click(function(){
+        $('li a').removeClass('active');
+        $(this).addClass('active');
+    });
+});
+*/
+
+$('.home a:contains("Home")').parent().addClass('active'); 
+$('.subject a:contains("Subject")').parent().addClass('active');
+$('.class a:contains("Class")').parent().addClass('active');
+$('.extra-curricular a:contains("Extra Curricular")').parent().addClass('active');

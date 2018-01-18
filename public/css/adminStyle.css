@@ -489,7 +489,7 @@ SIDEBAR SECTION
 .submenu {
     display: none;
     font-size: 100%;
-    background: #000;
+    background: rgba(0, 0, 0, 0.9);
     opacity: .8;
     color: #d9d9d9;
 }

@@ -1,8 +1,9 @@
 @extends('admin.master')
 @section('content')
-@include('admin.layouts.sidebar')
 <!--page-content  -->
-<div id="page-content">
+<div id="page-content" class="new">
+@include('admin.layouts.sidebar')
+
 	@include('admin.layouts.header')
 	<!--========= Content part Start here =========-->
 		   <div class="content">
