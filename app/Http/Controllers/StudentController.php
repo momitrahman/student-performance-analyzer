@@ -11,7 +11,7 @@ class StudentController extends Controller
 	{
 		// find info through student id
 		if ($request->filled('sid')) {
-			session()->flush();
+			session()->forget('sid');
 			$sid = $request->input('sid');
 			$sid_infos = DB::table('student_info')->where('sid', $sid)->get();
 
@@ -28,7 +28,7 @@ class StudentController extends Controller
 
 		} else {
 			// return to student id search page
-			session()->flush();
+			session()->forget('sid');
 			return view('student.studentSearch');
 		}
 	}
@@ -36,8 +36,8 @@ class StudentController extends Controller
 	public function showById(Request $request, $sid = 0)
 	{
 		// find info through student id
-		if (!$sid === 0) {
-			session()->flush();
+		if ($sid !== 0) {
+			session()->forget('sid');
 			$sid_infos = DB::table('student_info')->where('sid', $sid)->get();
 
 			// student id not found
@@ -53,7 +53,7 @@ class StudentController extends Controller
 
 		} else {
 			// return to student id search page
-			session()->flush();
+			session()->forget('sid');
 			return redirect()->route('search');
 		}
 	}
@@ -165,7 +165,7 @@ class StudentController extends Controller
 
 	public function logout()
 	{
-		session()->flush();
+		session()->forget('sid');
 		return redirect()->route('search');
 	}
 

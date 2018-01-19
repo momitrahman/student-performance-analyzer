@@ -7,8 +7,18 @@ use Illuminate\Support\Facades\DB;
 
 class adminAuthController extends Controller
 {
-    public function login(Request $request)
+  public function login() {
+    if (session()->has('admin_login')) {
+      return view('admin.home');
+    } else {
+      return view('admin.adminLogin');
+    }
+  }
+  public function loginAttempt(Request $request)
     {
+      if (session()->has('admin_login')) {
+        return view('admin.home');
+      } else {
         $mobile = $request->input("mobile");
         $password = sha1($request->input("password"));
         $admin_get = DB::table('admin')->where('mobile', $mobile)->get();
@@ -38,6 +48,8 @@ class adminAuthController extends Controller
             $message = "Your mobile number or password doesn't match.";
             return view("admin.adminLogin", compact("message"));
         }
+      }
+
     }
 
     public function logout()

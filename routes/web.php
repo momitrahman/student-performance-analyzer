@@ -74,10 +74,8 @@ Route::prefix('/admin')->group(function () {
 	});
 
 	Route::prefix('/user')->group(function () {
-		Route::get('/login', function() {
-			return view('admin.adminLogin');
-		})->name('adminLogin');
-		Route::post('/login', 'adminAuthController@login')->name('adminLoginAttempt');
+		Route::get('/login', 'adminAuthController@login')->name('adminLogin');
+		Route::post('/login-attempt', 'adminAuthController@loginAttempt')->name('adminLoginAttempt');
 		Route::get('/logout', 'adminAuthController@logout')->name('adminLogout');
 		Route::get('/new', 'adminAuthController@adminCreate')->name('adminCreate');
 		Route::post('/store', 'adminAuthController@adminStore')->name('adminStore');

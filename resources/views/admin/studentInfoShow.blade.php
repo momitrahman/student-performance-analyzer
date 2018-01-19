@@ -6,7 +6,7 @@
 	@include('admin.layouts.header')
 	<!--========= Content part Start here =========-->
 		   <div class="content">
-			
+
 			   <div id="fullscreen">
 				   <div class="x-panel">
 					   <!--full-Screen Button start -->
