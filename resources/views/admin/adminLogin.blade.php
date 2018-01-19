@@ -27,7 +27,6 @@
             </div>
         </div>
         <div class="col-md-12">
-
             <div class="form-group">
                 <button type="submit" class="btn btn-lg btn-primary btn-block">Login
                     <i class="fa fa-sign-in" aria-hidden="true"></i>
@@ -36,5 +35,4 @@
         </div>
 
     </div>
-
 </div>
