@@ -84,7 +84,7 @@ class adminAuthController extends Controller
                 'name' => 'required|string',
                 'mobile' => 'required|unique:admin,mobile|numeric',
                 'occupation' => 'required|string',
-                'password' => 'required|string|min:6',
+                'password' => 'required|min:6|confirmed',
             ]);
 
             DB::table('admin')->insertGetID(
@@ -96,7 +96,8 @@ class adminAuthController extends Controller
                     'type' => $request->input('type'),
                 ]
             );
-            return redirect()->back();
+            $message = 'Succesfully Create an Admin';
+            return view('admin.adminInfoEntry', compact('message'));
         } else {
             return redirect()->route('adminHome');
         }

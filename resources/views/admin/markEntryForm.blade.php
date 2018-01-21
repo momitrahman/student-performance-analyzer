@@ -53,8 +53,8 @@
 					   <div class="table-responsive col-md-12">
 							@if (!empty($subject_list))
 								<!--info alert message  -->
-								<div class="alert alert-info">
-									<strong>Please fillout all marks field.</strong>
+								<div class="alert alert-info text-center">
+									<strong>Please Fillout All Field For Marks.</strong>
 								</div>
 								<!--info alert message  -->
 						   <table id="sort2" class=" table table-bordered table-striped  table-hover">

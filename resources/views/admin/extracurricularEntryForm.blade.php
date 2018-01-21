@@ -38,8 +38,8 @@
 
 								   @if(!empty($indoor_list) || !empty($outdoor_list) )
 								    <!--info alert message  -->
-								<div class="alert alert-info">
-									<strong>Please fillout all place field.</strong>
+								<div class="alert alert-info text-center">
+									<strong>Please Fillout All Field For Place.</strong>
 								</div>
 								<!--info alert message  -->
 								   <thead>
