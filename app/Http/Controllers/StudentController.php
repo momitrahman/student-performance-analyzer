@@ -139,11 +139,12 @@ class StudentController extends Controller
 
 			foreach ($extra_list as $extra) {
 				$reward = DB::table('student_extracurricular')->where('sid', $sid)->where('name', '=', $extra)->where('reward', '!=', '')->count('reward');
-				$all_extra_details_list[$extra] = $reward;
+				$place = DB::table('student_extracurricular')->where('sid', $sid)->where('name', '=', $extra)->where('place', '!=', '')->count('place');
+				$all_extra_details_list[$extra] = [$place, $reward];
 			}
 
-		// return $extra_list;
-		// return $all_extra_details_list;
+			// return $extra_list;
+			// return $all_extra_details_list;
 			return view('student.studentExtracurricularList', compact('all_extra_details_list'));
 		} else {
 			return redirect()->route('search');

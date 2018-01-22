@@ -10,7 +10,7 @@
 
                     <div class="panel panel-primary">
                         <div class="clearfix"></div>
-                        <div class="panel-heading">Extra Curricular Participant List : </div>
+                        <div class="panel-heading">Extra Curricular Participate List : </div>
                         <div class="panel-body">
 
                             <form>
@@ -25,6 +25,7 @@
                                                     <tr class="bg-info">
                                                         <th class="text-center">No. </th>
                                                         <th class="text-center">Name</th>
+                                                        <th class="text-center">Participation</th>
                                                         <th class="text-center">Reward</th>
                                                         <th class="text-center">Details</th>
                                                     </tr>
@@ -37,8 +38,8 @@
 													<tr>
                                                         <td class="text-center">{{ $no++ }}</td>
                                                         <td class="text-center">{{ ucwords($key )}}</td>
-                                                        {{--  <td class="text-center">{{ $extra->}}</td>  --}}
-                                                        <td class="text-center">{{ $value }}</td>
+                                                        <td class="text-center">{{ $value[0] }}</td>
+                                                        <td class="text-center">{{ $value[1] }}</td>
                                                         <td class="details-link text-center">
                                                             <a href="{{ route('extraDetails', ['extraName' => $key]) }}"  class="details-icon" target="_blank"><span>Click Here</span></a>
   													    </td>
