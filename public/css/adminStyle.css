@@ -17,6 +17,8 @@ BASIC SETUP
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+
+
 }
 
 
@@ -917,8 +919,9 @@ label.btn.active span.glyphicon {
     margin: 0 auto;
     width: 60%;
     position: absolute;
-    top: 35%;
-    left: 20%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 /* ======= admin-or-student-selection  page end =======  */
@@ -934,8 +937,9 @@ label.btn.active span.glyphicon {
     left: 30%;
     background: rgba(0,0,0,0.6);
     color: #fff;
-    padding: 5px 30px 20px 30px;
+    padding: 25px 30px 20px 30px;
     font-family: oleo;
+    font-size: 110%;
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 11px 11px 15px 0px rgba(0, 0, 0, 0.3);
 }
 /* ======= admin-login page end =======  */

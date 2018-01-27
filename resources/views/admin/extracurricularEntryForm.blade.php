@@ -67,11 +67,11 @@
 										@if(!empty($outdoor_list))
 										@foreach ($outdoor_list as $name)
 									   	<tr>
-										   <td>Indoor</td>
-										   <td>{{ ucwords((str_replace("_", " ", $name))) }}</td>
+										   <td class="text-center">Outdoor</td>
+										   <td class="text-center">{{ ucwords((str_replace("_", " ", $name))) }}</td>
 										   <input type="hidden" name="outdoor_list[]" value="{{ $name }}">
-										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.." required></td>
-										   <td><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  Reward.."></td>
+										   <td class="text-center"><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  place name.." required></td>
+										   <td class="text-center"><input type="text" class="form-control" name={{ $name . '[]' }} placeholder="Enter your  Reward.."></td>
 									   	</tr>
 								   		@endforeach
 										@endif

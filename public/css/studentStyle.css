@@ -610,7 +610,7 @@ HEADER SECTION
     padding-top: 15px;
 }
 .head-menu li a {
-    padding: 20px 20px;
+    padding: 18px 20px;
     color: #fff;
     transition: .5s;
     margin-right: -5px;
@@ -623,6 +623,7 @@ HEADER SECTION
 .head-menu li a:hover {
     background: rgb(14, 146, 150);
     color: #fff;
+    border-bottom: 2px solid #fff;
 }
 
 .user-stdn {
@@ -990,15 +991,19 @@ label.btn.active span.glyphicon {
  /* Student Nav Menu Highlight Start */ 
  .home .active a{
     background: rgb(14, 146, 150);
+    border-bottom: 2px solid #fff;
  }
  .subject .active a{
     background: rgb(14, 146, 150);
+    border-bottom: 2px solid #fff;
  }
  .class .active a{
     background: rgb(14, 146, 150);
+    border-bottom: 2px solid #fff;
  }
  .extra-curricular .active a{
     background: rgb(14, 146, 150);
+    border-bottom: 2px solid #fff;
  }
  
  /* Student Nav Menu Highlight End */

@@ -4,7 +4,7 @@
 <div class="admin-login-page">
     	   <!--warning message  -->
 			   @if (!empty($message))
-				   <div class="alert alert-warning">
+				   <div class="alert alert-warning text-center">
                        {{ $message }}
                     </div>
 			   @endif
@@ -33,6 +33,7 @@
                 </button>
             </div>
         </div>
+
 
     </div>
 </div>
