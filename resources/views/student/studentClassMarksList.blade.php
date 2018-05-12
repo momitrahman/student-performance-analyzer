@@ -41,7 +41,7 @@
                                                        <tr>
 
                                                         <td class="text-center">{{ $no++ }}</td>
-                                                        <td class="text-center">{{ ucwords($key) }}</td>
+                                                        <td class="text-center">{{ ucwords(str_replace("_", " ", $key)) }}</td>
 
                                                         @foreach($value as $subject)
                                                             <td class="text-center">{{ $subject->sem_slot }}</td>

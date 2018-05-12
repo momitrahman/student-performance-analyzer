@@ -10,7 +10,7 @@
 
             <div class="panel panel-primary">
                 <div class="clearfix"></div>
-                <div class="panel-heading">Subject : {{ ucwords($subject_name) }}</div>
+                <div class="panel-heading">Subject : {{ ucwords(str_replace("_", " ", $subject_name)) }}</div>
                 <div class="panel-body">
 
                     <form>
